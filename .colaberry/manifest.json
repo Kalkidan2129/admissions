@@ -1,0 +1,258 @@
+{
+  "generated_at": "2026-10-22T22:34:06.795Z",
+  "plan_version": 1,
+  "plan_sha256": "78bb8173167c52d236675b124fa3e2cfe2d26c543d7bf17931b48b6bcdd5d7fe",
+  "correlation_id": null,
+  "project_id": "aefb0b8d-7b89-58aa-88ac-3750083f5cd8",
+  "truth_revision": null,
+  "files": [
+    {
+      "path": "docs/REQUIREMENTS.md",
+      "sha256": "b128d08f94cec9ad1b72da3dcf8c00a2b9e152a041b1cfb7d53d2ffb8dcad2c0"
+    },
+    {
+      "path": "docs/STORIES.md",
+      "sha256": "e7f3ea1359e8b7b02d0db78fd82f8d85b836356b8cb454105107dfd2631c2eab"
+    },
+    {
+      "path": "docs/TRACEABILITY.md",
+      "sha256": "809cb1c2f5e47d2177a5b3bbc606dd0d0298b75b94defc112d764b6df017a65a"
+    },
+    {
+      "path": "docs/DATA_CONTRACT.md",
+      "sha256": "d56e89edcfe36725945d961cf3479b646507d1fa855bba0dcdfff3f8f8a658b0"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "a91916f73fa8c20c191ecfdbf182c3659c1620d632b32c1a4029ed9c683416a4"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.admission_decision_recording.md",
+      "sha256": "00d30a5c68420d5dd76dfe5f5ab89de3b033705f1134ef5bfe7db279fc6cf8fc"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.admissions_funnel_anomaly_detection.md",
+      "sha256": "e7e8f17b93ba890d26c4fd207afe6cf039042547a3f5aaba1644dcc1731d0e57"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.admissions_knowledge_curation.md",
+      "sha256": "1e40ae834beb2c26fd5f85a7e9a75663a89211efd99bb94be30d356817ae2b91"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.admissions_rbac_path_coverage_audit.md",
+      "sha256": "24a16024d709d127d0f6c9cb1fe06ed63979673cf89b61464f14d503a27d407e"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.ai_voice_interview_dispatch.md",
+      "sha256": "8afb96647d1803d9489c3ebd15bff12a3b1c6b28958f1d11d7af24981981f243"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.applicant_assessment_preparation.md",
+      "sha256": "1f19cc6f0caed6eea9893554934a89bf4c20d792a959af5d29c7c4ce36f4e9d8"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.applicant_lifecycle_audit_trail.md",
+      "sha256": "08289678e3bfc81b066e9397c968b9c27f7ac1810c31172e41f36e9c65dfb20c"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.applicant_pii_minimization_review.md",
+      "sha256": "213b4b3b2ed1c3fab1a0dfc9261532da2e1335ad8b06ff9c975c097368c44ab0"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.applicant_reply_draft_preparation.md",
+      "sha256": "ad2011da42e724f93aa58e89209c2460723df4189531ccc21857b5522d63a1bd"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.application_queue_triage.md",
+      "sha256": "dca799f78e31813208beb3e83a82ea16aaac81324f8eb961fe0930cc0afe3fd7"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.appointment_booking_assistance.md",
+      "sha256": "383ab34ffb70e53892c9da146e462cf599f422f5e7e56615941b21202c290c60"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.at_risk_student_identification_and_handoff.md",
+      "sha256": "363fb3661997b8a429218fd86fa65304fef2bd879de026d5c8cb7e5df7403493"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.callback_request_queue_management.md",
+      "sha256": "412a164fd8a39f2ef5ee76067dba33e3d20c89f3b77c76b5928e93fb6c43da95"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.cohort_retrospective_report.md",
+      "sha256": "2cac471f725aead02457acca288c5ce5e0ffcf7ffea348ceb0b762e4dea8bcf2"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.conversation_action_request_detection.md",
+      "sha256": "f11166d80143e9c02ba838bffd62f157faf0db585f8fe8f4bcf61e27c3af9c0b"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.conversation_continuity_stitching.md",
+      "sha256": "0cfaeca07dd4c9c470d47c42acd8ac81e66cd26a954ae56c0087575971b2dfe2"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.conversation_memory_summarization.md",
+      "sha256": "6cff27729570fcbab575e529ef100fb7a5248d1d9e3bab171811e83e683aec08"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.da_reporting_responsibility_transition_map.md",
+      "sha256": "9d880f3dd8540987c3846c10e261595250e77ded384a98bdfb9acce24d0fef04"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.daily_enrollment_report.md",
+      "sha256": "f67ddd4cfd2c9c9a0d290e368b4c78e4415ce6643bdfb75fea2eca374f5fa29e"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.decision_notification_delivery.md",
+      "sha256": "bcbbf8765a3268c2e199aa86196b44232c12c9b88cabcdbd30aca56c5538aac0"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.department_signal_rollup.md",
+      "sha256": "3dd00db8027ad04343616f43d4d6fe9230a93adc6664829839d59944a5df65cf"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.domain_scope_reconciliation.md",
+      "sha256": "e1898fce4af967d476815153254b4e607a03dcaa83cd70e832b68d35d1aff356"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.eligibility_attestation_blocking_flag.md",
+      "sha256": "a737661c5c8997ad24eb8b22577b7922d54937fdb85f289d26f0a82dd1fe552b"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.enrollment_conversion_strategy_proposals.md",
+      "sha256": "1f92985b21639ddbc3a9cbd67e6fcf18d472ca31dc8d72bc409f1bd736791857"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.enterprise_high_intent_flagging.md",
+      "sha256": "271adb12d7f6f3fc24ae594a0583f73cd78307d3de7c2f5ff13e8db01598e4c1"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.escalation_threshold_governance.md",
+      "sha256": "49d08cf23dbbaecc629c335130f9d3df22e52b4ed4ece583fc60bb3b332ff3c2"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.existing_intern_conversion_planning.md",
+      "sha256": "a33a154a073b4ad5dc91e7427dd95251e5b0dfbd0a099668cfac7f4364e4fc56"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.intern_activation.md",
+      "sha256": "f6506502fbb423fc1bb264f4f49a9c425a5f534c94a76f15a21a064c0b6c4212"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.interview_progress_tracking.md",
+      "sha256": "901a3e00a694446d0106de784ff3d5f5b973e895d098bd7fc373b062a402cb23"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.interview_transcript_answer_normalization.md",
+      "sha256": "87c6b7bd9ea01d290057e7efecd20b9291cb1212ce8dc2e7a6bbaadd7c7ebcb0"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.knowledge_base_website_sync.md",
+      "sha256": "8acd9a9d529f846257737c1f0a1ccc5fa6308ccddcb7d5d3192f76675e21f4ed"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.lead_intake_dedup_and_qualification.md",
+      "sha256": "ad1d0edf5f800b7059f1261ee3b45730a7ec767af81a4ccd7c45c306b2795e6e"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.manager_surface_access_remediation.md",
+      "sha256": "25138558d8410e54c8af7c05d2cb05444bbc59d074e0162ccbed55dd5c1b3370"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.maya_applicant_chat_response.md",
+      "sha256": "fe0d09eb6543c6bf739457a93da7c45f204fc86ca1a36b178f3f6f0cc46965d3"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.monthly_subscription_and_mrr_report.md",
+      "sha256": "a1d303c7224204d581d4698634e36650b4f5b14a53ab2fce21fde33b82dc8f92"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.offer_document_package_generation.md",
+      "sha256": "efbc6487d573024f25ababce4fbb3d622ccfd6726cf567e67a803aa36bbd4489"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.outreach_compliance_monitoring.md",
+      "sha256": "92942fc52ba0dc7e2350096ac16b8cd938adeac2901a673714ae03b78a983ab8"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.page_event_admissions_enrichment.md",
+      "sha256": "cfffd1bcb38805cbebffebef929b067c48d7a2913f92f94849b89183008db427"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.pipeline_executive_update.md",
+      "sha256": "6cc43fbf23dfdcf5efb2c86d1b398ff364643051d1fd7c71861b7e691ad89931"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.proactive_chat_eligibility_marking.md",
+      "sha256": "de0c5b55abda3287a7195d9d900d837e0b29effc0b3077a9a939cbd78f94a6aa"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.refund_and_churn_tracking.md",
+      "sha256": "8afb8ae3edcc862fd8743a06d2ccd2defb420ba92c9a3624cd6bbf0ab6dfa244"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.reviewer_decision_packet_assembly.md",
+      "sha256": "b429dd308a72e07d9d289bc747f98bf7f56837f8b50c39aee3e64dee07e6a848"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.scheduler_registry_name_drift_reconciliation.md",
+      "sha256": "0b02cfc93e48dd4e041346adc0d40685d1afa6749a92256c78997a0b1fc48679"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.signed_document_verification.md",
+      "sha256": "e3b2cd12d8ec9ff53b8341e480686810d8901d8d013c2cdcb1ab631fbbf410bb"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.visitor_insight_aggregation.md",
+      "sha256": "2e34256ef87f38acb96cf068b76d6d214de82436692a2d78a93700e7bf134be7"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.visitor_intent_scoring.md",
+      "sha256": "18d3d41728645b87a6f53ae241a5649293bf8585bdd05a6956c9ec35e4c20345"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.weekly_cohort_progress_report.md",
+      "sha256": "12557f57dbf60290dcb43b68c51725eb3305d6df456d97e7fb62e57b6713afb1"
+    },
+    {
+      "path": "docs/stories/admissions.LEGACY-MIGRATION-PLAN.md",
+      "sha256": "f749624765a5d617e377e096d43b71fdabb0bb22d0dbe67f21ed49b3c1a3c976"
+    },
+    {
+      "path": "docs/stories/admissions.RESEARCH-1-SYSTEM-CLASSES.md",
+      "sha256": "f772cf0ba284431d34af2bb4f990f4abdad4fa40650ca7ff9aa5a5f129e793c3"
+    },
+    {
+      "path": "docs/stories/admissions.RESEARCH-2-AGENT-ANATOMY.md",
+      "sha256": "e3605c82b098f0601f39f9b3d1ca9e9fd324da25cbf3ebafeda4a63e4d4eb5bd"
+    },
+    {
+      "path": "docs/stories/admissions.RESEARCH-3-ROLE-AND-DA-TRANSITION.md",
+      "sha256": "0451bad214c3000b4944fe914b2da3ef0ea75bd5a658a27a603dc0dd53fed4a7"
+    },
+    {
+      "path": "docs/stories/admissions.RESEARCH-4-MANAGER-INTERVIEW.md",
+      "sha256": "283f908c3715afa914615e91bc651b0382fe8d0a7918340b81d56be4584ae474"
+    },
+    {
+      "path": "docs/stories/admissions.RESEARCH-5-THREE-PROPOSED-TASKS.md",
+      "sha256": "87b0ebc95cfd8f98316f1a2b0a2fd169d449b480936e21e20aef23f8ac8a68d3"
+    },
+    {
+      "path": "docs/stories/STORY-000.md",
+      "sha256": "bb36ea085df8d294ff05c76a11b38a574ca25b766af23c363aee27ef4f68e8b1"
+    },
+    {
+      "path": ".colaberry/plan.json",
+      "sha256": "7baa7a6b82909a2f105adc03f168411b9d394718cb70c0048544f836a6516e36"
+    },
+    {
+      "path": ".colaberry/progress.json",
+      "sha256": "f1ab50ae1ae61bf70b017f45899a41f74c15255c8ca6554d0ba6f6f848237ec6"
+    },
+    {
+      "path": ".colaberry/profile.json",
+      "sha256": "23a23259ef9033421479380c44c0c928276bb7066f34ef0fee30bb7661a46e88"
+    }
+  ]
+}
