@@ -1,0 +1,1592 @@
+{
+  "schema_version": 2,
+  "project": "admissions",
+  "totals": {
+    "stories_total": 54,
+    "stories_verified": 0,
+    "stories_submitted": 0,
+    "stories_in_progress": 1,
+    "stories_not_started": 53,
+    "criteria_total": 70,
+    "criteria_passed": 0,
+    "points_awarded": 0
+  },
+  "stories": [
+    {
+      "id": "admissions.CAP.admission_decision_recording",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document enumerates every reviewer-only edge in internshipStateMachine.ts:155, :163, :170, :191 and names the human accountable for each.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document enumerates every reviewer-only edge in internshipStateMachine.ts:155, :163, :170, :191 and names the human accountable for each."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.admissions_funnel_anomaly_detection",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every figure names the query that produced it, including the scope applied.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every figure names the query that produced it, including the scope applied."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.admissions_knowledge_curation",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every coverage claim cites an entry id; every gap is reported rather than filled with a generated answer.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every coverage claim cites an entry id; every gap is reported rather than filled with a generated answer."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.admissions_rbac_path_coverage_audit",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The nine /api/admin/admissions routes and /api/admin/agents are reported as unmapped; a fixture path added to PATH_SECTION disappears from the unmapped list, which is the mutation proof.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The nine /api/admin/admissions routes and /api/admin/agents are reported as unmapped; a fixture path added to PATH_SECTION disappears from the unmapped list, which is the mutation proof."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.ai_voice_interview_dispatch",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document names all three consent columns and states that an unset agent id means no call.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document names all three consent columns and states that an unset agent id means no call."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.applicant_assessment_preparation",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document states explicitly that no score, rank or admission outcome may appear, matching internshipRecommendation.ts:4-12.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document states explicitly that no score, rank or admission outcome may appear, matching internshipRecommendation.ts:4-12."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.applicant_lifecycle_audit_trail",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every answer cites an event row with its actor_type and actor_id; no answer asserts an event absent from the table.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every answer cites an event row with its actor_type and actor_id; no answer asserts an event absent from the table."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.applicant_pii_minimization_review",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every applicant-PII column named in this matrix's evidence appears in the output; a deliberately omitted column causes the completeness test to fail.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every applicant-PII column named in this matrix's evidence appears in the output; a deliberately omitted column causes the completeness test to fail."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.applicant_reply_draft_preparation",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document names every class for which no draft may be produced, including anything touching an admission outcome.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document names every class for which no draft may be produced, including anything touching an admission outcome."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.application_queue_triage",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every bucket in internshipReviewQueue.ts:105 is described and each is marked as a presentation state or a decision state.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every bucket in internshipReviewQueue.ts:105 is described and each is marked as a presentation state or a decision state."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.appointment_booking_assistance",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document names the human whose calendar is written to and records booking as their commitment.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document names the human whose calendar is written to and records booking as their commitment."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.at_risk_student_identification_and_handoff",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every at-risk student cites the specific missing signal; a student with no available signal is reported as unknown rather than at-risk.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every at-risk student cites the specific missing signal; a student with no available signal is reported as unknown rather than at-risk."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.callback_request_queue_management",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Queue counts reconcile exactly with the underlying rows; no row is invented or omitted.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Queue counts reconcile exactly with the underlying rows; no row is invented or omitted."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.cohort_retrospective_report",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Counts reconcile with the enrollment statuses, and a student with two enrollments is counted once.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Counts reconcile with the enrollment statuses, and a student with two enrollments is counted once."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.conversation_action_request_detection",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every listed request quotes the message that contains it.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every listed request quotes the message that contains it."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.conversation_continuity_stitching",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every proposal names both conversation ids and the elapsed gap.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every proposal names both conversation ids and the elapsed gap."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.conversation_memory_summarization",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "No reply asserts a fact absent from conversation_summaries.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "No reply asserts a fact absent from conversation_summaries."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.da_reporting_responsibility_transition_map",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "All four reports in the brief's cadence table are listed; exactly one is marked evidenced with its PROGRESS.md and script citation, and the other three are marked unevidenced rather than assumed.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "All four reports in the brief's cadence table are listed; exactly one is marked evidenced with its PROGRESS.md and script citation, and the other three are marked unevidenced rather than assumed."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.daily_enrollment_report",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every figure reconciles with a re-runnable query, and pending enrollments are reported separately from paid.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every figure reconciles with a re-runnable query, and pending enrollments are reported separately from paid."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.decision_notification_delivery",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document states that reviewer_notes and ai_factors are structurally excluded and names the idempotency key shape.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document states that reviewer_notes and ai_factors are structurally excluded and names the idempotency key shape."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.department_signal_rollup",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every answer reconciles with the run-outcome rows and names silent components explicitly.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every answer reconciles with the run-outcome rows and names silent components explicitly."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.domain_scope_reconciliation",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every capability in this matrix whose ownership is contested is listed, and the count matches the number of capabilities carrying the contested-ownership blocker.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every capability in this matrix whose ownership is contested is listed, and the count matches the number of capabilities carrying the contested-ownership blocker."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.eligibility_attestation_blocking_flag",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document states the prohibition verbatim from AI_INTERNSHIP_DISCOVERY.md:175-186 and names the human who clears the flag.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document states the prohibition verbatim from AI_INTERNSHIP_DISCOVERY.md:175-186 and names the human who clears the flag."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.enrollment_conversion_strategy_proposals",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every claim cites a figure a human can re-derive.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every claim cites a figure a human can re-derive."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.enterprise_high_intent_flagging",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every explanation cites the domain and at least one page visit; none cites a signal absent from the record.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every explanation cites the domain and at least one page visit; none cites a signal absent from the record."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.escalation_threshold_governance",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every reporting capability in this matrix that mentions a threshold is listed with its owner named and its current value recorded as unset where that is true.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every reporting capability in this matrix that mentions a threshold is listed with its owner named and its current value recorded as unset where that is true."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.existing_intern_conversion_planning",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document states that planConversion writes nothing and that an unmatched intern is a human's problem to resolve.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document states that planConversion writes nothing and that an unmatched intern is a human's problem to resolve."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.intern_activation",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every step in internshipOnboarding.ts:58-145 is listed with its declared actor, and activation is recorded as a human decision.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every step in internshipOnboarding.ts:58-145 is listed with its declared actor, and activation is recorded as a human decision."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.interview_progress_tracking",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document states that no answer may be scored or ranked, consistent with internshipRecommendation.ts:4-12.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document states that no answer may be scored or ranked, consistent with internshipRecommendation.ts:4-12."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.interview_transcript_answer_normalization",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document names applicant confirmation as the only path from needs_followup to answered.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document names applicant confirmation as the only path from needs_followup to answered."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.knowledge_base_website_sync",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every reported divergence quotes both the stored text and the live text.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every reported divergence quotes both the stored text and the live text."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.lead_intake_dedup_and_qualification",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every answer honours the default scope so no campaign_test lead is reported as a real one.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every answer honours the default scope so no campaign_test lead is reported as a real one."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.manager_surface_access_remediation",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document names all three gates in order, cites the admissions blocker at agentDomainRegistry.ts:148-151, names Ali as approver and states that rollback is deleting the row.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document names all three gates in order, cites the admissions blocker at agentDomainRegistry.ts:148-151, names Ali as approver and states that rollback is deleting the row."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.maya_applicant_chat_response",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "On a 50-question fixture set, every answer traces to an admissions_knowledge_entries row and the refusal path fires on all questions with no approved answer.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "On a 50-question fixture set, every answer traces to an admissions_knowledge_entries row and the refusal path fires on all questions with no approved answer."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.monthly_subscription_and_mrr_report",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every count reconciles with a re-runnable query and the source system is named in the answer.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every count reconciles with a re-runnable query and the source system is named in the answer."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.offer_document_package_generation",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document states that template_version is never back-filled and that generation requires an approved state.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document states that template_version is never back-filled and that generation requires an approved state."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.outreach_compliance_monitoring",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every answer is reproducible from CommunicationLog and email_send_ledger rows alone.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every answer is reproducible from CommunicationLog and email_send_ledger rows alone."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.page_event_admissions_enrichment",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "20 sampled visitor summaries match the underlying page events with zero fabricated page titles.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "20 sampled visitor summaries match the underlying page events with zero fabricated page titles."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.pipeline_executive_update",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every figure reconciles with a re-runnable query and no figure is estimated.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every figure reconciles with a re-runnable query and no figure is estimated."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.proactive_chat_eligibility_marking",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Each proposal cites the intent reading that qualified it.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Each proposal cites the intent reading that qualified it."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.refund_and_churn_tracking",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Unrecorded reasons are reported as unrecorded and never inferred.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Unrecorded reasons are reported as unrecorded and never inferred."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.reviewer_decision_packet_assembly",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document states that no score, rank or suggested outcome may appear and names the reviewer as the decision-maker.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document states that no score, rank or suggested outcome may appear and names the reviewer as the decision-maker."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.scheduler_registry_name_drift_reconciliation",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The three measured name mismatches at aiOpsScheduler.ts:234, :235 and :237 are reported, and a fixture whose name is corrected disappears from the report, which is the mutation proof.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The three measured name mismatches at aiOpsScheduler.ts:234, :235 and :237 are reported, and a fixture whose name is corrected disappears from the report, which is the mutation proof."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.signed_document_verification",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "The document names verification as a human decision and states the free-access failure mode from AI_INTERNSHIP_DISCOVERY.md:118-139.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document names verification as a human decision and states the free-access failure mode from AI_INTERNSHIP_DISCOVERY.md:118-139."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.visitor_insight_aggregation",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every figure reconciles with a query a human can re-run; no figure is estimated.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every figure reconciles with a query a human can re-run; no figure is estimated."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.visitor_intent_scoring",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every explanation cites at least one stored interest or question and none invents a signal.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every explanation cites at least one stored interest or question and none invents a signal."
+        ]
+      }
+    },
+    {
+      "id": "admissions.CAP.weekly_cohort_progress_report",
+      "release": "r2",
+      "acceptance_total": 1,
+      "criteria": [
+        {
+          "text": "Every movement claim cites two snapshot rows; no movement is claimed where only one snapshot exists.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Every movement claim cites two snapshot rows; no movement is claimed where only one snapshot exists."
+        ]
+      }
+    },
+    {
+      "id": "admissions.LEGACY-MIGRATION-PLAN",
+      "release": "r1",
+      "acceptance_total": 3,
+      "criteria": [
+        {
+          "text": "The plan accounts for every inherited legacy record for this domain, each one kept, merged or retired with a reason.",
+          "passed": false
+        },
+        {
+          "text": "The migration is described as replayable: running it twice leaves the same end state, with no duplicated side effects.",
+          "passed": false
+        },
+        {
+          "text": "The plan states what happens to a record the migration cannot classify, rather than assuming none exist.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 3,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The plan accounts for every inherited legacy record for this domain, each one kept, merged or retired with a reason.",
+          "The migration is described as replayable: running it twice leaves the same end state, with no duplicated side effects.",
+          "The plan states what happens to a record the migration cannot classify, rather than assuming none exist."
+        ]
+      }
+    },
+    {
+      "id": "admissions.RESEARCH-1-SYSTEM-CLASSES",
+      "release": "r0",
+      "acceptance_total": 3,
+      "criteria": [
+        {
+          "text": "The document compares all five system classes (chatbot, fixed workflow, tool-using agent, agentic system, multi-agent system) and names which one this domain needs.",
+          "passed": true
+        },
+        {
+          "text": "The choice cites this domain's own capability count and its human-reserved count, so the argument would change if those numbers changed.",
+          "passed": true
+        },
+        {
+          "text": "The document states explicitly which class this domain does NOT need, and what would have to change to justify the next class up.",
+          "passed": true
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "in_progress",
+        "criteria_passed": 0,
+        "criteria_total": 3,
+        "verified_at": null,
+        "commit_sha": "3931417bf645cf71536c18e798c268a9cde4eaa1",
+        "commit_url": "https://github.com/Kalkidan2129/admissions/commit/3931417bf645cf71536c18e798c268a9cde4eaa1",
+        "commit_at": "2026-10-23T05:50:24Z",
+        "points_awarded": null,
+        "outstanding": [
+          "The document compares all five system classes (chatbot, fixed workflow, tool-using agent, agentic system, multi-agent system) and names which one this domain needs.",
+          "The choice cites this domain's own capability count and its human-reserved count, so the argument would change if those numbers changed.",
+          "The document states explicitly which class this domain does NOT need, and what would have to change to justify the next class up."
+        ]
+      }
+    },
+    {
+      "id": "admissions.RESEARCH-2-AGENT-ANATOMY",
+      "release": "r0",
+      "acceptance_total": 3,
+      "criteria": [
+        {
+          "text": "All nine anatomy elements are addressed, with none left blank and none dismissed as not applicable without a stated reason.",
+          "passed": false
+        },
+        {
+          "text": "Each element names the concrete platform surface, tool or record it maps to, rather than describing the element in general terms.",
+          "passed": false
+        },
+        {
+          "text": "Any element that cannot be filled is recorded as a gap with what is missing, rather than omitted.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 3,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "All nine anatomy elements are addressed, with none left blank and none dismissed as not applicable without a stated reason.",
+          "Each element names the concrete platform surface, tool or record it maps to, rather than describing the element in general terms.",
+          "Any element that cannot be filled is recorded as a gap with what is missing, rather than omitted."
+        ]
+      }
+    },
+    {
+      "id": "admissions.RESEARCH-3-ROLE-AND-DA-TRANSITION",
+      "release": "r0",
+      "acceptance_total": 3,
+      "criteria": [
+        {
+          "text": "The document names the accountable human for this domain and the specific responsibilities proposed to transition to the agent.",
+          "passed": false
+        },
+        {
+          "text": "Each transitioning responsibility states what evidence would show the agent is ready to hold it.",
+          "passed": false
+        },
+        {
+          "text": "Responsibilities that must stay human are listed separately, each with the reason it is reserved.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 3,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The document names the accountable human for this domain and the specific responsibilities proposed to transition to the agent.",
+          "Each transitioning responsibility states what evidence would show the agent is ready to hold it.",
+          "Responsibilities that must stay human are listed separately, each with the reason it is reserved."
+        ]
+      }
+    },
+    {
+      "id": "admissions.RESEARCH-4-MANAGER-INTERVIEW",
+      "release": "r0",
+      "acceptance_total": 3,
+      "criteria": [
+        {
+          "text": "The interview plan fits 30 minutes, and every question is specific to this domain rather than reusable for any agent.",
+          "passed": false
+        },
+        {
+          "text": "A weekly check-in is proposed with a named day, a duration, and the three things it reviews.",
+          "passed": false
+        },
+        {
+          "text": "The plan states what to do with each answer, so a completed interview changes the build rather than only recording opinions.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 3,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "The interview plan fits 30 minutes, and every question is specific to this domain rather than reusable for any agent.",
+          "A weekly check-in is proposed with a named day, a duration, and the three things it reviews.",
+          "The plan states what to do with each answer, so a completed interview changes the build rather than only recording opinions."
+        ]
+      }
+    },
+    {
+      "id": "admissions.RESEARCH-5-THREE-PROPOSED-TASKS",
+      "release": "r0",
+      "acceptance_total": 3,
+      "criteria": [
+        {
+          "text": "Exactly three agent tasks are proposed, each with its boundary stated as what the agent must NOT do.",
+          "passed": false
+        },
+        {
+          "text": "Each task names the evidence that proves it completed, and that evidence is something other than the task being marked done.",
+          "passed": false
+        },
+        {
+          "text": "Each task names the human who approves it wherever approval is required.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 3,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": [
+          "Exactly three agent tasks are proposed, each with its boundary stated as what the agent must NOT do.",
+          "Each task names the evidence that proves it completed, and that evidence is something other than the task being marked done.",
+          "Each task names the human who approves it wherever approval is required."
+        ]
+      }
+    },
+    {
+      "id": "STORY-000",
+      "release": null,
+      "acceptance_total": 5,
+      "criteria": [
+        {
+          "text": "Given the Command Center, when it is opened, then every tab is reachable and every card drills down one level.",
+          "passed": false
+        },
+        {
+          "text": "Given sample mode, when any tab is shown, then the sample data is visibly labelled as sample.",
+          "passed": false
+        },
+        {
+          "text": "Given the Command Center, when any tab renders, then .colaberry/plan.json and .colaberry/progress.json are both committed in this repo and every tab reads its content from them at runtime rather than from hard-coded values.",
+          "passed": false
+        },
+        {
+          "text": "Given the Command Center, when any tab is shown, then .colaberry/manifest.json is committed in this repo and every tab shows how old that data is and warns when the age exceeds a week.",
+          "passed": false
+        },
+        {
+          "text": "Trust — no tab shows a number, a connection or a result the project has not actually produced.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": null
+    }
+  ]
+}
