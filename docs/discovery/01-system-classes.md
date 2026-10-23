@@ -45,7 +45,7 @@ Several agents divide a job and hand work to one another; this is ladder level R
 | Capabilities at R8 or R9 | 0 | same | No capability is ever expected to hand work to another agent |
 | Capabilities with a pre-written step list | 47 | `**Workflow**` heading in each CAP story | The sequence is specified, so the agent does not need to plan it |
 | Capabilities needing any default-denied capability | 0 | each CAP story's tool list states this | The tool set is reads, sandbox writes, text generation and rendering. 41 of 47 need `sandbox_postgres_read` |
-| AI employees assigned to the domain | 0 | `agentDomainRegistry.ts:177` (`agent_id: null`) | There is no designated agent to coordinate with |
+| Live AI employees in the domain | 0 (1 created, not alive) | `agentDomainRegistry.ts:177` (`agent_id: null`); `domainAgents.ts:22-35`, `:112-120` | `AdmissionsDomainAgent` exists but is disabled with no tools, so there is no working agent to coordinate with |
 
 ### The argument depends on these numbers
 
@@ -76,9 +76,14 @@ The other direction matters too:
 **Admissions does not need a multi-agent system.** Three facts, each sourced:
 
 1. **No capability is ever expected to coordinate.** 0 of 47 ceilings reach R8 (`autonomyLadder.ts:67`).
-2. **There is nobody designated to coordinate with.** The domain has no AI employee (`agentDomainRegistry.ts:177`).
+2. **There is no working agent to coordinate with.** On the platform, "AI employee" is a specific role, separate from Maya and the 28 legacy registry rows. Admissions has one such row, `AdmissionsDomainAgent` (`domainAgents.ts:112-120`), but it was created "not alive":
 
-   On the platform, "AI employee" is a specific role: `agent_id` points to the one `ai_agents` row designated as a domain's AI employee, and only two of the ten domains have one (`agentDomainRegistry.ts:73-74`). Maya and the 28 registry rows are agent code that runs or once ran, but none holds that role for Admissions. So "nobody to coordinate with" does not contradict them.
+   - disabled (`enabled: false`)
+   - no tools (`tools_granted: []`)
+   - autonomy `observe`
+   - no reporting line
+
+   (`domainAgents.ts:22-35`, `:66-72`.) The domain registry's `agent_id` does not yet point to it either (`agentDomainRegistry.ts:73-74`, `:177`). An agent that is disabled and holds no tools cannot take part in a handoff, so this point stands. See [document 02](02-agent-anatomy.md) for the full picture.
 3. **The platform already tried splitting this work into agents, and the split did not survive.** 11 Admissions agents are on the platform's unwired list: all 9 on-demand ones (conversation planning, knowledge retrieval, page context and others) and 2 event-driven ones (`agentRegistryAuditClassification.ts:52-62`). The work of the three Maya-related ones now runs inside the single Maya pipeline (`docs/stories/admissions.LEGACY-MIGRATION-PLAN.md:13`, `:15-16`).
 
 It also does not need an agentic system **yet**; see the next section.
@@ -118,7 +123,7 @@ These came up while checking the evidence. None of them is changed by this docum
 
    Their effective ceiling is R5.
 
-3. **One blocker in the stories is out of date.** The stories say Taiwo "has no admin_users row" (citing `agentDomainRegistry.ts:148-151`). The platform corrected that on 2026-10-15: he has a full admin login as `taiwo@colaberry.com` (`agentDomainRegistry.ts:148-153`, `can_reach_surface: true` at `:175`). "No AI employee" is still true, but it is now at `:177`, not `:155`.
+3. **One blocker in the stories is out of date.** The stories say Taiwo "has no admin_users row" (citing `agentDomainRegistry.ts:148-151`). The platform corrected that on 2026-10-15: he has a full admin login as `taiwo@colaberry.com` (`agentDomainRegistry.ts:148-153`, `can_reach_surface: true` at `:175`). The stories also cite `:155` for "no AI employee exists". The registry pointer is still `null`, now at `:177`, but an AI employee row does exist, unlinked and not alive (`domainAgents.ts:112-120`); see point 2 under "What this domain does NOT need".
 
 4. **Some line references have drifted.** For example, the migration plan cites `agentRegistrySeed.ts:957` for the appointment agent, which is at `:959` at this commit.
 
@@ -142,6 +147,7 @@ These came up while checking the evidence. None of them is changed by this docum
 - `backend/src/services/agentRegistrySeed.ts:795-1027` (23 Admissions intelligence and operations rows), `:1208`, `:1689`, `:1949-1958`, `:2119`, `:2181-2189`
 - `backend/src/services/agentRegistryAuditClassification.ts:52-62` (11 unwired Admissions agents: 9 on-demand, 2 event-driven)
 - `backend/src/services/agentDomain/agentDomainRegistry.ts:73-74` (what `agent_id` means), `:142-181` (the Admissions domain entry)
+- `backend/src/services/agentRegistry/domainAgents.ts:22-35`, `:66-72`, `:112-120` (`AdmissionsDomainAgent` and its Release Zero floor)
 - `backend/src/services/agents/departments/superAgents/admissionsSuperAgent.ts:11`, `superAgentBase.ts:113-138`
 - `backend/src/services/chatService.ts:397-467` (Maya's bounded tool loop)
 - `backend/src/services/mayaActionService.ts:10-21`, `:26-198`, `:237-257`, `:281-296` (Maya's tools and the document-send check)
