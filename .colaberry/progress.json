@@ -1449,15 +1449,15 @@
       "criteria": [
         {
           "text": "The document names the accountable human for this domain and the specific responsibilities proposed to transition to the agent.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Each transitioning responsibility states what evidence would show the agent is ready to hold it.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Responsibilities that must stay human are listed separately, each with the reason it is reserved.",
-          "passed": false
+          "passed": true
         }
       ],
       "files_touched": [],
