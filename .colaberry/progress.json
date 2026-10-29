@@ -1525,15 +1525,15 @@
       "criteria": [
         {
           "text": "Exactly three agent tasks are proposed, each with its boundary stated as what the agent must NOT do.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Each task names the evidence that proves it completed, and that evidence is something other than the task being marked done.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Each task names the human who approves it wherever approval is required.",
-          "passed": false
+          "passed": true
         }
       ],
       "files_touched": [],
