@@ -7,11 +7,11 @@
 ## The answer in brief
 
 - **Accountable human:** **Taiwo Oludimimu**, Admissions Operations.
-  - He is the manager the platform records for this domain (`agentDomainRegistry.ts:143-146`).
-  - His launch brief says he "own[s] enrollment monitoring, retention tracking, subscription growth, student lifecycle reporting" (`docs/training-program-2026-q3/launch-briefs/16-taiwo-admissions.md:1-3`).
+  - She is the manager the platform records for this domain (`agentDomainRegistry.ts:143-146`).
+  - Her launch brief says she "own[s] enrollment monitoring, retention tracking, subscription growth, student lifecycle reporting" (`docs/training-program-2026-q3/launch-briefs/16-taiwo-admissions.md:1-3`).
 - **No Data Analyst duty list exists** in either repository. The platform says so itself: "NO DATA ANALYST ROLE DOCUMENT EXISTS FOR COLABERRY" (`backend/src/services/agentDomain/capabilities/executive.json:8745`).
-- **What does exist** is Taiwo's own launch brief, which lists the responsibilities of his role. I use it as the only sourced responsibility list. I do **not** call it a DA duty list. Whether Taiwo is the Data Analyst for this domain, or whether a separate one exists, is **unknown**.
-- **From his brief: 6 responsibilities are proposed to transition.** 1 has already transitioned and 5 split between AI and Taiwo. **5 stay human.** In addition, **17 domain decisions** are reserved to a human by the capability stories.
+- **What does exist** is Taiwo's own launch brief, which lists the responsibilities of her role. I use it as the only sourced responsibility list. I do **not** call it a DA duty list. Whether Taiwo is the Data Analyst for this domain, or whether a separate one exists, is **unknown**.
+- **From her brief: 6 responsibilities are proposed to transition.** 1 has already transitioned and 5 split between AI and Taiwo. **5 stay human.** In addition, **17 domain decisions** are reserved to a human by the capability stories.
 - **Every transition is a proposal.** Deciding that a person's responsibility moves to a machine is itself reserved to Taiwo and Ali (`docs/stories/admissions.CAP.da_reporting_responsibility_transition_map.md:65`).
 
 ## The accountable human
@@ -21,7 +21,7 @@
 | Domain manager for Admissions & Applicant Experience | `backend/src/services/agentDomain/agentDomainRegistry.ts:143-146` |
 | Title: Admissions Operations. Owns enrollment monitoring, retention tracking, subscription growth and student lifecycle reporting | `16-taiwo-admissions.md:1-3` |
 | Has a full admin login (corrected by the platform on 2026-10-15) | `agentDomainRegistry.ts:148-153`, `:175` |
-| His work and personal email addresses differ, which blocks some screens | `agentDomainRegistry.ts:155-158`; [document 02](02-agent-anatomy.md), Communication |
+| Her work and personal email addresses differ, which blocks some screens | `agentDomainRegistry.ts:155-158`; [document 02](02-agent-anatomy.md), Communication |
 
 Two other people share the domain:
 
@@ -107,14 +107,14 @@ Each row needs **all** of its evidence, and the evidence must be a named query, 
 
 | # | Responsibility | Evidence that would show readiness | Source of the test |
 |---|---|---|---|
-| 1 | Daily enrollment report | Every figure reconciles with a re-runnable query, and pending enrollments are reported separately from paid. Taiwo has accepted the column list and each threshold by name. The report has run in shadow next to his own version for a run of days he sets, matching every time | `daily_enrollment_report.md:79`; acceptance by a named human per `promotionCriteria.ts:18-22`; shadow evaluation is R5 (`autonomyLadder.ts:64`) |
+| 1 | Daily enrollment report | Every figure reconciles with a re-runnable query, and pending enrollments are reported separately from paid. Taiwo has accepted the column list and each threshold by name. The report has run in shadow next to her own version for a run of days she sets, matching every time | `daily_enrollment_report.md:79`; acceptance by a named human per `promotionCriteria.ts:18-22`; shadow evaluation is R5 (`autonomyLadder.ts:64`) |
 | 2 | Refund and churn tracking | Unrecorded reasons are reported as unrecorded, never inferred. Counts reconcile with the payment source for a month Taiwo picks. No output proposes a policy change | `refund_and_churn_tracking.md:75`, `:69` |
 | 3 | Monthly subscription and MRR report | Every count reconciles with a re-runnable query, with the source system named. MRR is computed only from the price table Taiwo supplied | `monthly_subscription_and_mrr_report.md:76`, `:70` |
 | 4 | Weekly cohort progress (already transitioned) | Every movement claim cites two snapshot rows, and no movement is claimed where only one snapshot exists. Plus a recorded recent run on `/admin/reports` (last run time and status) | `weekly_cohort_progress_report.md:74`; `PROGRESS.md:1929`. Whether it runs today is **unknown** without a production check |
 | 5 | Identify at-risk students | Every at-risk student cites the specific missing signal, and a student with no signal is reported as unknown, not at-risk. The person receiving the list is named before the pilot | `at_risk_student_identification_and_handoff.md:79`; R6 pilot (`autonomyLadder.ts:65`) |
 | 6 | Cohort retrospective | Counts reconcile with enrollment statuses, and a student with two enrollments is counted once. No drop reason appears that a human did not record | `cohort_retrospective_report.md:77`, `:71` |
 
-The stories set none of these numbers: how many shadow days, which month, which cohort. **Taiwo sets each one.** Until he does, the threshold stays "proposed", and the platform will not treat a proposed threshold as accepted (`promotionCriteria.ts:18-22`).
+The stories set none of these numbers: how many shadow days, which month, which cohort. **Taiwo sets each one.** Until she does, the threshold stays "proposed", and the platform will not treat a proposed threshold as accepted (`promotionCriteria.ts:18-22`).
 
 ## Responsibilities that stay human, and why
 
@@ -124,7 +124,7 @@ The stories set none of these numbers: how many shadow days, which month, which 
 |---|---|---|
 | Follow-up with a student when an AI nudge does not land within 48 hours | A person (not named in the brief) | The brief assigns it to a human (`16-taiwo-admissions.md:43`). It is direct contact with a named student, and no Admissions capability may contact students (`weekly_cohort_progress_report.md:68`) |
 | Setting operational report thresholds | Taiwo, with Ali on what gets escalated | The brief gives thresholds to Taiwo (`:68`). "An agent that can set its own threshold can decide what it never has to report" (`escalation_threshold_governance.md:66`) |
-| Directing what goes into each report | Taiwo | "CB drafts the report formats; you direct what goes in" (`:55`). A transition that removes his direction "has changed the task rather than automated it" (`da_reporting_responsibility_transition_map.md:50`) |
+| Directing what goes into each report | Taiwo | "CB drafts the report formats; you direct what goes in" (`:55`). A transition that removes her direction "has changed the task rather than automated it" (`da_reporting_responsibility_transition_map.md:50`) |
 | Strategic decisions, such as refund policy | Ali, via Approval Queues | `16-taiwo-admissions.md:69` |
 | Deciding which responsibilities move to AI | Taiwo and Ali | "a decision about a person's job, and it is not one an agent may make or even recommend unprompted" (`da_reporting_responsibility_transition_map.md:65`) |
 
@@ -182,7 +182,7 @@ The missing source is a **current-state register of the analysis and reporting w
 
 **Who would write it:**
 
-- **Taiwo states the content.** Only he knows how the role is performed.
+- **Taiwo states the content.** Only she knows how the role is performed.
 - **The intended builder captures it in the `RESEARCH-4` manager interview** and drafts it. That builder is Kalkidan Bezabeh (`agentDomainRegistry.ts:178`).
 - **Ali approves the transitions.**
 

@@ -2,7 +2,7 @@
 
 **Story:** `admissions.RESEARCH-4-MANAGER-INTERVIEW` · **Domain:** Admissions & Applicant Experience
 **Interviewee:** Taiwo Oludimimu, accountable human for this domain
-**Status:** **plan only. No meeting has been arranged.** Nothing in this project sends, schedules or books anything. Arranging the conversation is a human action taken outside this project, if Taiwo agrees to it.
+**Status:** **interview held**, as two conversations with Taiwo in October 2026. Her answers are in the [interview record](#interview-record) below. Questions she has not answered yet are marked for an email follow-up. Nothing in this project sends, schedules or books anything, including that follow-up email.
 **Platform evidence read at:** `ColaberryIntern/ColaberryEnterprise_AI_LeadershipAccelerator` commit `36c8e38` (4:24 PM CDT on 2026-10-22), the same commit as documents [01](01-system-classes.md), [02](02-agent-anatomy.md) and [03](03-role-and-da-transition.md).
 
 ## Why this conversation is worth 30 minutes
@@ -34,25 +34,25 @@ Discovery left eight open questions that **only Taiwo can answer**. Each answer 
 
 | The brief says | Current state | Source |
 |---|---|---|
-| (a) He has no `admin_users` row | **Corrected on 2026-10-15.** He has a full admin login | `agentDomainRegistry.ts:148-153`, `:175` |
-| (b) `/api/admin/admissions` is not mapped in `PATH_SECTION` | **Still true.** No entry for it exists. But it does not block him today: his nine Admissions routes use `requireAdmin`, which his full admin login passes | `agentDomainRegistry.ts:165-170`; `mgmtSectionGate.ts` has no `/api/admin/admissions` entry |
-| He is the reporting target for 4 agents | **True.** Finance Intelligence, Operations Optimization, Admissions Conversion and Student Success Architects | `agentBlueprint/ticketCreatorIdentitySeed.ts:99-104` |
+| (a) She has no `admin_users` row | **Corrected on 2026-10-15.** She has a full admin login | `agentDomainRegistry.ts:148-153`, `:175` |
+| (b) `/api/admin/admissions` is not mapped in `PATH_SECTION` | **Still true.** No entry for it exists. But it does not block her today: her nine Admissions routes use `requireAdmin`, which her full admin login passes | `agentDomainRegistry.ts:165-170`; `mgmtSectionGate.ts` has no `/api/admin/admissions` entry |
+| She is the reporting target for 4 agents | **True.** Finance Intelligence, Operations Optimization, Admissions Conversion and Student Success Architects | `agentBlueprint/ticketCreatorIdentitySeed.ts:99-104` |
 | The `admissions` management role is Dhee's and grants the internship section, at `mgmtSectionGate.ts:100` | **True, but the line moved.** It is now at `:150-151` | `mgmtSectionGate.ts:150-151` |
 
-**The block that applies now** is worked out from the code, not tested. It is on his **agent** screens: Talk, memory, role charter and directives for `AdmissionsDomainAgent`. Those routes admit a `super_admin`, or a manager whose `org_members` row matches their sign-in email **and** who has the agent in their reporting chain. Taiwo fails on both counts:
+**The block that applies now** is worked out from the code, not tested. It is on her **agent** screens: Talk, memory, role charter and directives for `AdmissionsDomainAgent`. Those routes admit a `super_admin`, or a manager whose `org_members` row matches their sign-in email **and** who has the agent in their reporting chain. Taiwo fails on both counts:
 
-- His role is legacy `admin`, not `super_admin`.
-- His `org_members` row holds a different email from the one he signs in with.
+- Her role is legacy `admin`, not `super_admin`.
+- Her `org_members` row holds a different email from the one she signs in with.
 - The agent has no reporting line yet.
 
 (Sources: `agentManagerAuthMiddleware.ts:43`, `:64-86`; `agentDomainRegistry.ts:150-158`; `domainAgents.ts:35`; [document 02](02-agent-anatomy.md), Communication.)
 
 **What to ask for in the meeting:** agreement that a platform admin, or Ali, should:
 
-1. link his `org_members` row to his work sign-in, and
-2. set `AdmissionsDomainAgent`'s reporting line to him.
+1. link her `org_members` row to her work sign-in, and
+2. set `AdmissionsDomainAgent`'s reporting line to her.
 
-Plus one test attempt afterwards to confirm he can open the Talk tab. **Nothing is fixed in the meeting, and this project fixes nothing.**
+Plus one test attempt afterwards to confirm she can open the Talk tab. **Nothing is fixed in the meeting, and this project fixes nothing.**
 
 **Until it is fixed,** every answer below is captured in this file, not entered on the platform.
 
@@ -78,7 +78,7 @@ The five are the daily enrollment report, refund and churn tracking, the monthly
 **Q2. The Admissions AI employee's description says it "Owns lead intake: sources, ingest logs, routing rules and import." Is that its job? Or should its role charter name the reporting and applicant work in this domain, and which parts?**
 - *Comes from:* document 02, finding 2 (`domainAgents.ts:118-119`); document 03, finding 2.
 - *Changes:*
-  - the text Taiwo writes into the agent's role charter (`PUT /api/admin/agents/:id/charter`, `agentRoleCharterRoutes.ts:14`) once he has access
+  - the text Taiwo writes into the agent's role charter (`PUT /api/admin/agents/:id/charter`, `agentRoleCharterRoutes.ts:14`) once she has access
   - which of the 47 capabilities are in scope for `RESEARCH-5`
 
 ### What must stay human forever
@@ -136,17 +136,25 @@ For example: every figure reconciles with a query you can re-run, in shadow next
 
 ## What happens to each answer
 
-| Answer | Action | Done by | Where it lands |
-|---|---|---|---|
-| Q1 | Update the four "Built today" lines; put the chosen capability first in `RESEARCH-5` | Intended builder | Four capability stories; `docs/discovery/05-…` |
-| Q2 | Draft the role charter text for Taiwo to approve and enter once he has access | Intended builder drafts; Taiwo enters it | The agent's role charter |
-| Q3 | Record the accountable human for each of the five decisions; flag any "Dhee" answer to Ali, because it changes who validates | Intended builder | Five capability stories; document 03 |
-| Q4 | Lower the four ceilings to R5 and record the approver | Intended builder | Four capability stories; document 01, finding 2 |
-| Q5 | Record the threshold as accepted, with name and date | Intended builder records; Taiwo accepts | Capability story; document 03 readiness table |
-| Q6 | Record each threshold value and its owner | Intended builder | `escalation_threshold_governance` and `daily_enrollment_report` |
-| Q7 | Write the change request with Taiwo's answer and the cited lines; it is sent by Taiwo or Ali, not by this project | Intended builder drafts | A new findings note; document 02 |
-| Q8 | Add the kill condition to the first capability's exceptions, and the enforcement rule to its preconditions | Intended builder | The first capability's story; document 02 |
-| Blocker | Record whether Taiwo agrees to the two access fixes and who will make them | Intended builder | This file; document 02 |
+| Answer | Decided by the interview? | Action | Done by | Where it lands |
+|---|---|---|---|---|
+| Q1 | **Partly.** She set the order: UC-03, then UC-02, then UC-01 | Lead `RESEARCH-5` with UC-03 and UC-02 as one piece of work, because she does them together today. UC-01 comes third. The four "Built today" lines stay unknown until the email follow-up | Intended builder | `RESEARCH-5`; `docs/discovery/05-…` |
+| Q2 | **Partly.** She gave the goal and the wanted outputs | Draft the role charter around her goal: converting Explorers to paid students, through the weekly report and the actions she listed. Whether lead intake stays in the charter waits on the email follow-up. Taiwo approves the text and enters it once she has access | Intended builder drafts; Taiwo enters it | The agent's role charter |
+| Q3 | No | Record the accountable human for each of the five decisions; flag any "Dhee" answer to Ali, because it changes who validates | Intended builder | Five capability stories; document 03 |
+| Q4 | No | Lower the four ceilings to R5 and record the approver | Intended builder | Four capability stories; document 01, finding 2 |
+| Q5 | No | Record the threshold as accepted, with name and date | Intended builder records; Taiwo accepts | Capability story; document 03 readiness table |
+| Q6 | No | Record each threshold value and its owner | Intended builder | `escalation_threshold_governance` and `daily_enrollment_report` |
+| Q7 | No | Write the change request with Taiwo's answer and the cited lines; it is sent by Taiwo or Ali, not by this project | Intended builder drafts | A new findings note; document 02 |
+| Q8 | No | Add the kill condition to the first capability's exceptions, and the enforcement rule to its preconditions | Intended builder | The first capability's story; document 02 |
+| Blocker | No | Record whether Taiwo agrees to the two access fixes and who will make them | Intended builder | This file; document 02 |
+| Weekly report | **Yes** | Specify the report as she described it (see [interview record](#interview-record)) as the first output in `RESEARCH-5` | Intended builder | `RESEARCH-5` |
+| Outreach approval | **Yes** | Record as human-reserved: the team proofreads and approves every outreach email before it is sent. The agent may draft outreach but never sends it | Intended builder | `RESEARCH-5`; document 03, the human-reserved list |
+| New-Explorer notice | **Yes** | Treat it as notify-only, with no approval step, as she asked | Intended builder | `RESEARCH-5` |
+| GHL contact creation | **Wanted, not yet decided** | Record it as a wanted action. It writes to GHL, and the Enterprise-to-GHL integration is still being built by Ali's team, so it needs their input before it is scoped | Intended builder | `RESEARCH-5`, as an open item |
+| Re-contact suggestions | **Yes** | Add a suggestion every week or two to re-contact a lead. It is a suggestion only; any outreach still goes through the team's approval | Intended builder | `RESEARCH-5` |
+| Cora | **Yes** | Scope the agent to work with Cora, not duplicate it | Intended builder | `RESEARCH-5`; document 02 |
+| Program information | **Yes** | Treat accurate, detailed program information as the first knowledge the agent needs | Intended builder | Document 02, Knowledge |
+| Unanswered questions | n/a | Draft the follow-up email listing the open questions. Kalkidan sends it; this project does not | Intended builder drafts | This file |
 
 **If an answer is "I don't know",** record it as **unknown**, with who could answer instead. Don't fill it with a guess.
 
@@ -168,27 +176,41 @@ The intended builder is Kalkidan Bezabeh (`agentDomainRegistry.ts:178`).
 2. **Decisions waiting on Taiwo.** Memory proposals awaiting approval (`agent_memory_proposals`, `AgentMemoryProposal.ts:6-14`), thresholds still "proposed", and any open question from this interview.
 3. **Anything that misbehaved or was switched off.** Blocked or unexpected writes in the agent's write audit (`AgentWriteAudit.ts:4-19`), use of the kill switch, and any Q8 trigger.
 
-**How it would be recorded:** the platform has a structured check-in record, `agent_one_on_ones`, with an agenda and outcome notes (`AgentOneOnOne.ts:4-12`). It has no repeating schedule (`:14-19`). A new record starts with status `scheduled` (`:21`), so **this project must not create one**; that would record a meeting as arranged. If Taiwo accepts the proposal, he or the person arranging it creates each record once he has access. Until then, outcomes go in this file.
+**How it would be recorded:** the platform has a structured check-in record, `agent_one_on_ones`, with an agenda and outcome notes (`AgentOneOnOne.ts:4-12`). It has no repeating schedule (`:14-19`). A new record starts with status `scheduled` (`:21`), so **this project must not create one**; that would record a meeting as arranged. If Taiwo accepts the proposal, she or the person arranging it creates each record once she has access. Until then, outcomes go in this file.
 
 ## Interview record
 
-*Empty until the interview happens. Fill this in during or right after it, then apply the actions above.*
+*Taken only from Kalkidan's summary of the two conversations. Nothing here is inferred. UC-01 to UC-03 are the interviewer's labels for the three tasks proposed in the BRD, which Taiwo used in the meeting. The UC labels do not appear in the platform repo at `36c8e38`. "Explorer" is the term Enterprise itself uses for free-resource users, per Taiwo, and the platform uses it the same way: the Enrollment model refers to "free-tier/Explorer portal access" (`backend/src/models/Enrollment.ts:57`).*
 
-**Date held:** *(not held)*
-**Present:** *(not held)*
+**Date held:** two conversations in October 2026 (exact dates not recorded)
+**Present:** Taiwo (others not recorded)
+
+### Answers to the planned questions
 
 | # | Answer | Unknown? Who could answer | Action taken (commit or file) |
 |---|---|---|---|
-| Blocker | | | |
-| Q1 | | | |
-| Q2 | | | |
-| Q3 | | | |
-| Q4 | | | |
-| Q5 | | | |
-| Q6 | | | |
-| Q7 | | | |
-| Q8 | | | |
-| Weekly check-in: accepted, changed or declined | | | |
+| Blocker | Not answered yet - to follow up by email | | |
+| Q1 | Her priority is **UC-03** (free-resource Explorer engagement) first, then **UC-02** (incomplete registration), then **UC-01** (inquiry monitoring). In practice she does UC-03 and UC-02 together today. How it is done today: staff find Explorers by hand across several Enterprise reports, check GHL for a contact, create it by hand if it is missing, and check whether anyone has already reached out. The team is Taiwo plus one admissions staff member, Rose. Which of the five reporting jobs comes first, and the two follow-ups: not answered yet - to follow up by email | | |
+| Q2 | The goal is to convert Explorers (non-paying users of free resources) to paid students. Whether the "lead intake" description is the agent's job: not answered yet - to follow up by email | | |
+| Q3 | Not answered yet - to follow up by email | | |
+| Q4 | Not answered yet - to follow up by email | | |
+| Q5 | Not answered yet - to follow up by email | | |
+| Q6 | Not answered yet - to follow up by email. Her answers covered a weekly Explorer report (below), not the daily enrollment report | | |
+| Q7 | Not answered yet - to follow up by email. She spoke about Cora (below), not Maya | | |
+| Q8 | Not answered yet - to follow up by email | | |
+| Weekly check-in: accepted, changed or declined | Not answered yet - to follow up by email | | |
+
+### What else she told us
+
+| Topic | What she said |
+|---|---|
+| Main problem | Enterprise and GHL are not integrated, and Ali's team is working on it. Enterprise's "contacted" flags can disagree with GHL |
+| Wanted output | A **weekly report** emailed to the admissions team on Friday or Monday morning, with no login needed. It lists unpaid Explorers with their progress and points, ranked highest to lowest, plus three columns: on GHL (yes/no), reached out (yes/no), and channel (call, text or email) |
+| Wanted actions | Notify the admissions team **immediately** about new Explorers, with no approval needed ("we just need to know"). Create missing GHL contacts automatically ("it would be great"). Suggest re-contacting leads every week or two |
+| Must stay human | Any outreach email must be proofread and approved by the team before it is sent |
+| Cora | Cora answers about 95% of GHL calls and asks callers for their details, but does not create the GHL contact; staff listen to the calls and create it by hand. Staff also check Cora's emails and get wrong ones fixed through the dev team. The new agent should work with Cora, not duplicate it |
+| Quality | The most important thing is to give the agent accurate, detailed program information |
+| Team | Taiwo plus one admissions staff member, Rose |
 
 ## Sources
 

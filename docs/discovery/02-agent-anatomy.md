@@ -119,18 +119,18 @@ Whether this row exists in the production database is **unknown**: the seed decl
 
 Taiwo fails both:
 
-- His role is legacy `admin`, not `super_admin` (`agentDomainRegistry.ts:150-153`).
-- His `org_members` row holds his personal email while he signs in with his work email (`agentDomainRegistry.ts:155-158`). So the lookup at `:76` finds nothing and returns 403.
+- Her role is legacy `admin`, not `super_admin` (`agentDomainRegistry.ts:150-153`).
+- Her `org_members` row holds her personal email while she signs in with her work email (`agentDomainRegistry.ts:155-158`). So the lookup at `:76` finds nothing and returns 403.
 - Even with a match, the agent has no reporting line yet (`domainAgents.ts:35`).
 
 The agent also has **no channel to applicants**, which is correct; Maya is that channel.
 
 **First honest version:** Taiwo reaches Talk on `AdmissionsDomainAgent` as its accountable manager. That needs two changes by a platform admin, not by this project:
 
-1. Link his `org_members` row to his work identity.
+1. Link her `org_members` row to her work identity.
 2. Set the reporting line, which is step AF4.3 (`domainAgents.ts:35`).
 
-The agent speaks only to him.
+The agent speaks only to her.
 
 ## 5. Tools: gap
 
@@ -241,7 +241,7 @@ Neither path can be triggered by `AdmissionsDomainAgent` today, because it is di
 **First honest version:** for the first capability, Taiwo accepts:
 
 - one measurable threshold (`accepted_by` and `accepted_at` set),
-- a small set of reference outcomes he has checked by hand,
+- a small set of reference outcomes she has checked by hand,
 - and the evidence of done: a named passing test or a counted query, per the story's own rule.
 
 Shadow runs are compared against those outcomes before any R6 pilot.

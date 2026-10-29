@@ -123,7 +123,7 @@ These came up while checking the evidence. None of them is changed by this docum
 
    Their effective ceiling is R5.
 
-3. **One blocker in the stories is out of date.** The stories say Taiwo "has no admin_users row" (citing `agentDomainRegistry.ts:148-151`). The platform corrected that on 2026-10-15: he has a full admin login (`agentDomainRegistry.ts:148-153`, `can_reach_surface: true` at `:175`). The stories also cite `:155` for "no AI employee exists". The registry pointer is still `null`, now at `:177`, but an AI employee row does exist, unlinked and not alive (`domainAgents.ts:112-120`); see point 2 under "What this domain does NOT need".
+3. **One blocker in the stories is out of date.** The stories say Taiwo "has no admin_users row" (citing `agentDomainRegistry.ts:148-151`). The platform corrected that on 2026-10-15: she has a full admin login (`agentDomainRegistry.ts:148-153`, `can_reach_surface: true` at `:175`). The stories also cite `:155` for "no AI employee exists". The registry pointer is still `null`, now at `:177`, but an AI employee row does exist, unlinked and not alive (`domainAgents.ts:112-120`); see point 2 under "What this domain does NOT need".
 
 4. **Some line references have drifted.** For example, the migration plan cites `agentRegistrySeed.ts:957` for the appointment agent, which is at `:959` at this commit.
 
