@@ -3,13 +3,13 @@
   "project": "admissions",
   "totals": {
     "stories_total": 54,
-    "stories_verified": 5,
+    "stories_verified": 6,
     "stories_submitted": 0,
-    "stories_in_progress": 48,
+    "stories_in_progress": 47,
     "stories_not_started": 1,
     "criteria_total": 70,
-    "criteria_passed": 15,
-    "points_awarded": 75
+    "criteria_passed": 18,
+    "points_awarded": 90
   },
   "stories": [
     {
@@ -1351,19 +1351,15 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "in_progress",
-        "criteria_passed": 0,
+        "state": "verified",
+        "criteria_passed": 3,
         "criteria_total": 3,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
-        "outstanding": [
-          "The plan accounts for every inherited legacy record for this domain, each one kept, merged or retired with a reason.",
-          "The migration is described as replayable: running it twice leaves the same end state, with no duplicated side effects.",
-          "The plan states what happens to a record the migration cannot classify, rather than assuming none exist."
-        ]
+        "verified_at": "2026-11-01T17:11:03.361Z",
+        "commit_sha": "31a67bca590d5c77fe1e7a24b34a1e3d9ea28736",
+        "commit_url": "https://github.com/Kalkidan2129/admissions/commit/31a67bca590d5c77fe1e7a24b34a1e3d9ea28736",
+        "commit_at": "2026-11-01T17:10:42Z",
+        "points_awarded": 15,
+        "outstanding": []
       }
     },
     {

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-22T22:34:06.795Z",
+  "generated_at": "2026-11-01T22:27:17.075Z",
   "plan_version": 1,
   "plan_sha256": "78bb8173167c52d236675b124fa3e2cfe2d26c543d7bf17931b48b6bcdd5d7fe",
-  "correlation_id": null,
+  "correlation_id": "207d0157-1984-4a78-b963-a6e5def6a934",
   "project_id": "aefb0b8d-7b89-58aa-88ac-3750083f5cd8",
   "truth_revision": null,
   "files": [
@@ -24,7 +24,7 @@
     },
     {
       "path": "CLAUDE.md",
-      "sha256": "a91916f73fa8c20c191ecfdbf182c3659c1620d632b32c1a4029ed9c683416a4"
+      "sha256": "59ffc9a7cd768ef7e39678032c1ca3b5b2f666e4343960afbf12564796c6ec62"
     },
     {
       "path": "docs/stories/admissions.CAP.admission_decision_recording.md",
@@ -240,19 +240,19 @@
     },
     {
       "path": "docs/stories/STORY-000.md",
-      "sha256": "bb36ea085df8d294ff05c76a11b38a574ca25b766af23c363aee27ef4f68e8b1"
+      "sha256": "47e88cce426e03e9792e75ad99475c4fecb5ce8593831e18a253b609576560d3"
     },
     {
       "path": ".colaberry/plan.json",
-      "sha256": "7baa7a6b82909a2f105adc03f168411b9d394718cb70c0048544f836a6516e36"
+      "sha256": "21b3f2b0a7c08bada93aebe406b605a5920447e791f53bd25702d4196f58e037"
     },
     {
       "path": ".colaberry/progress.json",
-      "sha256": "f1ab50ae1ae61bf70b017f45899a41f74c15255c8ca6554d0ba6f6f848237ec6"
+      "sha256": "0c92811baf3cb2947351da6ec1b33b1c6f52f5bc73d1e22967e900005bbff91c"
     },
     {
       "path": ".colaberry/profile.json",
-      "sha256": "23a23259ef9033421479380c44c0c928276bb7066f34ef0fee30bb7661a46e88"
+      "sha256": "342b601d5f37572f05bd4ced2029c0a8989491acdae319fd4bf2b0e89ecf7359"
     }
   ]
 }
