@@ -1,0 +1,69 @@
+{
+  "_how_to_use": "Your notes for the Command Center's Knowledge base tab. Add an entry to the top of `entries` whenever you write a document, make a decision or hit a question. Fields: date (YYYY-MM-DD), kind (document | decision | question | note), title, text, and optional path (a file in this repo) and story (a story id). The page reads this file at runtime, so nothing else needs changing.",
+  "entries": [
+    {
+      "date": "2026-11-01",
+      "kind": "decision",
+      "title": "The Command Center reads repo files only",
+      "text": "No admin endpoint and no token. Every tab reads .colaberry/plan.json, progress.json and manifest.json at runtime, so the page stays static and holds no secret.",
+      "path": "cc/data.js",
+      "story": "STORY-000"
+    },
+    {
+      "date": "2026-11-01",
+      "kind": "question",
+      "title": "Has AdmissionsVisitorIdentityAgent ever run in production?",
+      "text": "The one legacy record the migration plan leaves undecided. Answering it needs production access, so it is for Ali or a platform engineer.",
+      "path": "docs/migration/legacy-migration-plan.md",
+      "story": "admissions.LEGACY-MIGRATION-PLAN"
+    },
+    {
+      "date": "2026-11-01",
+      "kind": "document",
+      "title": "Legacy migration plan",
+      "text": "Disposition of all 28 inherited legacy records, the replay-safe migration steps, and what happens to a record that cannot be classified.",
+      "path": "docs/migration/legacy-migration-plan.md",
+      "story": "admissions.LEGACY-MIGRATION-PLAN"
+    },
+    {
+      "date": "2026-10-29",
+      "kind": "document",
+      "title": "Three proposed agent tasks",
+      "text": "Three candidate tasks with their tools, approval boundaries and completion evidence.",
+      "path": "docs/discovery/05-three-proposed-tasks.md",
+      "story": "admissions.RESEARCH-5-THREE-PROPOSED-TASKS"
+    },
+    {
+      "date": "2026-10-28",
+      "kind": "document",
+      "title": "Manager interview and weekly check-in",
+      "text": "The 30-minute interview plan with Taiwo Oludimimu, her answers, and the proposed weekly check-in.",
+      "path": "docs/discovery/04-manager-interview.md",
+      "story": "admissions.RESEARCH-4-MANAGER-INTERVIEW"
+    },
+    {
+      "date": "2026-10-24",
+      "kind": "document",
+      "title": "Role and DA transition",
+      "text": "Taiwo Oludimimu's role, and which data-analyst responsibilities transition.",
+      "path": "docs/discovery/03-role-and-da-transition.md",
+      "story": "admissions.RESEARCH-3-ROLE-AND-DA-TRANSITION"
+    },
+    {
+      "date": "2026-10-23",
+      "kind": "document",
+      "title": "Agent anatomy",
+      "text": "The nine anatomy elements mapped onto this domain's agent.",
+      "path": "docs/discovery/02-agent-anatomy.md",
+      "story": "admissions.RESEARCH-2-AGENT-ANATOMY"
+    },
+    {
+      "date": "2026-10-23",
+      "kind": "document",
+      "title": "System classes",
+      "text": "The five system classes compared, and where this domain sits among them.",
+      "path": "docs/discovery/01-system-classes.md",
+      "story": "admissions.RESEARCH-1-SYSTEM-CLASSES"
+    }
+  ]
+}

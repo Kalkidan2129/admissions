@@ -1,0 +1,48 @@
+/* Every colour the Command Center uses lives here. No brand colours have been
+   chosen yet, so this is a neutral palette: change these values to rebrand. */
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #eceff3;
+  --text: #1b2430;
+  --muted: #5a6573;
+  --border: #d8dde4;
+  --accent: #2c5a87;
+  --accent-text: #ffffff;
+  --warn-bg: #fff3d1;
+  --warn-text: #5e4100;
+  --warn-border: #e2bf5c;
+  --pause-bg: #e7f0fa;
+  --pause-border: #9dbbdc;
+  --sample-bg: #f1e6ff;
+  --sample-text: #45177a;
+  --sample-border: #a982dc;
+  --error-bg: #fde8e8;
+  --error-border: #e19a9a;
+  --dot-unknown: #9aa3ad;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12161c;
+    --surface: #1b2129;
+    --surface-2: #252c36;
+    --text: #e6eaf0;
+    --muted: #a3adba;
+    --border: #343d49;
+    --accent: #7fb0e0;
+    --accent-text: #0d1620;
+    --warn-bg: #3a2f10;
+    --warn-text: #f3d88a;
+    --warn-border: #7d6420;
+    --pause-bg: #182a3d;
+    --pause-border: #35597f;
+    --sample-bg: #2c1d44;
+    --sample-text: #dcc6ff;
+    --sample-border: #6d4ca0;
+    --error-bg: #3d1c1c;
+    --error-border: #8a3d3d;
+    --dot-unknown: #6f7883;
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1",
+  "projectId": "aefb0b8d-7b89-58aa-88ac-3750083f5cd8",
+  "storyId": "STORY-000",
+  "projectTruthBaseRevision": 0,
+  "observedAt": "2026-11-02T05:14:47Z",
+  "sourceCommitSha": "6d58983368f480189b0e93450a73a7167407e965",
+  "factProposals": [
+    {
+      "dimension": "unknowns",
+      "value": "The plan carries no requirements, so it has no measures, no SAFE guardrails, no named external systems and no traceability yet; the Outcomes, Guardrails, Systems, Knowledge base traceability and Data model domain views render empty states.",
+      "evidence": ".colaberry/plan.json (derived.counts.requirements_total is 0)"
+    },
+    {
+      "dimension": "unknowns",
+      "value": "No story names its role in the 'As a <role>, I want' form, so no user roles could be extracted.",
+      "evidence": ".colaberry/plan.json (derived.roles is empty)"
+    },
+    {
+      "dimension": "unknowns",
+      "value": "The plan has no scoped agent roster and every story's owner_agent is empty, so all 53 stories are Unassigned.",
+      "evidence": ".colaberry/plan.json (agents is empty; owner_agent is empty on all 53 stories)"
+    },
+    {
+      "dimension": "constraints",
+      "value": "Every release window starts and ends on 2026-09-20 and demo day is 2026-09-27, both earlier than the build itself, so every unverified story shows as past due.",
+      "evidence": ".colaberry/plan.json (releases[].starts_on, releases[].ends_on, schedule.demo_day)"
+    }
+  ],
+  "decisions": [
+    {
+      "statement": "The Command Center reads .colaberry/plan.json, progress.json and manifest.json at runtime and calls no admin endpoint and holds no token.",
+      "rationale": "A static page in a public repo cannot keep a secret; the builder chose files only.",
+      "evidence": "cc/data.js"
+    },
+    {
+      "statement": "The Knowledge base chat answers by matching the question against known topics, story ids and story titles in the loaded data, with no model and no network call.",
+      "rationale": "No API key can live on a static page, and an answer must cite its tab or say it cannot answer.",
+      "evidence": "cc/kbAnswer.js"
+    },
+    {
+      "statement": "Project notes and decisions live in knowledge/notes.json at the repo root, not under docs/.",
+      "rationale": "docs/ is rewritten by the platform on every sync.",
+      "evidence": "knowledge/notes.json"
+    }
+  ],
+  "limitations": [
+    {
+      "statement": "The chat recognises only known topics, story ids and story title words; any other question is answered with 'I can't answer that from the data on this page.'",
+      "evidence": "cc/kbAnswer.js"
+    },
+    {
+      "statement": "Opened straight from the file system the page cannot read its data files; it needs a web server.",
+      "evidence": "cc/app.js (errorView)"
+    }
+  ],
+  "demonstrationEvidence": [
+    {
+      "kind": "test",
+      "ref": "cc/tests/data.test.mjs"
+    },
+    {
+      "kind": "test",
+      "ref": "cc/tests/tabs.test.mjs"
+    }
+  ],
+  "measurementEvents": []
+}
