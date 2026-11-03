@@ -14,6 +14,7 @@ import { renderProject } from './tabs/project.js';
 import { renderAgents } from './tabs/agents.js';
 import { renderKnowledge } from './tabs/knowledge.js';
 import { renderDataModel } from './tabs/datamodel.js';
+import { renderAgentDomain } from './tabs/agentDomain.js';
 
 const TABS = [
   { key: 'overview', label: 'Overview', render: renderOverview },
@@ -25,6 +26,7 @@ const TABS = [
   { key: 'agents', label: 'AI agents', render: renderAgents },
   { key: 'knowledge', label: 'Knowledge base', render: renderKnowledge },
   { key: 'datamodel', label: 'Data model', render: renderDataModel },
+  { key: 'agentdomain', label: 'Agent domain', render: renderAgentDomain },
 ];
 
 const MODE_KEY = 'cc-mode';
@@ -97,7 +99,7 @@ function render() {
   else if (!data) body = h('p', {}, 'Loading .colaberry files…');
   else {
     const current = TABS.find((t) => t.key === tab);
-    const ctx = { data, sample, today: todayCentral() };
+    const ctx = { data, sample, today: todayCentral(), rerender: render };
     body = current.render(ctx, detail);
   }
 

@@ -69,3 +69,40 @@ summary { cursor: pointer; color: var(--accent); }
 .chat-form input { flex: 1; font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); min-width: 0; }
 .chat-form button { font: inherit; padding: 8px 16px; border: 0; border-radius: 6px; background: var(--accent); color: var(--accent-text); cursor: pointer; }
 .error { background: var(--error-bg); border: 1px solid var(--error-border); border-radius: 10px; padding: 16px; }
+
+/* Agent domain tab. Each panel state looks different on purpose: "not loaded" is not
+   "loading", and neither is "the endpoint answered with nothing". */
+.ad-connect-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin-bottom: 16px; }
+.ad-connect { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; }
+.ad-connect label { display: flex; flex-direction: column; font-size: 0.85rem; color: var(--muted); flex: 1 1 220px; }
+.ad-connect input { font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); }
+.ad-connect button { font: inherit; padding: 8px 16px; border: 0; border-radius: 6px; background: var(--accent); color: var(--accent-text); cursor: pointer; }
+.ad-connect button.secondary { background: var(--surface-2); color: var(--text); }
+.ad-panels { display: grid; gap: 16px; }
+.ad-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; min-width: 0; }
+.ad-panel-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.ad-panel-head h3 { margin: 0; }
+.ad-question { margin: 4px 0; color: var(--muted); font-style: italic; }
+.ad-source { margin: 0 0 12px; font-size: 0.85rem; color: var(--muted); }
+.ad-rule { background: var(--surface-2); border-radius: 6px; padding: 8px 10px; }
+.ad-state { border-radius: 6px; padding: 10px 12px; margin: 8px 0; }
+.ad-state-not-loaded { border: 2px dashed var(--dot-unknown); color: var(--muted); }
+.ad-state-loading { border: 2px solid var(--loading-border); background: var(--loading-bg); }
+.ad-state-loading::before { content: "⏳ "; }
+.ad-state-empty, .ad-state-no-agent { border: 2px solid var(--empty-border); background: var(--empty-bg); }
+.ad-state-empty::before, .ad-state-no-agent::before { content: "∅ Returned nothing. "; font-weight: 600; }
+.ad-state-not-sourced { border: 2px dotted var(--border); background: var(--surface-2); }
+.ad-state-not-sourced::before { content: "Not available from these endpoints. "; font-weight: 600; }
+.ad-state-error { border: 2px solid var(--error-border); background: var(--error-bg); }
+.ad-state-error::before { content: "✖ "; }
+.ad-state-sample { border: 2px solid var(--sample-border); background: var(--sample-bg); color: var(--sample-text); }
+.not-returned { color: var(--muted); font-style: italic; }
+.draft-tag { font-weight: 600; color: var(--warn-text); background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 4px; padding: 0 6px; }
+.rungs { padding-left: 1.5rem; }
+.rungs li { padding: 2px 0; }
+.gaps li { padding: 4px 0; }
+table.ladder td, table.ladder th { text-align: center; padding: 6px; }
+table.ladder td:first-child, table.ladder td:nth-child(2) { text-align: left; }
+.lc-ceiling { background: var(--ceiling-bg); color: var(--ceiling-text); font-weight: 600; }
+.lc-unreachable, .lc-unreachable-fact { background: var(--unreachable-bg); color: var(--muted); }
+.lc-effective { outline: 2px solid var(--text); outline-offset: -3px; }
