@@ -1,0 +1,315 @@
+{
+  "schema": "colaberry.agent-domain/v1",
+  "domain_key": "admissions",
+  "sources": {
+    "agent": "GET /api/admin/agent-domains-mine",
+    "capabilities": "GET /api/admin/agent-domains/admissions",
+    "governance": "GET /api/admin/agent-domain-change-requests-mine"
+  },
+  "autonomy_models": {
+    "agent_level": "observe | suggest | act_audited | communicate -- a property of the employee",
+    "capability_ladder": "autonomy:R0 .. autonomy:R9 -- a property of each capability",
+    "warning": "These are different scales on different objects. Never render one as a position on the other, and never compare them."
+  },
+  "staleness_note": "This file deliberately carries no timestamp: a clock here would make every sync commit a file whose only change is the time. Read `generated_at` from `.colaberry/manifest.json` and label it \"last changed\", not \"last checked\".",
+  "agent": {
+    "exists": true,
+    "agent_id": "b167093d-78ab-40e8-9df4-d7ecea863b43",
+    "display_name": null,
+    "enabled": false,
+    "autonomy_level": "observe",
+    "autonomy_level_set_at": "2026-10-18T16:08:12.405Z",
+    "autonomy_level_source": "auto",
+    "autonomy_level_set_by": null,
+    "tools_granted": [],
+    "tools_granted_count": 0
+  },
+  "authority": [
+    {
+      "capability_id": "admissions.admission_decision_recording",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.admissions_funnel_anomaly_detection",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.admissions_knowledge_curation",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.admissions_rbac_path_coverage_audit",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.ai_voice_interview_dispatch",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.applicant_assessment_preparation",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.applicant_lifecycle_audit_trail",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.applicant_pii_minimization_review",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.applicant_reply_draft_preparation",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.application_queue_triage",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.appointment_booking_assistance",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.at_risk_student_identification_and_handoff",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.callback_request_queue_management",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.cohort_retrospective_report",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.conversation_action_request_detection",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.conversation_continuity_stitching",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.conversation_memory_summarization",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.da_reporting_responsibility_transition_map",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.daily_enrollment_report",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.decision_notification_delivery",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.department_signal_rollup",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.domain_scope_reconciliation",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.eligibility_attestation_blocking_flag",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.enrollment_conversion_strategy_proposals",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.enterprise_high_intent_flagging",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.escalation_threshold_governance",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.existing_intern_conversion_planning",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.intern_activation",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.interview_progress_tracking",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.interview_transcript_answer_normalization",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.knowledge_base_website_sync",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.lead_intake_dedup_and_qualification",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.manager_surface_access_remediation",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.maya_applicant_chat_response",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.monthly_subscription_and_mrr_report",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.offer_document_package_generation",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.outreach_compliance_monitoring",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.page_event_admissions_enrichment",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.pipeline_executive_update",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.proactive_chat_eligibility_marking",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.refund_and_churn_tracking",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.reviewer_decision_packet_assembly",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.scheduler_registry_name_drift_reconciliation",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.signed_document_verification",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": [
+        "human_decision_required_at_every_level"
+      ]
+    },
+    {
+      "capability_id": "admissions.visitor_insight_aggregation",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.visitor_intent_scoring",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    },
+    {
+      "capability_id": "admissions.weekly_cohort_progress_report",
+      "effective_autonomy": "autonomy:R0",
+      "reasons": []
+    }
+  ],
+  "authority_rule": {
+    "rule": "A capability approved above autonomy:R2 with no granted tools is forced back down to autonomy:R2, with the reason no_tool_grants. Tool grants are the throttle.",
+    "approved_above_r2": 0,
+    "binds_nothing": true,
+    "note": "When this binds nothing, say so in words. It means no capability in this domain has been approved above autonomy:R2 yet, not that the rule is absent or that the panel failed."
+  },
+  "governance": {
+    "disclosure": "A filed request grants nothing. Status is what a named human decided, and a pending row means nobody has decided yet.",
+    "requests": [],
+    "pending": 0
+  },
+  "not_recorded": [
+    {
+      "field": "agent.autonomy_level_set_by",
+      "reason": "The platform does not store who set an agent's autonomy level. `ai_agents` carries `autonomy_level_set_at` and `autonomy_level_source` but no `set_by` column, so the time and whether a person chose it are known and the identity is not. Do not render a name here."
+    }
+  ]
+}
