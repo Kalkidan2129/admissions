@@ -3,13 +3,13 @@
   "project": "admissions",
   "totals": {
     "stories_total": 54,
-    "stories_verified": 6,
+    "stories_verified": 7,
     "stories_submitted": 0,
-    "stories_in_progress": 48,
+    "stories_in_progress": 47,
     "stories_not_started": 0,
     "criteria_total": 71,
-    "criteria_passed": 18,
-    "points_awarded": 90
+    "criteria_passed": 24,
+    "points_awarded": 105
   },
   "stories": [
     {
@@ -1583,22 +1583,15 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "in_progress",
-        "criteria_passed": 0,
+        "state": "verified",
+        "criteria_passed": 6,
         "criteria_total": 6,
-        "verified_at": null,
+        "verified_at": "2026-11-05T19:23:40.987Z",
         "commit_sha": "8fdb41b00f6ce65e5e34e6129fdc615b63ad4590",
         "commit_url": "https://github.com/Kalkidan2129/admissions/commit/8fdb41b00f6ce65e5e34e6129fdc615b63ad4590",
         "commit_at": "2026-11-02T05:22:40Z",
-        "points_awarded": null,
-        "outstanding": [
-          "Given the Command Center, when it is opened, then all six panels render and each one names the endpoint it read.",
-          "Given a panel whose endpoint returned nothing, when it renders, then it says so in words and is visibly distinct from a panel that is still loading.",
-          "Given the autonomy ladder panel, when it renders, then all ten rungs are present with the owner's wording, and each capability's ceiling is marked against the rung it stops at.",
-          "Given the autonomy ladder panel, when a capability's authority is shown, then the page shows the effective authority `effectiveAuthority()` returns rather than the level the capability record asks for, and names the `no_tool_grants` rule with the number of capabilities it currently constrains, saying so in words when that number is zero.",
-          "Given the governance panel, when a tool request is shown, then nothing on the page states or implies that filing it granted anything.",
-          "Trust -- no panel shows a number, a grant, a rung or a result this domain has not actually produced."
-        ]
+        "points_awarded": 15,
+        "outstanding": []
       }
     }
   ]

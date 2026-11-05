@@ -30,269 +30,504 @@
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "An admission decision is always a human decision. The platform already enforces this structurally rather than by policy: internshipStateMachine.ts:155 and :170 list only the reviewer actor on every edge into approved, rejected and waitlisted, and canTransition at :264-279 deliberately takes no override, force or isAdmin parameter, so there is no argument an agent could pass to make itself a reviewer. The agent's ceiling is therefore autonomy:R2, answering questions about decisions already recorded. It may prepare a decision packet under admissions.reviewer_decision_packet_assembly; it may never make, advance or self-approve a decision at any autonomy level, including autonomy:R9."
     },
     {
       "capability_id": "admissions.admissions_funnel_anomaly_detection",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Detection is read-only aggregate work that changes nothing, so autonomy:R7 is reachable for the 'report an anomaly' action class. The expected ranges stay human-set, because a detector that tunes its own thresholds can tune away the alert it does not want to raise."
     },
     {
       "capability_id": "admissions.admissions_knowledge_curation",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Drafting carries no PII and is reversible, but activating an entry changes what the organisation tells every subsequent applicant, which makes activation a human decision. Supervised drafting (autonomy:R6) is the ceiling, and the active flag stays a human write."
     },
     {
       "capability_id": "admissions.admissions_rbac_path_coverage_audit",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Auditing route-to-section coverage reads only code and changes nothing, so autonomy:R7 is reachable. Adding a PATH_SECTION row changes who can reach applicant data, so that write is always a human decision reviewed by someone who can say which section a surface belongs to."
     },
     {
       "capability_id": "admissions.ai_voice_interview_dispatch",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Placing a call reaches an applicant's phone, which is an irreversible external side effect on a person. The existing design keeps it applicant-initiated, and that is the property to preserve: an agent may prepare the prompt and read the outcome, so its ceiling is stateful sandbox work (autonomy:R4). Dialling stays with the applicant's own request, never with the agent's judgement that a call would be useful."
     },
     {
       "capability_id": "admissions.applicant_assessment_preparation",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "This is the capability that most tempts a system into deciding, so its ceiling is set by what it must never become. It reads an applicant's resume, phone number and interview transcript and produces text a reviewer leans on. Shadow mode against decisions a reviewer already made (autonomy:R5) is the highest honest level: it proves the assessment is sound without the assessment ever carrying authority. It must never reach autonomy:R7, because an automated assessment that a reviewer rubber-stamps is an automated decision wearing a recommendation's clothes."
     },
     {
       "capability_id": "admissions.applicant_lifecycle_audit_trail",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "This is a read-only reconstruction that changes nothing, which argues for a high ceiling. It stops at a supervised production pilot (autonomy:R6) rather than autonomy:R7 for one reason: the trail is the evidence base for an admissions outcome, and an agent that reads it unattended should be doing so under a named human's supervision until the free-text reason column is proven not to carry applicant PII that a summary could re-expose."
     },
     {
       "capability_id": "admissions.applicant_pii_minimization_review",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "This capability reads code and configuration, never applicant data, which is why its own pii_exposure is none. Producing the matrix is an authorizable action class at autonomy:R7. Acting on it, by narrowing a grant or dropping a column, is a human decision with a migration behind it, which is why human_decision is true."
     },
     {
       "capability_id": "admissions.applicant_reply_draft_preparation",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Drafting is reversible; sending is not. Sending requires the default-denied live_email capability, so the ceiling is multi-step drafting in sandbox (autonomy:R4). It is marked human_decision because the act that matters, publication to a named applicant, is a human act, and because an unreviewed draft pipeline is indistinguishable in effect from an automated send."
     },
     {
       "capability_id": "admissions.application_queue_triage",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Reading the queue means reading the applicant's name, email and phone from the joined enrollment, and mgmtRoles.ts:22-27 records that this is deliberately a wider grant than curriculum access. Until Taiwo has a surface on which to approve that read and a field-level minimisation rule exists, the ceiling is stateful sandbox work on fixtures (autonomy:R4). Reaching production reads is a separate approval, not an extension of this one."
     },
     {
       "capability_id": "admissions.appointment_booking_assistance",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Booking writes into a named colleague's calendar and schedules a real person's time, which is an external side effect on two people at once. Offering slots and simulating the booking in sandbox (autonomy:R4) is the ceiling, and the booking itself stays with the prospect's own click on the live public route."
     },
     {
       "capability_id": "admissions.at_risk_student_identification_and_handoff",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Identifying and listing is safe, but this capability names individual students as at-risk, which is a judgement that reaches them if it is acted on. A supervised production pilot (autonomy:R6) is the ceiling, and the nudge itself belongs to whichever capability holds the contact channel, never to this one."
     },
     {
       "capability_id": "admissions.callback_request_queue_management",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Managing a queue is an internal bookkeeping action class that may reach autonomy:R7. Placing the call is a separate capability with a separate and much lower ceiling, and this one must never dial."
     },
     {
       "capability_id": "admissions.cohort_retrospective_report",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "An end-of-cohort aggregate retrospective changes nothing and can be produced without naming anyone, so autonomy:R7 is reachable. Its one discipline is that it must never infer a drop reason, because a fabricated reason propagates into curriculum decisions and compounds."
     },
     {
       "capability_id": "admissions.conversation_action_request_detection",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Detecting and recording a request is reversible internal bookkeeping, so autonomy:R7 is reachable for that action class. Fulfilling the request is explicitly a different capability, because the fulfilment channels (email, SMS, voice) are the ones that reach a person."
     },
     {
       "capability_id": "admissions.conversation_continuity_stitching",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A wrong merge joins two different people's conversations into one record, which is a data-protection failure that re-running cannot cleanly undo. A supervised production pilot (autonomy:R6) is the ceiling until a verified no-false-merge rate exists."
     },
     {
       "capability_id": "admissions.conversation_memory_summarization",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "This capability writes a persistent characterisation of a named person that later prompts read back, and MEMORY_MAP.md:12 records no human-approval path for personality_notes. Until an approval path exists it stops at a supervised production pilot (autonomy:R6) rather than reaching the unattended automation of autonomy:R7."
     },
     {
       "capability_id": "admissions.da_reporting_responsibility_transition_map",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Deciding that a human's responsibility moves to a machine is a decision about a person's job, and it is not one an agent may make or even recommend unprompted. The agent may assemble the map from evidence (autonomy:R2); every transition on it is approved by Taiwo and by Ali."
     },
     {
       "capability_id": "admissions.daily_enrollment_report",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Producing an aggregate internal report is exactly the kind of explicitly authorizable action class autonomy:R7 is for, and the brief already describes it as something that generates daily once the columns and thresholds are given. Distribution by mail requires the default-denied live_email capability, so the agent renders and an approved mail path or a human sends. The thresholds stay Taiwo's, because a self-set escalation threshold is a self-granted exemption."
     },
     {
       "capability_id": "admissions.decision_notification_delivery",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Telling a person they were rejected is the single least reversible thing in this domain. Sending it requires the default-denied live_email capability (executionPolicy.ts:27), so the agent may render and preview in sandbox (autonomy:R4) and nothing more. It is marked human_decision because the decision the message conveys is a human decision and the send is its irrevocable publication."
     },
     {
       "capability_id": "admissions.department_signal_rollup",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A read-only health rollup over internal telemetry carries no applicant exposure and changes nothing, so autonomy:R7 is reachable. It must never gain the ability to disable or re-enable a component it reports on, because a reporter that can silence its own findings is not a reporter."
     },
     {
       "capability_id": "admissions.domain_scope_reconciliation",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Which responsibilities belong to which AI employee is a governance decision about accountability, and an agent that could set its own scope could extend it. The agent may lay out the conflict with citations (autonomy:R2); the boundary is Ali's to draw."
     },
     {
       "capability_id": "admissions.eligibility_attestation_blocking_flag",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Raising a flag is not deciding, so sandbox multi-step work (autonomy:R4) is reachable. It is marked human_decision because the flag's only consequence is a human judgement about a person's eligibility, and AI_INTERNSHIP_DISCOVERY.md:175-186 explicitly forbids the flag ever becoming an automatic rejection. The ceiling therefore stops well below automation: an automated eligibility conclusion is an automated admission decision."
     },
     {
       "capability_id": "admissions.enrollment_conversion_strategy_proposals",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A conversion initiative changes how Colaberry treats prospective applicants and commits other people's work, which is a strategic decision reserved for a human. The agent may propose and may shadow-evaluate against initiatives a human already ran (autonomy:R5), but it may never adopt an initiative, so it stops below the supervised production pilot and well below automation."
     },
     {
       "capability_id": "admissions.enterprise_high_intent_flagging",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Flagging is additive and reversible and triggers no contact. Capped at autonomy:R7 for the 'flag a lead as enterprise' action class only; the enterprise conversation itself is human work."
     },
     {
       "capability_id": "admissions.escalation_threshold_governance",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A threshold is the definition of what counts as a problem, so an agent that can set its own threshold can decide what it never has to report. The agent may read thresholds and propose one with evidence; setting or changing one is always a human write. The ceiling is autonomy:R2 and this is a structural limit rather than a staged one."
     },
     {
       "capability_id": "admissions.existing_intern_conversion_planning",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "The plan half is a pure read and could sit higher, but commit writes application rows for named people and an ambiguous match resolved wrongly merges or splits a real person's record. Shadow planning against conversions a human already committed (autonomy:R5) is the ceiling. Commit stays human, which preserves the structural dry-run guarantee the service was built around."
     },
     {
       "capability_id": "admissions.intern_activation",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Activation is the moment an applicant becomes a person with paid programme access, which is the advancement of an admission. It is therefore a human decision and the agent's ceiling is computing blockers against sandbox fixtures (autonomy:R4). An agent may never activate anyone, and it may never mark an onboarding requirement satisfied on an applicant's behalf."
     },
     {
       "capability_id": "admissions.interview_progress_tracking",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Asking the next approved question is bounded work, but the answers are the applicant's own words in a record that feeds an admission decision, and the interview_complete transition it can trigger moves the application forward. Multi-step sandbox work (autonomy:R4) is the ceiling until Taiwo has approved what an agent may ask and store. It may never evaluate an answer as good or bad, which would be assessing, nor transition past interview_complete."
     },
     {
       "capability_id": "admissions.interview_transcript_answer_normalization",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "The transcript is the single richest piece of unstructured applicant PII in the system and the extraction feeds an admission decision. Shadow mode against applicant-confirmed answers (autonomy:R5) is the ceiling: it measures extraction fidelity against the person's own confirmation, which is the only correct reference. It must never reach a level at which an extracted answer is stored as confirmed, because internshipTranscriptExtraction.ts:11-13 makes applicant confirmation the control."
     },
     {
       "capability_id": "admissions.knowledge_base_website_sync",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "The knowledge base is what the assistant quotes to applicants, so an unreviewed auto-update propagates straight into applicant-facing claims. Drafting and flagging may reach autonomy:R6 under supervision; activating a changed entry stays a human step, which is why this does not reach autonomy:R7."
     },
     {
       "capability_id": "admissions.lead_intake_dedup_and_qualification",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R6",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Ingest is already deterministic and idempotent by design, which is what makes a high ceiling arguable. It stops at a supervised production pilot (autonomy:R6) because a wrong tier-2 match writes one person's enquiry onto another person's record, and because raw_lead_payloads holds whole untrusted bodies that no field-level restriction currently fences off."
     },
     {
       "capability_id": "admissions.manager_surface_access_remediation",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Creating an identity that can read applicant data is an access grant, and an agent that can grant access can grant itself access. The agent's ceiling is autonomy:R2: report the blocker, name the three gates and name the approver. The grant is Ali's write and the verification is an observed human login."
     },
     {
       "capability_id": "admissions.maya_applicant_chat_response",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Answering from approved knowledge is autonomy:R2 work by definition, and the live surface already runs unattended. The ceiling is autonomy:R7 for the narrow action class 'reply from approved admissions knowledge'. It may never state an admission outcome, an eligibility conclusion or a price absent from approved knowledge, and it may never advance an application state."
     },
     {
       "capability_id": "admissions.monthly_subscription_and_mrr_report",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "An aggregate internal revenue report changes nothing and names nobody, so autonomy:R7 is reachable for the 'produce the monthly report' action class. The price table stays a human input, because a revenue figure computed from a price the agent inferred is a fabricated revenue figure."
     },
     {
       "capability_id": "admissions.offer_document_package_generation",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R4",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "An offer document is a quasi-contractual artifact carrying a named person's legal name and a start date. Generating one in production is a commitment the organisation makes, so the agent's ceiling is sandbox generation against fixtures (autonomy:R4). Production generation and delivery stay with the reviewer who made the decision the document expresses."
     },
     {
       "capability_id": "admissions.outreach_compliance_monitoring",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "This capability only reads and reports; it changes nothing. That makes autonomy:R7 reachable for the 'produce a compliance finding' action class. It must never acquire the power to approve an outbound contact, because a monitor that can grant its own exemptions is not a monitor."
     },
     {
       "capability_id": "admissions.page_event_admissions_enrichment",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "The write is a derived tag on a record that already exists, reversible by re-running, and it touches no applicant-facing surface, so an explicitly authorized 'tag a visitor interest signal' action class at autonomy:R7 is defensible. It stops there because autonomy:R8 handoffs do not exist on this platform."
     },
     {
       "capability_id": "admissions.pipeline_executive_update",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Composing an internal aggregate update is an authorizable action class at autonomy:R7. Distribution is the constrained part: delivering it by mail needs the default-denied live_email capability, so the agent renders and a human or an already-approved mail service sends."
     },
     {
       "capability_id": "admissions.proactive_chat_eligibility_marking",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "This capability initiates contact with a person, but only inside a page the person already has open and only through a widget the person can dismiss. It never reaches an inbox or a phone. That keeps it inside an authorizable action class at autonomy:R7, conditional on a frequency cap Taiwo sets."
     },
     {
       "capability_id": "admissions.refund_and_churn_tracking",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Counting and trending refunds is read-only aggregate work, so autonomy:R7 is reachable for producing the report. The capability is bounded on the other side by the brief itself: proposing or changing refund policy is Ali's decision, so the agent reports the pattern and never recommends the remedy."
     },
     {
       "capability_id": "admissions.reviewer_decision_packet_assembly",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R5",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "This is the clearest expression of the domain's central rule: an agent may prepare a decision and may never make one. Shadow assembly against applications already decided (autonomy:R5) proves the packet is complete and unbiased without the packet ever carrying authority. It stops below automation because a packet produced unattended, read by a reviewer under time pressure, is functionally a decision."
     },
     {
       "capability_id": "admissions.scheduler_registry_name_drift_reconciliation",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Reconciling names reads only code and configuration, so autonomy:R7 is reachable for producing the report. Correcting a name changes which registry row governs a running behaviour, including its enabled flag and its tool grants, so that write is a human decision and sits outside this programme's scope entirely."
     },
     {
       "capability_id": "admissions.signed_document_verification",
       "effective_autonomy": "autonomy:R0",
       "reasons": [
         "human_decision_required_at_every_level"
-      ]
+      ],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R2",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Verification is the gate that converts an applicant into a person with paid programme access, and AI_INTERNSHIP_DISCOVERY.md:118-139 records that getting it wrong grants full paid training free and forever. It is reviewer-only on the state machine edge, so the agent's ceiling is autonomy:R2, answering questions about verifications already performed. An agent may never verify a document, and an agent may never self-verify a document it generated."
     },
     {
       "capability_id": "admissions.visitor_insight_aggregation",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "Read-only aggregation with small-group suppression carries no individual exposure and changes nothing, so autonomy:R7 is reachable. It must never be allowed to drill from an aggregate down to a named person, because that would convert an aggregate_only capability into an applicant_identifiable one without a new approval."
     },
     {
       "capability_id": "admissions.visitor_intent_scoring",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "A score is a recommendation, not an action: nothing downstream of this capability may contact anybody or change an application state. Capped at autonomy:R7 and only for the 'write an intent reading' action class, with the thresholds themselves remaining a human setting."
     },
     {
       "capability_id": "admissions.weekly_cohort_progress_report",
       "effective_autonomy": "autonomy:R0",
-      "reasons": []
+      "reasons": [],
+      "approved_autonomy": "autonomy:R0",
+      "approved_autonomy_note": null,
+      "max_permitted_autonomy": "autonomy:R7",
+      "max_permitted_autonomy_note": null,
+      "ceiling_reason": "This report already runs unattended on a weekly cron and the snapshot write is idempotent, so autonomy:R7 reflects what is true rather than what is aspirational. It names individual students, so it must never acquire the ability to contact one of them: the at-risk list is a handoff to a human, which is a separate capability."
     }
   ],
   "authority_rule": {
@@ -305,6 +540,2522 @@
     "disclosure": "A filed request grants nothing. Status is what a named human decided, and a pending row means nobody has decided yet.",
     "requests": [],
     "pending": 0
+  },
+  "verification": {
+    "known": true,
+    "disclosure": "A criterion counts as passing when it is marked in `.colaberry/progress.json` in this repository. The verifier reads that file on every sync and records what it found. A story showing 0 of N is not a rejection: nothing has been claimed yet.",
+    "summary": {
+      "stories": 189,
+      "checked": 54,
+      "verified": 7,
+      "awaiting_criteria": 47,
+      "outstanding_criteria": 47
+    },
+    "stories": [
+      {
+        "story_id": "admissions.CAP.admission_decision_recording",
+        "title": "Admission decision recording",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.admission_decision_recording and changes a file. Commit your work with a `Story: admissions.CAP.admission_decision_recording` trailer (or admissions.CAP.admission_decision_recording in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document enumerates every reviewer-only edge in internshipStateMachine.ts:155, :163, :170, :191 and names the human accountable for each."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admission_decision_recording.autonomy:R0",
+        "title": "Admission decision recording · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admission_decision_recording.autonomy:R2",
+        "title": "Admission decision recording · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_funnel_anomaly_detection",
+        "title": "Admissions funnel anomaly detection",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.admissions_funnel_anomaly_detection and changes a file. Commit your work with a `Story: admissions.CAP.admissions_funnel_anomaly_detection` trailer (or admissions.CAP.admissions_funnel_anomaly_detection in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every figure names the query that produced it, including the scope applied."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_funnel_anomaly_detection.autonomy:R2",
+        "title": "Admissions funnel anomaly detection · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_funnel_anomaly_detection.autonomy:R4",
+        "title": "Admissions funnel anomaly detection · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_funnel_anomaly_detection.autonomy:R7",
+        "title": "Admissions funnel anomaly detection · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_knowledge_curation",
+        "title": "Admissions knowledge curation",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.admissions_knowledge_curation and changes a file. Commit your work with a `Story: admissions.CAP.admissions_knowledge_curation` trailer (or admissions.CAP.admissions_knowledge_curation in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every coverage claim cites an entry id; every gap is reported rather than filled with a generated answer."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_knowledge_curation.autonomy:R2",
+        "title": "Admissions knowledge curation · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_knowledge_curation.autonomy:R4",
+        "title": "Admissions knowledge curation · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_knowledge_curation.autonomy:R6",
+        "title": "Admissions knowledge curation · R6",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_rbac_path_coverage_audit",
+        "title": "Admissions RBAC path coverage audit",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.admissions_rbac_path_coverage_audit and changes a file. Commit your work with a `Story: admissions.CAP.admissions_rbac_path_coverage_audit` trailer (or admissions.CAP.admissions_rbac_path_coverage_audit in the subject line) and push."
+        ],
+        "outstanding": [
+          "The nine /api/admin/admissions routes and /api/admin/agents are reported as unmapped; a fixture path added to PATH_SECTION disappears from the unmapped list, which is the mutation proof."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_rbac_path_coverage_audit.autonomy:R1",
+        "title": "Admissions RBAC path coverage audit · R1",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_rbac_path_coverage_audit.autonomy:R4",
+        "title": "Admissions RBAC path coverage audit · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.admissions_rbac_path_coverage_audit.autonomy:R7",
+        "title": "Admissions RBAC path coverage audit · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.ai_voice_interview_dispatch",
+        "title": "AI voice interview dispatch",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.ai_voice_interview_dispatch and changes a file. Commit your work with a `Story: admissions.CAP.ai_voice_interview_dispatch` trailer (or admissions.CAP.ai_voice_interview_dispatch in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document names all three consent columns and states that an unset agent id means no call."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.ai_voice_interview_dispatch.autonomy:R0",
+        "title": "AI voice interview dispatch · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.ai_voice_interview_dispatch.autonomy:R1",
+        "title": "AI voice interview dispatch · R1",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.ai_voice_interview_dispatch.autonomy:R4",
+        "title": "AI voice interview dispatch · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_assessment_preparation",
+        "title": "Applicant assessment preparation for a reviewer",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.applicant_assessment_preparation and changes a file. Commit your work with a `Story: admissions.CAP.applicant_assessment_preparation` trailer (or admissions.CAP.applicant_assessment_preparation in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document states explicitly that no score, rank or admission outcome may appear, matching internshipRecommendation.ts:4-12."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_assessment_preparation.autonomy:R0",
+        "title": "Applicant assessment preparation for a reviewer · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_assessment_preparation.autonomy:R1",
+        "title": "Applicant assessment preparation for a reviewer · R1",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_assessment_preparation.autonomy:R5",
+        "title": "Applicant assessment preparation for a reviewer · R5",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_lifecycle_audit_trail",
+        "title": "Applicant lifecycle audit trail",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.applicant_lifecycle_audit_trail and changes a file. Commit your work with a `Story: admissions.CAP.applicant_lifecycle_audit_trail` trailer (or admissions.CAP.applicant_lifecycle_audit_trail in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every answer cites an event row with its actor_type and actor_id; no answer asserts an event absent from the table."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_lifecycle_audit_trail.autonomy:R2",
+        "title": "Applicant lifecycle audit trail · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_lifecycle_audit_trail.autonomy:R4",
+        "title": "Applicant lifecycle audit trail · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_lifecycle_audit_trail.autonomy:R6",
+        "title": "Applicant lifecycle audit trail · R6",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_pii_minimization_review",
+        "title": "Applicant PII minimization review",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.applicant_pii_minimization_review and changes a file. Commit your work with a `Story: admissions.CAP.applicant_pii_minimization_review` trailer (or admissions.CAP.applicant_pii_minimization_review in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every applicant-PII column named in this matrix's evidence appears in the output; a deliberately omitted column causes the completeness test to fail."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_pii_minimization_review.autonomy:R1",
+        "title": "Applicant PII minimization review · R1",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_pii_minimization_review.autonomy:R4",
+        "title": "Applicant PII minimization review · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_pii_minimization_review.autonomy:R7",
+        "title": "Applicant PII minimization review · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_reply_draft_preparation",
+        "title": "Applicant reply draft preparation",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.applicant_reply_draft_preparation and changes a file. Commit your work with a `Story: admissions.CAP.applicant_reply_draft_preparation` trailer (or admissions.CAP.applicant_reply_draft_preparation in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document names every class for which no draft may be produced, including anything touching an admission outcome."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_reply_draft_preparation.autonomy:R0",
+        "title": "Applicant reply draft preparation · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_reply_draft_preparation.autonomy:R2",
+        "title": "Applicant reply draft preparation · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.applicant_reply_draft_preparation.autonomy:R4",
+        "title": "Applicant reply draft preparation · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.application_queue_triage",
+        "title": "Application review queue triage",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.application_queue_triage and changes a file. Commit your work with a `Story: admissions.CAP.application_queue_triage` trailer (or admissions.CAP.application_queue_triage in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every bucket in internshipReviewQueue.ts:105 is described and each is marked as a presentation state or a decision state."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.application_queue_triage.autonomy:R0",
+        "title": "Application review queue triage · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.application_queue_triage.autonomy:R2",
+        "title": "Application review queue triage · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.application_queue_triage.autonomy:R4",
+        "title": "Application review queue triage · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.appointment_booking_assistance",
+        "title": "Admissions appointment booking assistance",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.appointment_booking_assistance and changes a file. Commit your work with a `Story: admissions.CAP.appointment_booking_assistance` trailer (or admissions.CAP.appointment_booking_assistance in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document names the human whose calendar is written to and records booking as their commitment."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.appointment_booking_assistance.autonomy:R0",
+        "title": "Admissions appointment booking assistance · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.appointment_booking_assistance.autonomy:R2",
+        "title": "Admissions appointment booking assistance · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.appointment_booking_assistance.autonomy:R4",
+        "title": "Admissions appointment booking assistance · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.at_risk_student_identification_and_handoff",
+        "title": "At-risk student identification and handoff",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.at_risk_student_identification_and_handoff and changes a file. Commit your work with a `Story: admissions.CAP.at_risk_student_identification_and_handoff` trailer (or admissions.CAP.at_risk_student_identification_and_handoff in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every at-risk student cites the specific missing signal; a student with no available signal is reported as unknown rather than at-risk."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.at_risk_student_identification_and_handoff.autonomy:R2",
+        "title": "At-risk student identification and handoff · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.at_risk_student_identification_and_handoff.autonomy:R4",
+        "title": "At-risk student identification and handoff · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.at_risk_student_identification_and_handoff.autonomy:R6",
+        "title": "At-risk student identification and handoff · R6",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.callback_request_queue_management",
+        "title": "Callback request queue management",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.callback_request_queue_management and changes a file. Commit your work with a `Story: admissions.CAP.callback_request_queue_management` trailer (or admissions.CAP.callback_request_queue_management in the subject line) and push."
+        ],
+        "outstanding": [
+          "Queue counts reconcile exactly with the underlying rows; no row is invented or omitted."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.callback_request_queue_management.autonomy:R2",
+        "title": "Callback request queue management · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.callback_request_queue_management.autonomy:R4",
+        "title": "Callback request queue management · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.callback_request_queue_management.autonomy:R7",
+        "title": "Callback request queue management · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.cohort_retrospective_report",
+        "title": "Per-cohort retrospective report",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.cohort_retrospective_report and changes a file. Commit your work with a `Story: admissions.CAP.cohort_retrospective_report` trailer (or admissions.CAP.cohort_retrospective_report in the subject line) and push."
+        ],
+        "outstanding": [
+          "Counts reconcile with the enrollment statuses, and a student with two enrollments is counted once."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.cohort_retrospective_report.autonomy:R2",
+        "title": "Per-cohort retrospective report · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.cohort_retrospective_report.autonomy:R4",
+        "title": "Per-cohort retrospective report · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.cohort_retrospective_report.autonomy:R7",
+        "title": "Per-cohort retrospective report · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_action_request_detection",
+        "title": "Conversation action-request detection",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.conversation_action_request_detection and changes a file. Commit your work with a `Story: admissions.CAP.conversation_action_request_detection` trailer (or admissions.CAP.conversation_action_request_detection in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every listed request quotes the message that contains it."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_action_request_detection.autonomy:R2",
+        "title": "Conversation action-request detection · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_action_request_detection.autonomy:R4",
+        "title": "Conversation action-request detection · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_action_request_detection.autonomy:R7",
+        "title": "Conversation action-request detection · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_continuity_stitching",
+        "title": "Cross-session conversation continuity",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.conversation_continuity_stitching and changes a file. Commit your work with a `Story: admissions.CAP.conversation_continuity_stitching` trailer (or admissions.CAP.conversation_continuity_stitching in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every proposal names both conversation ids and the elapsed gap."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_continuity_stitching.autonomy:R2",
+        "title": "Cross-session conversation continuity · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_continuity_stitching.autonomy:R5",
+        "title": "Cross-session conversation continuity · R5",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_continuity_stitching.autonomy:R6",
+        "title": "Cross-session conversation continuity · R6",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_memory_summarization",
+        "title": "Admissions conversation memory summarization",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.conversation_memory_summarization and changes a file. Commit your work with a `Story: admissions.CAP.conversation_memory_summarization` trailer (or admissions.CAP.conversation_memory_summarization in the subject line) and push."
+        ],
+        "outstanding": [
+          "No reply asserts a fact absent from conversation_summaries."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_memory_summarization.autonomy:R2",
+        "title": "Admissions conversation memory summarization · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_memory_summarization.autonomy:R4",
+        "title": "Admissions conversation memory summarization · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.conversation_memory_summarization.autonomy:R6",
+        "title": "Admissions conversation memory summarization · R6",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.da_reporting_responsibility_transition_map",
+        "title": "Data-analyst reporting responsibility transition map",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.da_reporting_responsibility_transition_map and changes a file. Commit your work with a `Story: admissions.CAP.da_reporting_responsibility_transition_map` trailer (or admissions.CAP.da_reporting_responsibility_transition_map in the subject line) and push."
+        ],
+        "outstanding": [
+          "All four reports in the brief's cadence table are listed; exactly one is marked evidenced with its PROGRESS.md and script citation, and the other three are marked unevidenced rather than assumed."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.da_reporting_responsibility_transition_map.autonomy:R0",
+        "title": "Data-analyst reporting responsibility transition map · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.da_reporting_responsibility_transition_map.autonomy:R2",
+        "title": "Data-analyst reporting responsibility transition map · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.daily_enrollment_report",
+        "title": "Daily enrollment report",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.daily_enrollment_report and changes a file. Commit your work with a `Story: admissions.CAP.daily_enrollment_report` trailer (or admissions.CAP.daily_enrollment_report in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every figure reconciles with a re-runnable query, and pending enrollments are reported separately from paid."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.daily_enrollment_report.autonomy:R2",
+        "title": "Daily enrollment report · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.daily_enrollment_report.autonomy:R4",
+        "title": "Daily enrollment report · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.daily_enrollment_report.autonomy:R7",
+        "title": "Daily enrollment report · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.decision_notification_delivery",
+        "title": "Applicant decision notification delivery",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.decision_notification_delivery and changes a file. Commit your work with a `Story: admissions.CAP.decision_notification_delivery` trailer (or admissions.CAP.decision_notification_delivery in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document states that reviewer_notes and ai_factors are structurally excluded and names the idempotency key shape."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.decision_notification_delivery.autonomy:R0",
+        "title": "Applicant decision notification delivery · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.decision_notification_delivery.autonomy:R2",
+        "title": "Applicant decision notification delivery · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.decision_notification_delivery.autonomy:R4",
+        "title": "Applicant decision notification delivery · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.department_signal_rollup",
+        "title": "Admissions department signal rollup",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.department_signal_rollup and changes a file. Commit your work with a `Story: admissions.CAP.department_signal_rollup` trailer (or admissions.CAP.department_signal_rollup in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every answer reconciles with the run-outcome rows and names silent components explicitly."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.department_signal_rollup.autonomy:R2",
+        "title": "Admissions department signal rollup · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.department_signal_rollup.autonomy:R4",
+        "title": "Admissions department signal rollup · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.department_signal_rollup.autonomy:R7",
+        "title": "Admissions department signal rollup · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.domain_scope_reconciliation",
+        "title": "Admissions domain scope reconciliation",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.domain_scope_reconciliation and changes a file. Commit your work with a `Story: admissions.CAP.domain_scope_reconciliation` trailer (or admissions.CAP.domain_scope_reconciliation in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every capability in this matrix whose ownership is contested is listed, and the count matches the number of capabilities carrying the contested-ownership blocker."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.domain_scope_reconciliation.autonomy:R0",
+        "title": "Admissions domain scope reconciliation · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.domain_scope_reconciliation.autonomy:R2",
+        "title": "Admissions domain scope reconciliation · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.eligibility_attestation_blocking_flag",
+        "title": "Eligibility attestation blocking flag",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.eligibility_attestation_blocking_flag and changes a file. Commit your work with a `Story: admissions.CAP.eligibility_attestation_blocking_flag` trailer (or admissions.CAP.eligibility_attestation_blocking_flag in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document states the prohibition verbatim from AI_INTERNSHIP_DISCOVERY.md:175-186 and names the human who clears the flag."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.eligibility_attestation_blocking_flag.autonomy:R0",
+        "title": "Eligibility attestation blocking flag · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.eligibility_attestation_blocking_flag.autonomy:R2",
+        "title": "Eligibility attestation blocking flag · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.eligibility_attestation_blocking_flag.autonomy:R4",
+        "title": "Eligibility attestation blocking flag · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.enrollment_conversion_strategy_proposals",
+        "title": "Enrollment conversion strategy proposals",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.enrollment_conversion_strategy_proposals and changes a file. Commit your work with a `Story: admissions.CAP.enrollment_conversion_strategy_proposals` trailer (or admissions.CAP.enrollment_conversion_strategy_proposals in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every claim cites a figure a human can re-derive."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.enrollment_conversion_strategy_proposals.autonomy:R2",
+        "title": "Enrollment conversion strategy proposals · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.enrollment_conversion_strategy_proposals.autonomy:R4",
+        "title": "Enrollment conversion strategy proposals · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.enrollment_conversion_strategy_proposals.autonomy:R5",
+        "title": "Enrollment conversion strategy proposals · R5",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.enterprise_high_intent_flagging",
+        "title": "Enterprise and high-intent prospect flagging",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.enterprise_high_intent_flagging and changes a file. Commit your work with a `Story: admissions.CAP.enterprise_high_intent_flagging` trailer (or admissions.CAP.enterprise_high_intent_flagging in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every explanation cites the domain and at least one page visit; none cites a signal absent from the record."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.enterprise_high_intent_flagging.autonomy:R2",
+        "title": "Enterprise and high-intent prospect flagging · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.enterprise_high_intent_flagging.autonomy:R5",
+        "title": "Enterprise and high-intent prospect flagging · R5",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.enterprise_high_intent_flagging.autonomy:R7",
+        "title": "Enterprise and high-intent prospect flagging · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.escalation_threshold_governance",
+        "title": "Escalation threshold governance",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.escalation_threshold_governance and changes a file. Commit your work with a `Story: admissions.CAP.escalation_threshold_governance` trailer (or admissions.CAP.escalation_threshold_governance in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every reporting capability in this matrix that mentions a threshold is listed with its owner named and its current value recorded as unset where that is true."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.escalation_threshold_governance.autonomy:R0",
+        "title": "Escalation threshold governance · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.escalation_threshold_governance.autonomy:R2",
+        "title": "Escalation threshold governance · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.existing_intern_conversion_planning",
+        "title": "Existing-intern conversion planning",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.existing_intern_conversion_planning and changes a file. Commit your work with a `Story: admissions.CAP.existing_intern_conversion_planning` trailer (or admissions.CAP.existing_intern_conversion_planning in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document states that planConversion writes nothing and that an unmatched intern is a human's problem to resolve."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.existing_intern_conversion_planning.autonomy:R0",
+        "title": "Existing-intern conversion planning · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.existing_intern_conversion_planning.autonomy:R2",
+        "title": "Existing-intern conversion planning · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.existing_intern_conversion_planning.autonomy:R5",
+        "title": "Existing-intern conversion planning · R5",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.intern_activation",
+        "title": "Intern activation",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.intern_activation and changes a file. Commit your work with a `Story: admissions.CAP.intern_activation` trailer (or admissions.CAP.intern_activation in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every step in internshipOnboarding.ts:58-145 is listed with its declared actor, and activation is recorded as a human decision."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.intern_activation.autonomy:R0",
+        "title": "Intern activation · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.intern_activation.autonomy:R2",
+        "title": "Intern activation · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.intern_activation.autonomy:R4",
+        "title": "Intern activation · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.interview_progress_tracking",
+        "title": "Interview progress and completeness tracking",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.interview_progress_tracking and changes a file. Commit your work with a `Story: admissions.CAP.interview_progress_tracking` trailer (or admissions.CAP.interview_progress_tracking in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document states that no answer may be scored or ranked, consistent with internshipRecommendation.ts:4-12."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.interview_progress_tracking.autonomy:R0",
+        "title": "Interview progress and completeness tracking · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.interview_progress_tracking.autonomy:R2",
+        "title": "Interview progress and completeness tracking · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.interview_progress_tracking.autonomy:R4",
+        "title": "Interview progress and completeness tracking · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.interview_transcript_answer_normalization",
+        "title": "Interview transcript answer normalization",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.interview_transcript_answer_normalization and changes a file. Commit your work with a `Story: admissions.CAP.interview_transcript_answer_normalization` trailer (or admissions.CAP.interview_transcript_answer_normalization in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document names applicant confirmation as the only path from needs_followup to answered."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.interview_transcript_answer_normalization.autonomy:R0",
+        "title": "Interview transcript answer normalization · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.interview_transcript_answer_normalization.autonomy:R1",
+        "title": "Interview transcript answer normalization · R1",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.interview_transcript_answer_normalization.autonomy:R5",
+        "title": "Interview transcript answer normalization · R5",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.knowledge_base_website_sync",
+        "title": "Admissions knowledge base website sync",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.knowledge_base_website_sync and changes a file. Commit your work with a `Story: admissions.CAP.knowledge_base_website_sync` trailer (or admissions.CAP.knowledge_base_website_sync in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every reported divergence quotes both the stored text and the live text."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.knowledge_base_website_sync.autonomy:R2",
+        "title": "Admissions knowledge base website sync · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.knowledge_base_website_sync.autonomy:R4",
+        "title": "Admissions knowledge base website sync · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.knowledge_base_website_sync.autonomy:R6",
+        "title": "Admissions knowledge base website sync · R6",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.lead_intake_dedup_and_qualification",
+        "title": "Lead intake de-duplication and qualification",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.lead_intake_dedup_and_qualification and changes a file. Commit your work with a `Story: admissions.CAP.lead_intake_dedup_and_qualification` trailer (or admissions.CAP.lead_intake_dedup_and_qualification in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every answer honours the default scope so no campaign_test lead is reported as a real one."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.lead_intake_dedup_and_qualification.autonomy:R2",
+        "title": "Lead intake de-duplication and qualification · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.lead_intake_dedup_and_qualification.autonomy:R4",
+        "title": "Lead intake de-duplication and qualification · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.lead_intake_dedup_and_qualification.autonomy:R6",
+        "title": "Lead intake de-duplication and qualification · R6",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.manager_surface_access_remediation",
+        "title": "Manager surface access remediation",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.manager_surface_access_remediation and changes a file. Commit your work with a `Story: admissions.CAP.manager_surface_access_remediation` trailer (or admissions.CAP.manager_surface_access_remediation in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document names all three gates in order, cites the admissions blocker at agentDomainRegistry.ts:148-151, names Ali as approver and states that rollback is deleting the row."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.manager_surface_access_remediation.autonomy:R0",
+        "title": "Manager surface access remediation · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.manager_surface_access_remediation.autonomy:R2",
+        "title": "Manager surface access remediation · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.maya_applicant_chat_response",
+        "title": "Prospective-applicant chat response",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.maya_applicant_chat_response and changes a file. Commit your work with a `Story: admissions.CAP.maya_applicant_chat_response` trailer (or admissions.CAP.maya_applicant_chat_response in the subject line) and push."
+        ],
+        "outstanding": [
+          "On a 50-question fixture set, every answer traces to an admissions_knowledge_entries row and the refusal path fires on all questions with no approved answer."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.maya_applicant_chat_response.autonomy:R2",
+        "title": "Prospective-applicant chat response · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.maya_applicant_chat_response.autonomy:R5",
+        "title": "Prospective-applicant chat response · R5",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.maya_applicant_chat_response.autonomy:R7",
+        "title": "Prospective-applicant chat response · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.monthly_subscription_and_mrr_report",
+        "title": "Monthly subscription and MRR report",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.monthly_subscription_and_mrr_report and changes a file. Commit your work with a `Story: admissions.CAP.monthly_subscription_and_mrr_report` trailer (or admissions.CAP.monthly_subscription_and_mrr_report in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every count reconciles with a re-runnable query and the source system is named in the answer."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.monthly_subscription_and_mrr_report.autonomy:R2",
+        "title": "Monthly subscription and MRR report · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.monthly_subscription_and_mrr_report.autonomy:R4",
+        "title": "Monthly subscription and MRR report · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.monthly_subscription_and_mrr_report.autonomy:R7",
+        "title": "Monthly subscription and MRR report · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.offer_document_package_generation",
+        "title": "Offer document package generation",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.offer_document_package_generation and changes a file. Commit your work with a `Story: admissions.CAP.offer_document_package_generation` trailer (or admissions.CAP.offer_document_package_generation in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document states that template_version is never back-filled and that generation requires an approved state."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.offer_document_package_generation.autonomy:R0",
+        "title": "Offer document package generation · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.offer_document_package_generation.autonomy:R2",
+        "title": "Offer document package generation · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.offer_document_package_generation.autonomy:R4",
+        "title": "Offer document package generation · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.outreach_compliance_monitoring",
+        "title": "Outreach compliance monitoring",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.outreach_compliance_monitoring and changes a file. Commit your work with a `Story: admissions.CAP.outreach_compliance_monitoring` trailer (or admissions.CAP.outreach_compliance_monitoring in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every answer is reproducible from CommunicationLog and email_send_ledger rows alone."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.outreach_compliance_monitoring.autonomy:R2",
+        "title": "Outreach compliance monitoring · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.outreach_compliance_monitoring.autonomy:R5",
+        "title": "Outreach compliance monitoring · R5",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.outreach_compliance_monitoring.autonomy:R7",
+        "title": "Outreach compliance monitoring · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.page_event_admissions_enrichment",
+        "title": "Visitor page-event admissions enrichment",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.page_event_admissions_enrichment and changes a file. Commit your work with a `Story: admissions.CAP.page_event_admissions_enrichment` trailer (or admissions.CAP.page_event_admissions_enrichment in the subject line) and push."
+        ],
+        "outstanding": [
+          "20 sampled visitor summaries match the underlying page events with zero fabricated page titles."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.page_event_admissions_enrichment.autonomy:R2",
+        "title": "Visitor page-event admissions enrichment · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.page_event_admissions_enrichment.autonomy:R4",
+        "title": "Visitor page-event admissions enrichment · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.page_event_admissions_enrichment.autonomy:R7",
+        "title": "Visitor page-event admissions enrichment · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.pipeline_executive_update",
+        "title": "Admissions pipeline executive update",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.pipeline_executive_update and changes a file. Commit your work with a `Story: admissions.CAP.pipeline_executive_update` trailer (or admissions.CAP.pipeline_executive_update in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every figure reconciles with a re-runnable query and no figure is estimated."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.pipeline_executive_update.autonomy:R2",
+        "title": "Admissions pipeline executive update · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.pipeline_executive_update.autonomy:R4",
+        "title": "Admissions pipeline executive update · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.pipeline_executive_update.autonomy:R7",
+        "title": "Admissions pipeline executive update · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.proactive_chat_eligibility_marking",
+        "title": "Proactive chat eligibility marking",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.proactive_chat_eligibility_marking and changes a file. Commit your work with a `Story: admissions.CAP.proactive_chat_eligibility_marking` trailer (or admissions.CAP.proactive_chat_eligibility_marking in the subject line) and push."
+        ],
+        "outstanding": [
+          "Each proposal cites the intent reading that qualified it."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.proactive_chat_eligibility_marking.autonomy:R2",
+        "title": "Proactive chat eligibility marking · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.proactive_chat_eligibility_marking.autonomy:R4",
+        "title": "Proactive chat eligibility marking · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.proactive_chat_eligibility_marking.autonomy:R7",
+        "title": "Proactive chat eligibility marking · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.refund_and_churn_tracking",
+        "title": "Refund and churn tracking",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.refund_and_churn_tracking and changes a file. Commit your work with a `Story: admissions.CAP.refund_and_churn_tracking` trailer (or admissions.CAP.refund_and_churn_tracking in the subject line) and push."
+        ],
+        "outstanding": [
+          "Unrecorded reasons are reported as unrecorded and never inferred."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.refund_and_churn_tracking.autonomy:R2",
+        "title": "Refund and churn tracking · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.refund_and_churn_tracking.autonomy:R4",
+        "title": "Refund and churn tracking · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.refund_and_churn_tracking.autonomy:R7",
+        "title": "Refund and churn tracking · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.reviewer_decision_packet_assembly",
+        "title": "Reviewer decision packet assembly",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.reviewer_decision_packet_assembly and changes a file. Commit your work with a `Story: admissions.CAP.reviewer_decision_packet_assembly` trailer (or admissions.CAP.reviewer_decision_packet_assembly in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document states that no score, rank or suggested outcome may appear and names the reviewer as the decision-maker."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.reviewer_decision_packet_assembly.autonomy:R0",
+        "title": "Reviewer decision packet assembly · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.reviewer_decision_packet_assembly.autonomy:R1",
+        "title": "Reviewer decision packet assembly · R1",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.reviewer_decision_packet_assembly.autonomy:R5",
+        "title": "Reviewer decision packet assembly · R5",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.scheduler_registry_name_drift_reconciliation",
+        "title": "Scheduler and registry name drift reconciliation",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.scheduler_registry_name_drift_reconciliation and changes a file. Commit your work with a `Story: admissions.CAP.scheduler_registry_name_drift_reconciliation` trailer (or admissions.CAP.scheduler_registry_name_drift_reconciliation in the subject line) and push."
+        ],
+        "outstanding": [
+          "The three measured name mismatches at aiOpsScheduler.ts:234, :235 and :237 are reported, and a fixture whose name is corrected disappears from the report, which is the mutation proof."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.scheduler_registry_name_drift_reconciliation.autonomy:R1",
+        "title": "Scheduler and registry name drift reconciliation · R1",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.scheduler_registry_name_drift_reconciliation.autonomy:R4",
+        "title": "Scheduler and registry name drift reconciliation · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.scheduler_registry_name_drift_reconciliation.autonomy:R7",
+        "title": "Scheduler and registry name drift reconciliation · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.signed_document_verification",
+        "title": "Signed document verification",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.signed_document_verification and changes a file. Commit your work with a `Story: admissions.CAP.signed_document_verification` trailer (or admissions.CAP.signed_document_verification in the subject line) and push."
+        ],
+        "outstanding": [
+          "The document names verification as a human decision and states the free-access failure mode from AI_INTERNSHIP_DISCOVERY.md:118-139."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.signed_document_verification.autonomy:R0",
+        "title": "Signed document verification · R0",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.signed_document_verification.autonomy:R2",
+        "title": "Signed document verification · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.visitor_insight_aggregation",
+        "title": "Admissions funnel insight aggregation",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.visitor_insight_aggregation and changes a file. Commit your work with a `Story: admissions.CAP.visitor_insight_aggregation` trailer (or admissions.CAP.visitor_insight_aggregation in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every figure reconciles with a query a human can re-run; no figure is estimated."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.visitor_insight_aggregation.autonomy:R2",
+        "title": "Admissions funnel insight aggregation · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.visitor_insight_aggregation.autonomy:R5",
+        "title": "Admissions funnel insight aggregation · R5",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.visitor_insight_aggregation.autonomy:R7",
+        "title": "Admissions funnel insight aggregation · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.visitor_intent_scoring",
+        "title": "Prospective-applicant intent scoring",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.visitor_intent_scoring and changes a file. Commit your work with a `Story: admissions.CAP.visitor_intent_scoring` trailer (or admissions.CAP.visitor_intent_scoring in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every explanation cites at least one stored interest or question and none invents a signal."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.visitor_intent_scoring.autonomy:R2",
+        "title": "Prospective-applicant intent scoring · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.visitor_intent_scoring.autonomy:R5",
+        "title": "Prospective-applicant intent scoring · R5",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.visitor_intent_scoring.autonomy:R7",
+        "title": "Prospective-applicant intent scoring · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.weekly_cohort_progress_report",
+        "title": "Weekly cohort progress report",
+        "status": "not_started",
+        "verification_state": "in_progress",
+        "verified": false,
+        "criteria_passed": 0,
+        "criteria_total": 1,
+        "reasons": [
+          "None of the 1 acceptance criteria are marked as passing yet.",
+          "No commit in the repo names admissions.CAP.weekly_cohort_progress_report and changes a file. Commit your work with a `Story: admissions.CAP.weekly_cohort_progress_report` trailer (or admissions.CAP.weekly_cohort_progress_report in the subject line) and push."
+        ],
+        "outstanding": [
+          "Every movement claim cites two snapshot rows; no movement is claimed where only one snapshot exists."
+        ],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.weekly_cohort_progress_report.autonomy:R2",
+        "title": "Weekly cohort progress report · R2",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.weekly_cohort_progress_report.autonomy:R4",
+        "title": "Weekly cohort progress report · R4",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.weekly_cohort_progress_report.autonomy:R7",
+        "title": "Weekly cohort progress report · R7",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.LEGACY-MIGRATION-PLAN",
+        "title": "Legacy migration plan",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "31a67bca590d5c77fe1e7a24b34a1e3d9ea28736"
+      },
+      {
+        "story_id": "admissions.RESEARCH-1-SYSTEM-CLASSES",
+        "title": "Compare the five system classes, and place this domain among them",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "3931417bf645cf71536c18e798c268a9cde4eaa1"
+      },
+      {
+        "story_id": "admissions.RESEARCH-2-AGENT-ANATOMY",
+        "title": "Map the nine anatomy elements onto this domain's agent",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "5cfffc7def6a9ab631e66dccedf95e48fc9f0196"
+      },
+      {
+        "story_id": "admissions.RESEARCH-3-ROLE-AND-DA-TRANSITION",
+        "title": "Document Taiwo Oludimimu's role, and which DA responsibilities transition",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "b412653e83ceca2bb0bf53d0a6d6b9bc32580a03"
+      },
+      {
+        "story_id": "admissions.RESEARCH-4-MANAGER-INTERVIEW",
+        "title": "Prepare a 30-minute interview with Taiwo Oludimimu and propose a weekly check-in",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "a88284b3e81735d0b9736df7d851371adda33a20"
+      },
+      {
+        "story_id": "admissions.RESEARCH-5-THREE-PROPOSED-TASKS",
+        "title": "Capture three proposed agent tasks with boundaries and completion evidence",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 3,
+        "criteria_total": 3,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "74a6007e2839c8b7d3ef055353be9bd3aa43f283"
+      },
+      {
+        "story_id": "admissions.STORY-000",
+        "title": "STORY-000 · Build your Command Center",
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 6,
+        "criteria_total": 6,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "8fdb41b00f6ce65e5e34e6129fdc615b63ad4590"
+      }
+    ]
   },
   "not_recorded": [
     {
