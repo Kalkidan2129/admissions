@@ -1539,31 +1539,47 @@
       "criteria": [
         {
           "text": "Given the Command Center, when it is opened, then all six panels render and each one names the endpoint it read.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Given a panel whose endpoint returned nothing, when it renders, then it says so in words and is visibly distinct from a panel that is still loading.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Given the autonomy ladder panel, when it renders, then all ten rungs are present with the owner's wording, and each capability's ceiling is marked against the rung it stops at.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Given the autonomy ladder panel, when a capability's authority is shown, then the page shows the effective authority `effectiveAuthority()` returns rather than the level the capability record asks for, and names the `no_tool_grants` rule with the number of capabilities it currently constrains, saying so in words when that number is zero.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Given the governance panel, when a tool request is shown, then nothing on the page states or implies that filing it granted anything.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "Trust -- no panel shows a number, a grant, a rung or a result this domain has not actually produced.",
-          "passed": false
+          "passed": true
         }
       ],
-      "files_touched": [],
-      "tests_added": [],
+      "files_touched": [
+        "cc/agentDomain/access.js",
+        "cc/agentDomain/api.js",
+        "cc/agentDomain/authority.js",
+        "cc/agentDomain/fixtures.js",
+        "cc/agentDomain/model.js",
+        "cc/agentDomain/panels.js",
+        "cc/agentDomain/session.js",
+        "cc/tabs/agentDomain.js",
+        "cc/app.js",
+        "cc/app.css",
+        "cc/theme.css",
+        "cc/tests/agentDomain.test.mjs",
+        ".colaberry/enrichment/admissions.STORY-000.json"
+      ],
+      "tests_added": [
+        "cc/tests/agentDomain.test.mjs"
+      ],
       "notes": null,
       "updated_at": null,
       "verification": {
