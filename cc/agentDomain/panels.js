@@ -11,8 +11,10 @@ import {
 const when = (iso) => (iso ? formatCentral(new Date(iso)) : '');
 const missing = (field) => h('span', { class: 'not-returned', title: NOT_RETURNED[field] }, 'not returned');
 
-function frame(n, title, question, states, body, sample) {
-  const status = panelStatus(states);
+// `states` are the endpoints the header names; `gate` the ones that must be ok before the body
+// renders (all of them unless a panel can say something useful from fewer).
+function frame(n, title, question, states, body, sample, gate = states) {
+  const status = panelStatus(gate);
   const loaded = states.map((s) => s.loadedAt).filter(Boolean).sort().at(-1);
   return h('section', { class: `ad-panel ad-${status.kind}`, 'aria-labelledby': `ad-p${n}` },
     h('header', { class: 'ad-panel-head' },
@@ -52,19 +54,37 @@ export function inventoryPanel(e, sample) {
   }, sample);
 }
 
+// Panel 3 renders from agent-domains-mine alone (the rungs, the agent's level, tools and enabled);
+// the per-capability ceilings wait for the coverage route and say so in words until it loads.
 export function ladderPanel(e, domainKey, sample) {
-  return frame(3, 'The autonomy ladder', 'where is this going?', [e.coverage, e.mine], () => {
+  return frame(3, 'The autonomy ladder', 'where is this going?', [e.mine, e.coverage], () => {
     const employee = employeeView(e.mine, domainKey);
-    const tools = employee.kind === 'ok' ? employee.tools : [];
-    const rows = authorityRows(e.coverage.data?.rows ?? [], tools);
-    const summary = noToolGrantsSummary(rows);
+    const agentFacts = employee.kind === 'ok'
+      ? table(['The agent, from agent-domains-mine', 'Value'], employee.fields.filter(([k]) => LADDER_AGENT_FIELDS.includes(k)), '')
+      : stateBox(employee.kind, employee.message);
     return h('div', {},
       h('ol', { class: 'rungs', start: '0' }, RUNGS.map((r) => h('li', {}, h('code', {}, r.stage), ` ${r.meaning}`,
         r.stage === UNREACHABLE_BY_FACT ? h('strong', {}, ' Unreachable by fact: coordinated handoff between agents does not exist in this platform.') : ''))),
-      h('p', { class: 'muted' }, `Wording: ${LADDER_SOURCE}. The employee's autonomy level in panel 1 is a different scale and is not marked on this ladder.`),
-      h('p', { class: 'ad-rule' }, h('strong', {}, 'no_tool_grants: '), summary.sentence),
-      h('p', { class: 'muted' }, `Authority shown is what ${AUTHORITY_SOURCE} returns, with the approved level from the coverage endpoint's effective_authority (recorded approvals only), the agent's granted tools from panel 1, environment sandbox, and human_decision taken as true because no endpoint returns it. The reason for each ceiling is not returned by either endpoint.`),
-      rows.length === 0 ? stateBox('empty', emptyMessage(e.coverage, 'no capabilities')) : h('div', { class: 'table-wrap' }, h('table', { class: 'ladder' },
+      h('p', { class: 'muted' }, `Wording: ${LADDER_SOURCE}.`),
+      agentFacts,
+      h('p', { class: 'muted' }, 'The agent\'s autonomy level is on the agent-level scale (observe / suggest / act_audited / communicate). It is not a rung on the R0 to R9 ladder above, so it is not marked on it.'),
+      ceilings(e, employee.kind === 'ok' ? employee.tools : []));
+  }, sample, [e.mine]);
+}
+
+const LADDER_AGENT_FIELDS = ['Autonomy level', 'Tools granted', 'Enabled'];
+
+function ceilings(e, tools) {
+  const coverage = panelStatus([e.coverage]);
+  if (coverage.kind !== 'ok') {
+    return stateBox(coverage.kind, `Ceilings can't be marked yet, and the no_tool_grants count can't be taken, because ${get(e.coverage.path)} has not loaded. None is shown in their place. ${coverage.message}`);
+  }
+  const rows = authorityRows(e.coverage.data?.rows ?? [], tools);
+  const summary = noToolGrantsSummary(rows);
+  return h('div', {},
+    h('p', { class: 'ad-rule' }, h('strong', {}, 'no_tool_grants: '), summary.sentence),
+    h('p', { class: 'muted' }, `Authority shown is what ${AUTHORITY_SOURCE} returns, with the approved level from the coverage endpoint's effective_authority (recorded approvals only), the agent's granted tools from agent-domains-mine, environment sandbox, and human_decision taken as true because no endpoint returns it. The reason for each ceiling is not returned by either endpoint.`),
+    rows.length === 0 ? stateBox('empty', emptyMessage(e.coverage, 'no capabilities')) : h('div', { class: 'table-wrap' }, h('table', { class: 'ladder' },
         h('thead', {}, h('tr', {}, h('th', {}, 'Capability'), h('th', {}, 'Effective authority'), RUNGS.map((r) => h('th', { title: r.meaning }, r.stage.replace('autonomy:', ''))))),
         h('tbody', {}, rows.map((row) => h('tr', {},
           h('td', {}, row.name ?? row.id),
@@ -74,8 +94,7 @@ export function ladderPanel(e, domainKey, sample) {
             const label = tags.includes('ceiling') ? 'ceiling' : tags.includes('unreachable-fact') ? 'n/a' : tags.includes('unreachable') ? '×' : '';
             return h('td', { class: tags.map((t) => `lc-${t}`).join(' '), title: tags.join(', ') }, tags.includes('effective') ? `● ${label}` : label);
           })))))),
-      h('p', { class: 'muted' }, 'Legend: "ceiling" is the capability\'s max_permitted_autonomy; × is above that ceiling and unreachable for that capability, not future work; R8 is unreachable for every capability; ● marks effective authority.'));
-  }, sample);
+    h('p', { class: 'muted' }, 'Legend: "ceiling" is the capability\'s max_permitted_autonomy; × is above that ceiling and unreachable for that capability, not future work; R8 is unreachable for every capability; ● marks effective authority.'));
 }
 
 export function behaviourPanel(e, sample) {

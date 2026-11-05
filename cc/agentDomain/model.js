@@ -2,6 +2,7 @@
 // the rules are testable. Every value comes from an endpoint response; anything the endpoints do
 // not return is named as missing, never filled in.
 import { NOT_LOADED, LOADING, ERROR } from './session.js';
+import { isDomainScopedRoute } from './api.js';
 import { RUNGS, UNREACHABLE_BY_FACT, autonomyIndex, isAutonomyStage, effectiveAuthority } from './authority.js';
 
 export const get = (path) => `GET ${path}`;
@@ -22,13 +23,19 @@ export const NOT_RETURNED = Object.freeze({
 export function panelStatus(states) {
   const paths = states.map((s) => get(s.path)).join(' and ');
   if (states.some((s) => s.status === NOT_LOADED)) {
-    return { kind: 'not-loaded', message: `Not loaded yet. Enter the portal address and your admin token above; this panel then reads ${paths}.` };
+    return { kind: 'not-loaded', message: `Not loaded yet. Sign in above with your participant token; this panel then reads ${paths}.` };
   }
   if (states.some((s) => s.status === LOADING)) return { kind: 'loading', message: `Loading ${paths}…` };
-  const failed = states.find((s) => s.status === ERROR);
-  if (failed) return { kind: 'error', message: `Could not read ${get(failed.path)}. ${failed.error.message}` };
+  const failed = states.filter((s) => s.status === ERROR);
+  const real = failed.find((s) => !isUndeployed(s));
+  if (real) return { kind: 'error', message: `Could not read ${get(real.path)}. ${real.error.message}` };
+  if (failed.length) return { kind: 'not-deployed', message: notDeployedMessage(failed[0]) };
   return { kind: 'ok', message: null };
 }
+
+// A 404 from a domain-scoped route means it is not deployed yet. Any other 404 is a real error.
+export const isUndeployed = (s) => s.status === ERROR && s.error?.status === 404 && isDomainScopedRoute(s.path);
+export const notDeployedMessage = (s) => `This route has not been deployed yet (HTTP 404). ${get(s.path)} fills this in once the portal serves it.`;
 
 export const emptyMessage = (state, what) => `${get(state.path)} answered (HTTP ${state.httpStatus}) and returned ${what}.`;
 

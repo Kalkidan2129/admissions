@@ -106,3 +106,7 @@ table.ladder td:first-child, table.ladder td:nth-child(2) { text-align: left; }
 .lc-ceiling { background: var(--ceiling-bg); color: var(--ceiling-text); font-weight: 600; }
 .lc-unreachable, .lc-unreachable-fact { background: var(--unreachable-bg); color: var(--muted); }
 .lc-effective { outline: 2px solid var(--text); outline-offset: -3px; }
+.ad-access p { margin: 4px 0; }
+.ad-state-ok { border: 1px solid var(--border); border-left: 4px solid var(--accent); background: var(--surface-2); }
+.ad-state-not-deployed { border: 2px dashed var(--undeployed-border); background: var(--undeployed-bg); }
+.ad-state-not-deployed::before { content: "🚧 "; }
