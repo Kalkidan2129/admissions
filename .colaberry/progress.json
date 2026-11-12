@@ -3,13 +3,13 @@
   "project": "admissions",
   "totals": {
     "stories_total": 54,
-    "stories_verified": 7,
+    "stories_verified": 8,
     "stories_submitted": 0,
-    "stories_in_progress": 47,
+    "stories_in_progress": 46,
     "stories_not_started": 0,
     "criteria_total": 71,
-    "criteria_passed": 24,
-    "points_awarded": 105
+    "criteria_passed": 25,
+    "points_awarded": 120
   },
   "stories": [
     {
@@ -31,9 +31,9 @@
         "criteria_passed": 0,
         "criteria_total": 1,
         "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
+        "commit_sha": "627928025ec95c544f728f2eeb3b13796a3d0e7b",
+        "commit_url": "https://github.com/Kalkidan2129/admissions/commit/627928025ec95c544f728f2eeb3b13796a3d0e7b",
+        "commit_at": "2026-11-12T14:43:08Z",
         "points_awarded": null,
         "outstanding": [
           "The document enumerates every reviewer-only edge in internshipStateMachine.ts:155, :163, :170, :191 and names the human accountable for each."
@@ -1063,17 +1063,15 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "in_progress",
-        "criteria_passed": 0,
+        "state": "verified",
+        "criteria_passed": 1,
         "criteria_total": 1,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
-        "outstanding": [
-          "20 sampled visitor summaries match the underlying page events with zero fabricated page titles."
-        ]
+        "verified_at": "2026-11-12T21:01:38.964Z",
+        "commit_sha": "33d6cae3d3205b4f82a2fe32f00930f81818cf52",
+        "commit_url": "https://github.com/Kalkidan2129/admissions/commit/33d6cae3d3205b4f82a2fe32f00930f81818cf52",
+        "commit_at": "2026-11-12T02:00:47Z",
+        "points_awarded": 15,
+        "outstanding": []
       }
     },
     {
