@@ -3,7 +3,7 @@
 // /api/portal/mgmt/status and /enter. Both tokens are held in session.js memory only.
 // In Sample mode the panels show the made-up responses in agentDomain/fixtures.js instead.
 import { h } from '../dom.js';
-import { createSession } from '../agentDomain/session.js';
+import { sharedSession } from '../agentDomain/sharedSession.js';
 import { normaliseBaseUrl, DEFAULT_PORTAL } from '../agentDomain/api.js';
 import { accessView } from '../agentDomain/access.js';
 import { sampleEndpoints } from '../agentDomain/fixtures.js';
@@ -12,17 +12,8 @@ import {
   employeePanel, inventoryPanel, ladderPanel, behaviourPanel, governancePanel, gapsPanel,
 } from '../agentDomain/panels.js';
 
-let session = null;
 let rerender = () => {};
 let formError = null;
-
-function sessionFor(domainKey) {
-  if (!session) {
-    session = createSession({ domainKey });
-    session.subscribe(() => rerender());
-  }
-  return session;
-}
 
 function connectForm(s) {
   const base = h('input', { type: 'url', name: 'portal', required: true, placeholder: DEFAULT_PORTAL, value: s.baseUrl ?? DEFAULT_PORTAL,
@@ -57,7 +48,7 @@ export function renderAgentDomain(ctx) {
   rerender = ctx.rerender;
   const domainKey = ctx.data.plan.project?.name;
   if (!domainKey) return h('section', {}, h('h2', {}, 'Agent domain'), h('p', { class: 'empty' }, 'plan.json names no project, so there is no domain to read.'));
-  const s = sessionFor(domainKey);
+  const s = sharedSession(domainKey, ctx.rerender);
   const e = ctx.sample ? sampleEndpoints(domainKey) : s.endpoints;
   return h('section', { class: 'agent-domain' },
     h('h2', {}, `Agent domain: ${domainKey}`),

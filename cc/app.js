@@ -15,6 +15,7 @@ import { renderAgents } from './tabs/agents.js';
 import { renderKnowledge } from './tabs/knowledge.js';
 import { renderDataModel } from './tabs/datamodel.js';
 import { renderAgentDomain } from './tabs/agentDomain.js';
+import { renderVisitorSample } from './tabs/visitorSample.js';
 
 const TABS = [
   { key: 'overview', label: 'Overview', render: renderOverview },
@@ -27,6 +28,7 @@ const TABS = [
   { key: 'knowledge', label: 'Knowledge base', render: renderKnowledge },
   { key: 'datamodel', label: 'Data model', render: renderDataModel },
   { key: 'agentdomain', label: 'Agent domain', render: renderAgentDomain },
+  { key: 'visitorsample', label: 'Visitor sample', render: renderVisitorSample },
 ];
 
 const MODE_KEY = 'cc-mode';

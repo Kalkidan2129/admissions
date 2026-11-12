@@ -139,6 +139,21 @@ export function createSession({ domainKey, fetchImpl = (...a) => fetch(...a), no
       }));
     },
 
+    // One GET with the admin token, for a read that must happen exactly once (the Visitor sample
+    // tab): no automatic retry and no re-mint, so a failure is shown rather than quietly repeated.
+    // The token never leaves this module; only the portal's answer does.
+    async readOnce(path) {
+      if (access.status !== OK || !adminToken) {
+        throw new ApiError('AuthError', 'GET', path, 'was not called: sign in on the Agent domain tab first.');
+      }
+      const mine = generation;
+      const result = await getJson({ baseUrl, token: adminToken, path, fetchImpl, secrets: secrets(), maxAttempts: 1 });
+      if (mine !== generation) {
+        throw new ApiError('Superseded', 'GET', path, 'answered after the token was forgotten or replaced, so the answer was dropped.');
+      }
+      return result;
+    },
+
     forget() {
       participantToken = null;
       adminToken = null;

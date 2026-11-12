@@ -115,9 +115,10 @@ async function attempt({ fetchImpl, baseUrl, path, method, token, timeoutMs, sec
 }
 
 export async function requestJson({ baseUrl, token, path, method = 'GET', fetchImpl = fetch, timeoutMs = TIMEOUT_MS,
-  retryDelayMs = RETRY_DELAY_MS, secrets = [] }) {
+  retryDelayMs = RETRY_DELAY_MS, secrets = [], maxAttempts: getAttempts = MAX_ATTEMPTS }) {
   const all = [token, ...secrets];
-  const maxAttempts = method === 'GET' ? MAX_ATTEMPTS : 1;
+  // A caller that must call exactly once (the visitor sample) passes maxAttempts: 1.
+  const maxAttempts = method === 'GET' ? getAttempts : 1;
   for (let n = 1; ; n++) {
     try {
       return await attempt({ fetchImpl, baseUrl, path, method, token, timeoutMs, secrets: all });

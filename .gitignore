@@ -4,3 +4,4 @@ tmp/
 node_modules/
 __pycache__/
 .claude/settings.local.json
+sample-results.json

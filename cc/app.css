@@ -110,3 +110,9 @@ table.ladder td:first-child, table.ladder td:nth-child(2) { text-align: left; }
 .ad-state-ok { border: 1px solid var(--border); border-left: 4px solid var(--accent); background: var(--surface-2); }
 .ad-state-not-deployed { border: 2px dashed var(--undeployed-border); background: var(--undeployed-bg); }
 .ad-state-not-deployed::before { content: "🚧 "; }
+.vs-totals { font-size: 1.4rem; font-weight: 700; margin: 12px 0 4px; }
+.vs-note { border: 2px solid var(--warn-border); background: var(--warn-bg); color: var(--warn-text); }
+.vs-match { font-weight: 600; }
+.vs-mismatch { font-weight: 700; color: var(--warn-text); background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 4px; padding: 0 6px; }
+.vs-visitor { margin: 6px 0; }
+.vs-visitor summary { cursor: pointer; }
