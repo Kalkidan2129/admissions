@@ -256,8 +256,8 @@
   <h2>Found along the way</h2>
   <div class="box">
     <ul>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span><b>The 8:14 PM failure was a deploy restart</b>Confirmed by the platform team.</span></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span><b>The unbounded page-event query is fixed</b>Reported from this work; the platform team added an index and a per-visitor cap, both now live.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span><b>The 11 November, 8:14 PM CST failure was a deploy restart</b>Confirmed by the platform team.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span><b>The unbounded page-event query is partly fixed</b>Reported from this work. The platform team added an index and a per-visitor cap, both live, so the pull is safe. The query still sorts every matching row before the cut; the platform team is rewriting it to fetch per visitor.</span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span><b><code>limit=35</code> was measured and approved</b>By the platform team, with <code>events_per_visitor=20</code>. The tab refuses any other value.</span></li>
     </ul>
   </div>
@@ -265,7 +265,7 @@
   <h2>Open items (platform team's tickets)</h2>
   <div class="box">
     <ul>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg><span><b>The agent doesn't match the capability brief</b>The brief's description of the agent is wrong; the platform team holds the ticket.</span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg><span><b>The agent doesn't match the capability brief</b>The agent doesn't behave as the brief describes: the 15-minute read has no watermark, there is no 'unclassified' result, and an error on the activity log write is swallowed. No test covers it. The platform team holds the ticket.</span></li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg><span><b>The R8 citation belongs to <code>agentDomainReleaseLadder.ts</code></b>Not to the file the brief cites; the platform team holds the ticket.</span></li>
     </ul>
   </div>
