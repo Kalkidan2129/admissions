@@ -9,7 +9,7 @@ import { sharedSession } from '../agentDomain/sharedSession.js';
 import { OK } from '../agentDomain/session.js';
 import { createPuller } from '../visitorSample/pull.js';
 import {
-  STORY_ID, SAMPLE_SIZE, MAX_LIMIT, SAMPLE_RULE, SIGNALS_PATH, NO_TITLE, totalsLine, resultsFile,
+  STORY_ID, SAMPLE_SIZE, MAX_LIMIT, MAX_EVENTS_PER_VISITOR, SAMPLE_RULE, SIGNALS_PATH, NO_TITLE, totalsLine, resultsFile,
 } from '../visitorSample/model.js';
 
 const CRITERION = '20 sampled visitor summaries match the underlying page events with zero fabricated page titles.';
@@ -60,7 +60,7 @@ function results(st) {
     h('p', { class: 'vs-totals', role: 'status' }, totalsLine(totals)),
     h('p', { class: 'muted' }, pulled),
     sample.short ? h('p', { class: 'ad-state vs-note', role: 'status' },
-      `Only ${totals.sampled} of the ${route.visitorsInBody} visitors returned have at least one page event, fewer than ${SAMPLE_SIZE}. The sample is reported as it is, and is not pulled again with a bigger limit (this tab never asks for more than ${MAX_LIMIT}).`) : null,
+      `Only ${totals.sampled} of the ${route.visitorsInBody} visitors returned have at least one page event, fewer than ${SAMPLE_SIZE}. The sample is reported as it is, and is not pulled again with a bigger limit (this tab never asks for a limit above ${MAX_LIMIT} or events_per_visitor above ${MAX_EVENTS_PER_VISITOR}).`) : null,
     h('ul', {},
       h('li', {}, `Visitors in the response: ${route.visitorsInBody} (the route's "returned": ${route.returned}; "matching", its count of admissions memory rows: ${route.matching}).`),
       h('li', {}, `Skipped for having no page events: ${sample.skippedNoEvents}.`),

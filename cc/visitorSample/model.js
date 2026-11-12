@@ -12,18 +12,18 @@
 
 export const STORY_ID = 'admissions.CAP.page_event_admissions_enrichment';
 export const SAMPLE_SIZE = 20;
-// The platform team measured the route and asked for no limit above 20 (2026-11-11), after a
-// limit=100 pull failed. MAX_LIMIT is a ceiling this tab can never exceed, for either parameter.
-export const MAX_LIMIT = 20;
-export const LIMIT = 20;
+// The platform team measured the route and approved limit=35 and events_per_visitor=20
+// (2026-11-12), after a limit=100 pull failed. These are the only two values this tab sends:
+// MAX_LIMIT and MAX_EVENTS_PER_VISITOR are ceilings it can never exceed.
+export const MAX_LIMIT = 35;
+export const MAX_EVENTS_PER_VISITOR = 20;
+export const LIMIT = 35;
 export const EVENTS_PER_VISITOR = 20;
 
-/** The route path for a pull. Refuses any limit that is not a whole number from 1 to MAX_LIMIT. */
+/** The route path for a pull. Refuses anything but the two approved values, limit=35 and events_per_visitor=20. */
 export function signalsPath(limit, eventsPerVisitor) {
-  for (const [name, n] of [['limit', limit], ['events_per_visitor', eventsPerVisitor]]) {
-    if (!Number.isInteger(n) || n < 1 || n > MAX_LIMIT) {
-      throw new RangeError(`${name} must be a whole number from 1 to ${MAX_LIMIT}; ${n} was refused.`);
-    }
+  for (const [name, n, only] of [['limit', limit, MAX_LIMIT], ['events_per_visitor', eventsPerVisitor, MAX_EVENTS_PER_VISITOR]]) {
+    if (n !== only) throw new RangeError(`${name} must be exactly ${only}, the value the platform team approved; ${n} was refused.`);
   }
   return `/api/admin/agent-domains-mine/admissions/admissions-signals?limit=${limit}&events_per_visitor=${eventsPerVisitor}`;
 }
@@ -33,7 +33,7 @@ export const NO_TITLE = '(no title)';
 export const SAMPLE_RULE = `One pull of GET ${SIGNALS_PATH}. From that single response, the visitors whose page_event_count `
   + `is at least 1, in the order the route returned them, up to ${SAMPLE_SIZE}. Visitors with no events are skipped and counted. `
   + `If fewer than ${SAMPLE_SIZE} have events, the sample is reported as it is: nothing is pulled again, and never with a limit `
-  + `above ${MAX_LIMIT}. A visitor with more events than the ${EVENTS_PER_VISITOR} returned is marked partial.`;
+  + `above ${MAX_LIMIT} or events_per_visitor above ${MAX_EVENTS_PER_VISITOR}. A visitor with more events than the ${EVENTS_PER_VISITOR} returned is marked partial.`;
 
 const isString = (v) => typeof v === 'string';
 const isStringArray = (v) => Array.isArray(v) && v.every(isString);

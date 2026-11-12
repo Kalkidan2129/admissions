@@ -7,7 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  NO_TITLE, SAMPLE_SIZE, SIGNALS_PATH, MAX_LIMIT, signalsPath, buildSummary, checkSummary, evaluate, resultsFile, selectSample,
+  NO_TITLE, SAMPLE_SIZE, SIGNALS_PATH, MAX_LIMIT, MAX_EVENTS_PER_VISITOR, signalsPath, buildSummary, checkSummary, evaluate, resultsFile, selectSample,
   responseProblems, visitorProblems, totalsLine,
 } from '../visitorSample/model.js';
 import { createPuller } from '../visitorSample/pull.js';
@@ -20,29 +20,42 @@ const body = (visitors) => ({ domain_key: 'admissions', visitors, returned: visi
   not_recorded: ['ip_address', 'user_agent'], disclosure: 'Made-up disclosure for a test.' });
 const silence = () => { const orig = console.error; console.error = () => {}; return () => { console.error = orig; }; };
 
-test('the route path is the one the platform merged in PR 3779, with limit=20 and events_per_visitor=20', () => {
-  assert.equal(SIGNALS_PATH, '/api/admin/agent-domains-mine/admissions/admissions-signals?limit=20&events_per_visitor=20');
+test('the route path is the one the platform merged in PR 3779, with limit=35 and events_per_visitor=20', () => {
+  assert.equal(SIGNALS_PATH, '/api/admin/agent-domains-mine/admissions/admissions-signals?limit=35&events_per_visitor=20');
 });
 
-test('a limit above 20 is never allowed', () => {
-  for (const [limit, events] of [[21, 20], [20, 21], [100, 200], [0, 20], [20, 0], [1.5, 20], ['20', 20]]) {
+test('only limit=35 and events_per_visitor=20 are allowed: never a limit above 35 or events_per_visitor above 20', () => {
+  for (const [limit, events] of [[36, 20], [35, 21], [100, 200], [20, 20], [34, 20], [35, 19], [0, 20], [35, 0], [35.5, 20], ['35', 20], [35, '20']]) {
     assert.throws(() => signalsPath(limit, events), RangeError, `${limit}, ${events}`);
   }
-  assert.equal(MAX_LIMIT, 20);
-  assert.equal(signalsPath(20, 20), SIGNALS_PATH);
+  assert.equal(MAX_LIMIT, 35);
+  assert.equal(MAX_EVENTS_PER_VISITOR, 20);
+  assert.equal(signalsPath(35, 20), SIGNALS_PATH);
 });
 
-test('fewer than 20 of the 20 returned have events: reported plainly, and not pulled again with a bigger limit', async () => {
+test('35 returned: the first 20 with events, in returned order, are sampled and the rest are not reached', () => {
   const vs = [];
-  for (let i = 0; i < 20; i++) vs.push(i % 4 === 0 ? visitor(`z${i}`, []) : visitor(`v${i}`, [ev(`Page ${i}`)]));
+  for (let i = 0; i < 35; i++) vs.push(i % 5 === 0 ? visitor(`z${i}`, []) : visitor(`v${i}`, [ev(`Page ${i}`)]));
+  const r = evaluate(body(vs));
+  assert.equal(r.totals.sampled, 20);
+  assert.equal(r.sample.short, false);
+  assert.equal(r.sample.skippedNoEvents, 5); // z0, z5, z10, z15, z20 come before the 20th visitor with events (v24)
+  assert.equal(r.sample.notReached, 10);
+  assert.deepEqual(r.rows.map((row) => row.summary.titles[0]), vs.filter((v) => v.page_event_count > 0).slice(0, 20).map((v) => v.page_events[0].page_title));
+  assert.equal(totalsLine(r.totals), '20 of 20 match · 0 fabricated titles');
+});
+
+test('fewer than 20 of the 35 returned have events: reported plainly, and not pulled again with a bigger limit', async () => {
+  const vs = [];
+  for (let i = 0; i < 35; i++) vs.push(i < 20 ? visitor(`z${i}`, []) : visitor(`v${i}`, [ev(`Page ${i}`)]));
   const paths = [];
   const p = createPuller({ read: async (path) => { paths.push(path); return { status: 200, body: body(vs) }; } });
   await p.pull();
   await p.pull();
-  assert.deepEqual(paths, [SIGNALS_PATH]); // one call, limit=20, never a bigger one
+  assert.deepEqual(paths, [SIGNALS_PATH]); // one call, limit=35, never a bigger one
   const r = p.state.evaluation;
   assert.equal(r.totals.sampled, 15);
-  assert.equal(r.sample.skippedNoEvents, 5);
+  assert.equal(r.sample.skippedNoEvents, 20);
   assert.equal(r.sample.short, true);
   assert.equal(totalsLine(r.totals), '15 of 15 match · 0 fabricated titles (only 15 sampled; the criterion asks for 20)');
 });
@@ -159,7 +172,7 @@ test('the download holds the table, totals, pull time, limits and skipped count,
   const r = evaluate(body(vs));
   const file = resultsFile(r, new Date('2026-11-11T18:00:00Z'), '12:00 PM CST on 2026-11-11');
   assert.deepEqual(Object.keys(file).sort(), ['events_per_visitor', 'limit', 'pulled_at', 'pulled_at_central', 'rows', 'skipped_no_events', 'story', 'totals']);
-  assert.equal(file.limit, 20);
+  assert.equal(file.limit, 35);
   assert.equal(file.events_per_visitor, 20);
   assert.equal(file.skipped_no_events, 1);
   assert.deepEqual(file.rows, [{ visitor: 'V01', events_returned: 1, page_event_count: 1, partial: false, titles_in_summary: 1, fabricated_titles: 0, result: 'Match' }]);
