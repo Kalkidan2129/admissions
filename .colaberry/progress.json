@@ -1055,7 +1055,7 @@
       "criteria": [
         {
           "text": "20 sampled visitor summaries match the underlying page events with zero fabricated page titles.",
-          "passed": false
+          "passed": true
         }
       ],
       "files_touched": [],
