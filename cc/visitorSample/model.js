@@ -12,13 +12,28 @@
 
 export const STORY_ID = 'admissions.CAP.page_event_admissions_enrichment';
 export const SAMPLE_SIZE = 20;
-export const LIMIT = 100;
-export const EVENTS_PER_VISITOR = 200;
-export const SIGNALS_PATH = `/api/admin/agent-domains-mine/admissions/admissions-signals?limit=${LIMIT}&events_per_visitor=${EVENTS_PER_VISITOR}`;
+// The platform team measured the route and asked for no limit above 20 (2026-11-11), after a
+// limit=100 pull failed. MAX_LIMIT is a ceiling this tab can never exceed, for either parameter.
+export const MAX_LIMIT = 20;
+export const LIMIT = 20;
+export const EVENTS_PER_VISITOR = 20;
+
+/** The route path for a pull. Refuses any limit that is not a whole number from 1 to MAX_LIMIT. */
+export function signalsPath(limit, eventsPerVisitor) {
+  for (const [name, n] of [['limit', limit], ['events_per_visitor', eventsPerVisitor]]) {
+    if (!Number.isInteger(n) || n < 1 || n > MAX_LIMIT) {
+      throw new RangeError(`${name} must be a whole number from 1 to ${MAX_LIMIT}; ${n} was refused.`);
+    }
+  }
+  return `/api/admin/agent-domains-mine/admissions/admissions-signals?limit=${limit}&events_per_visitor=${eventsPerVisitor}`;
+}
+
+export const SIGNALS_PATH = signalsPath(LIMIT, EVENTS_PER_VISITOR);
 export const NO_TITLE = '(no title)';
-export const SAMPLE_RULE = `One pull of GET ${SIGNALS_PATH}. From that single response, the first ${SAMPLE_SIZE} visitors, `
-  + 'in the order the route returned them, whose page_event_count is at least 1. Visitors with no events are skipped and '
-  + 'counted. Nothing is pulled again.';
+export const SAMPLE_RULE = `One pull of GET ${SIGNALS_PATH}. From that single response, the visitors whose page_event_count `
+  + `is at least 1, in the order the route returned them, up to ${SAMPLE_SIZE}. Visitors with no events are skipped and counted. `
+  + `If fewer than ${SAMPLE_SIZE} have events, the sample is reported as it is: nothing is pulled again, and never with a limit `
+  + `above ${MAX_LIMIT}. A visitor with more events than the ${EVENTS_PER_VISITOR} returned is marked partial.`;
 
 const isString = (v) => typeof v === 'string';
 const isStringArray = (v) => Array.isArray(v) && v.every(isString);
@@ -143,7 +158,9 @@ export function evaluate(body) {
   };
 }
 
-export const totalsLine = (t) => `${t.matches} of ${t.sampled} match · ${t.fabricatedTitles} fabricated titles`;
+// A short sample says so in the line itself, so "15 of 15" is never read as the 20 the criterion asks for.
+export const totalsLine = (t) => `${t.matches} of ${t.sampled} match · ${t.fabricatedTitles} fabricated titles`
+  + (t.sampled < SAMPLE_SIZE ? ` (only ${t.sampled} sampled; the criterion asks for ${SAMPLE_SIZE})` : '');
 
 /**
  * sample-results.json: the V01-V20 table, the totals, the pull time, the limits used and the
