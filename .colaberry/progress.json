@@ -1,12 +1,12 @@
 {
   "schema_version": 2,
-  "project": "admissions",
+  "project": "Admissions & Applicant Experience",
   "totals": {
-    "stories_total": 54,
+    "stories_total": 58,
     "stories_verified": 8,
     "stories_submitted": 0,
     "stories_in_progress": 46,
-    "stories_not_started": 0,
+    "stories_not_started": 4,
     "criteria_total": 71,
     "criteria_passed": 25,
     "points_awarded": 120
@@ -14,7 +14,7 @@
   "stories": [
     {
       "id": "admissions.CAP.admission_decision_recording",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -42,7 +42,7 @@
     },
     {
       "id": "admissions.CAP.admissions_funnel_anomaly_detection",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -70,7 +70,7 @@
     },
     {
       "id": "admissions.CAP.admissions_knowledge_curation",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -98,7 +98,7 @@
     },
     {
       "id": "admissions.CAP.admissions_rbac_path_coverage_audit",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -126,7 +126,7 @@
     },
     {
       "id": "admissions.CAP.ai_voice_interview_dispatch",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -154,7 +154,7 @@
     },
     {
       "id": "admissions.CAP.applicant_assessment_preparation",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -182,7 +182,7 @@
     },
     {
       "id": "admissions.CAP.applicant_lifecycle_audit_trail",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -210,7 +210,7 @@
     },
     {
       "id": "admissions.CAP.applicant_pii_minimization_review",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -238,7 +238,7 @@
     },
     {
       "id": "admissions.CAP.applicant_reply_draft_preparation",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -266,7 +266,7 @@
     },
     {
       "id": "admissions.CAP.application_queue_triage",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -294,7 +294,7 @@
     },
     {
       "id": "admissions.CAP.appointment_booking_assistance",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -322,7 +322,7 @@
     },
     {
       "id": "admissions.CAP.at_risk_student_identification_and_handoff",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -350,7 +350,7 @@
     },
     {
       "id": "admissions.CAP.callback_request_queue_management",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -378,7 +378,7 @@
     },
     {
       "id": "admissions.CAP.cohort_retrospective_report",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -406,7 +406,7 @@
     },
     {
       "id": "admissions.CAP.conversation_action_request_detection",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -434,7 +434,7 @@
     },
     {
       "id": "admissions.CAP.conversation_continuity_stitching",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -462,7 +462,7 @@
     },
     {
       "id": "admissions.CAP.conversation_memory_summarization",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -490,7 +490,7 @@
     },
     {
       "id": "admissions.CAP.da_reporting_responsibility_transition_map",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -518,7 +518,7 @@
     },
     {
       "id": "admissions.CAP.daily_enrollment_report",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -546,7 +546,7 @@
     },
     {
       "id": "admissions.CAP.decision_notification_delivery",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -574,7 +574,7 @@
     },
     {
       "id": "admissions.CAP.department_signal_rollup",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -602,7 +602,7 @@
     },
     {
       "id": "admissions.CAP.domain_scope_reconciliation",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -630,7 +630,7 @@
     },
     {
       "id": "admissions.CAP.eligibility_attestation_blocking_flag",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -658,7 +658,7 @@
     },
     {
       "id": "admissions.CAP.enrollment_conversion_strategy_proposals",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -686,7 +686,7 @@
     },
     {
       "id": "admissions.CAP.enterprise_high_intent_flagging",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -714,7 +714,7 @@
     },
     {
       "id": "admissions.CAP.escalation_threshold_governance",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -742,7 +742,7 @@
     },
     {
       "id": "admissions.CAP.existing_intern_conversion_planning",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -770,7 +770,7 @@
     },
     {
       "id": "admissions.CAP.intern_activation",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -798,7 +798,7 @@
     },
     {
       "id": "admissions.CAP.interview_progress_tracking",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -826,7 +826,7 @@
     },
     {
       "id": "admissions.CAP.interview_transcript_answer_normalization",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -854,7 +854,7 @@
     },
     {
       "id": "admissions.CAP.knowledge_base_website_sync",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -882,7 +882,7 @@
     },
     {
       "id": "admissions.CAP.lead_intake_dedup_and_qualification",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -910,7 +910,7 @@
     },
     {
       "id": "admissions.CAP.manager_surface_access_remediation",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -938,7 +938,7 @@
     },
     {
       "id": "admissions.CAP.maya_applicant_chat_response",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -966,7 +966,7 @@
     },
     {
       "id": "admissions.CAP.monthly_subscription_and_mrr_report",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -994,7 +994,7 @@
     },
     {
       "id": "admissions.CAP.offer_document_package_generation",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1022,7 +1022,7 @@
     },
     {
       "id": "admissions.CAP.outreach_compliance_monitoring",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1050,7 +1050,7 @@
     },
     {
       "id": "admissions.CAP.page_event_admissions_enrichment",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1075,8 +1075,136 @@
       }
     },
     {
+      "id": "admissions.CAP.page_event_admissions_enrichment.L1-BY-HAND",
+      "release": "autonomy:R0",
+      "acceptance_total": 2,
+      "criteria": [
+        {
+          "text": "The capability was performed end to end by hand, producing its real outcome on real inputs.",
+          "passed": false
+        },
+        {
+          "text": "A run log exists recording the date, the elapsed time, each step actually performed, every judgment call made, and at least one way the recorded workflow differed from what the work was really like.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 0,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": []
+      }
+    },
+    {
+      "id": "admissions.CAP.page_event_admissions_enrichment.L2-IN-THE-APP",
+      "release": "autonomy:R0",
+      "acceptance_total": 2,
+      "criteria": [
+        {
+          "text": "The same outcome was produced a second time using only the product, with no agent, no script and no direct database edit -- or the exact step that made this impossible is written down as a named gap.",
+          "passed": false
+        },
+        {
+          "text": "The app route was compared against the step 1 run log, and every difference between them is recorded.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 0,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": []
+      }
+    },
+    {
+      "id": "admissions.CAP.page_event_admissions_enrichment.L3-TOOL-REQUEST",
+      "release": "autonomy:R0",
+      "acceptance_total": 3,
+      "criteria": [
+        {
+          "text": "A change request for a tool exists against this domain, filed by the builder, naming the tool, its scope, what it must never touch, and who approves a run.",
+          "passed": false
+        },
+        {
+          "text": "The request cites the step 1 run log and the step 2 result as its evidence.",
+          "passed": false
+        },
+        {
+          "text": "A named human other than the builder has recorded a decision on it. A decline counts; an undecided request does not.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 0,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": []
+      }
+    },
+    {
+      "id": "admissions.CAP.page_event_admissions_enrichment.L4-AGENT-WATCHED",
+      "release": "autonomy:R0",
+      "acceptance_total": 3,
+      "criteria": [
+        {
+          "text": "20 sampled visitor summaries match the underlying page events with zero fabricated page titles.",
+          "passed": false
+        },
+        {
+          "text": "The agent produced the same outcome as the step 1 run log, on the same inputs, including the exceptions recorded there.",
+          "passed": false
+        },
+        {
+          "text": "Every run in the evidence window was approved by a named human before it took effect, and the record shows who.",
+          "passed": false
+        }
+      ],
+      "files_touched": [],
+      "tests_added": [],
+      "notes": null,
+      "updated_at": null,
+      "verification": {
+        "state": "not_started",
+        "criteria_passed": 0,
+        "criteria_total": 0,
+        "verified_at": null,
+        "commit_sha": null,
+        "commit_url": null,
+        "commit_at": null,
+        "points_awarded": null,
+        "outstanding": []
+      }
+    },
+    {
       "id": "admissions.CAP.pipeline_executive_update",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1104,7 +1232,7 @@
     },
     {
       "id": "admissions.CAP.proactive_chat_eligibility_marking",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1132,7 +1260,7 @@
     },
     {
       "id": "admissions.CAP.refund_and_churn_tracking",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1160,7 +1288,7 @@
     },
     {
       "id": "admissions.CAP.reviewer_decision_packet_assembly",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1188,7 +1316,7 @@
     },
     {
       "id": "admissions.CAP.scheduler_registry_name_drift_reconciliation",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1216,7 +1344,7 @@
     },
     {
       "id": "admissions.CAP.signed_document_verification",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1244,7 +1372,7 @@
     },
     {
       "id": "admissions.CAP.visitor_insight_aggregation",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1272,7 +1400,7 @@
     },
     {
       "id": "admissions.CAP.visitor_intent_scoring",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1300,7 +1428,7 @@
     },
     {
       "id": "admissions.CAP.weekly_cohort_progress_report",
-      "release": "r2",
+      "release": "autonomy:R0",
       "acceptance_total": 1,
       "criteria": [
         {
@@ -1328,7 +1456,7 @@
     },
     {
       "id": "admissions.LEGACY-MIGRATION-PLAN",
-      "release": "r1",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {
@@ -1362,7 +1490,7 @@
     },
     {
       "id": "admissions.RESEARCH-1-SYSTEM-CLASSES",
-      "release": "r0",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {
@@ -1396,7 +1524,7 @@
     },
     {
       "id": "admissions.RESEARCH-2-AGENT-ANATOMY",
-      "release": "r0",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {
@@ -1430,7 +1558,7 @@
     },
     {
       "id": "admissions.RESEARCH-3-ROLE-AND-DA-TRANSITION",
-      "release": "r0",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {
@@ -1464,7 +1592,7 @@
     },
     {
       "id": "admissions.RESEARCH-4-MANAGER-INTERVIEW",
-      "release": "r0",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {
@@ -1498,7 +1626,7 @@
     },
     {
       "id": "admissions.RESEARCH-5-THREE-PROPOSED-TASKS",
-      "release": "r0",
+      "release": "autonomy:R0",
       "acceptance_total": 3,
       "criteria": [
         {

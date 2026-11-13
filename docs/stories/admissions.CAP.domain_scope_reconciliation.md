@@ -1,5 +1,7 @@
 # admissions.CAP.domain_scope_reconciliation — Admissions domain scope reconciliation
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 The admissions AI employee is built against one agreed scope, so work is not done twice across two domains and no part of the applicant journey is left with no owner.
 
 **Built today:** absent. **Requirement validated:** draft -- Taiwo Oludimimu must confirm scope, exceptions and success measures; he has no admin login today
@@ -11,7 +13,7 @@ The admissions AI employee is built against one agreed scope, so work is not don
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

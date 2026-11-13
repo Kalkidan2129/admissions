@@ -1,5 +1,7 @@
 # admissions.CAP.at_risk_student_identification_and_handoff — At-risk student identification and handoff
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 A student who has gone quiet is noticed within days and reaches a human within two days of an automated nudge failing, instead of being discovered at the end of the cohort.
 
 **Built today:** partial. **Requirement validated:** draft -- Taiwo Oludimimu must confirm scope, exceptions and success measures; he has no admin login today
@@ -13,7 +15,7 @@ A student who has gone quiet is noticed within days and reaches a human within t
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

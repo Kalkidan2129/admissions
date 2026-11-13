@@ -1,5 +1,7 @@
 # admissions.CAP.admissions_rbac_path_coverage_audit — Admissions RBAC path coverage audit
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 The admissions role can actually reach its own surfaces and no others, because every admissions API path is mapped to a section deliberately rather than falling through a deny-by-default gate nobody noticed.
 
 **Built today:** absent. **Requirement validated:** draft -- Taiwo Oludimimu must confirm scope, exceptions and success measures; he has no admin login today
@@ -12,7 +14,7 @@ The admissions role can actually reach its own surfaces and no others, because e
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

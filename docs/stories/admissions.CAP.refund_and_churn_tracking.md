@@ -1,5 +1,7 @@
 # admissions.CAP.refund_and_churn_tracking — Refund and churn tracking
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 Refunds and churn are visible as a trend with a reason attached, so a policy or delivery problem is caught as a pattern rather than as a series of individual complaints.
 
 **Built today:** unknown. **Requirement validated:** draft -- Taiwo Oludimimu must confirm scope, exceptions and success measures; he has no admin login today
@@ -12,7 +14,7 @@ Refunds and churn are visible as a trend with a reason attached, so a policy or 
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

@@ -1,5 +1,7 @@
 # admissions.CAP.page_event_admissions_enrichment — Visitor page-event admissions enrichment
 
+**IN FLIGHT.** This capability is the one this domain is building right now. The work itself is its four ladder stories -- do it by hand, do it in the app, request the tool, then let the agent do it watched -- and they run in that order. This row is the capability they belong to, not a fifth piece of work.
+
 Every page view by a prospective applicant carries admissions context (interest signals, programme affinity), so a later conversation starts from what the person already looked at instead of from zero.
 
 **Built today:** implemented. **Requirement validated:** draft -- Taiwo Oludimimu must confirm scope, exceptions and success measures; he has no admin login today
@@ -12,7 +14,7 @@ Every page view by a prospective applicant carries admissions context (interest 
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

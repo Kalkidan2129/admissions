@@ -8,7 +8,7 @@ Cover: which capabilities they want first, which must stay human forever, what "
 
 **Blocker to raise in the interview:** Taiwo Oludimimu cannot reach the agent surface today. manager_access_unreachable_two_ways: Taiwo Oludimimu owns this domain (owner decision, 2026-10-11) and is already the reports_to target for 4 agents, but he cannot reach the surface for two independent reasons: (a) he has no admin_users row, and (b) no /api/admin/admissions prefix is mapped in mgmtSectionGate PATH_SECTION, which is deny-by-default for scoped roles -- so granting a scoped login alone would still 403 him on all nine of his own routes. Both must be fixed together. Note separately that the mgmt ROLE named 'admissions' grants the 'internship' section and is attributed to Dhee at mgmtSectionGate.ts:100: a role-name collision, not an ownership question. Neither is fixed by this build. Until that is fixed they cannot see what they are being asked to validate.
 
-**Release:** r0 · Discovery and validation (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

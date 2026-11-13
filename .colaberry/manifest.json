@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-11-13T20:06:22.059Z",
-  "plan_version": 1,
-  "plan_sha256": "78bb8173167c52d236675b124fa3e2cfe2d26c543d7bf17931b48b6bcdd5d7fe",
-  "correlation_id": "cc-20261113-q7m2-postladder-admissions",
+  "generated_at": "2026-11-13T22:46:15.247Z",
+  "plan_version": 2,
+  "plan_sha256": "3bfbe67d8d611c32f2265b786066acf775320c45321069395a8649c0b17fce8a",
+  "correlation_id": null,
   "project_id": "aefb0b8d-7b89-58aa-88ac-3750083f5cd8",
   "truth_revision": null,
   "files": [
     {
       "path": "docs/REQUIREMENTS.md",
-      "sha256": "b128d08f94cec9ad1b72da3dcf8c00a2b9e152a041b1cfb7d53d2ffb8dcad2c0"
+      "sha256": "3025769ad763709a4587f5b0d95ee93f9ffc664b64e09cba9870b4ad347e86b1"
     },
     {
       "path": "docs/STORIES.md",
-      "sha256": "e7f3ea1359e8b7b02d0db78fd82f8d85b836356b8cb454105107dfd2631c2eab"
+      "sha256": "d7558568255ba67b30ff681b60cf340cb102fc78fcf7cd4392b91ce9230ea299"
     },
     {
       "path": "docs/TRACEABILITY.md",
-      "sha256": "809cb1c2f5e47d2177a5b3bbc606dd0d0298b75b94defc112d764b6df017a65a"
+      "sha256": "3fa26492f23ac57ad197edc7b288fbc080bfa173ecaf85a7df134a51d204eb7c"
     },
     {
       "path": "docs/DATA_CONTRACT.md",
@@ -24,231 +24,247 @@
     },
     {
       "path": "CLAUDE.md",
-      "sha256": "59ffc9a7cd768ef7e39678032c1ca3b5b2f666e4343960afbf12564796c6ec62"
+      "sha256": "502f0f2dc4101a4f7ccad546dd8d48d80ba4f6f631ed45ef0f930bbc7550c64c"
     },
     {
       "path": "docs/stories/admissions.CAP.admission_decision_recording.md",
-      "sha256": "00d30a5c68420d5dd76dfe5f5ab89de3b033705f1134ef5bfe7db279fc6cf8fc"
+      "sha256": "95d8f953736f0434fdabc6419131c6bc418b1452c027ca5a363638072cfdbd5f"
     },
     {
       "path": "docs/stories/admissions.CAP.admissions_funnel_anomaly_detection.md",
-      "sha256": "e7e8f17b93ba890d26c4fd207afe6cf039042547a3f5aaba1644dcc1731d0e57"
+      "sha256": "395dc1b3df5baf08db91e779374ffcc1edaec3b79b5d26f60f75df6e1e1651c6"
     },
     {
       "path": "docs/stories/admissions.CAP.admissions_knowledge_curation.md",
-      "sha256": "1e40ae834beb2c26fd5f85a7e9a75663a89211efd99bb94be30d356817ae2b91"
+      "sha256": "6a7a4e4b2567f876bdf12fb9e6c852b77f775e6501255db7d9cbf9975ecf04fc"
     },
     {
       "path": "docs/stories/admissions.CAP.admissions_rbac_path_coverage_audit.md",
-      "sha256": "24a16024d709d127d0f6c9cb1fe06ed63979673cf89b61464f14d503a27d407e"
+      "sha256": "a5580b10ff8dc5c5eb803e54e37398fd1bca280734ba4d7a282e17c440fb2d66"
     },
     {
       "path": "docs/stories/admissions.CAP.ai_voice_interview_dispatch.md",
-      "sha256": "8afb96647d1803d9489c3ebd15bff12a3b1c6b28958f1d11d7af24981981f243"
+      "sha256": "48a7f3e95f29031ff46fd454c4d2522b5884a0bf7ee89e1ca2c0e63b37bf650c"
     },
     {
       "path": "docs/stories/admissions.CAP.applicant_assessment_preparation.md",
-      "sha256": "1f19cc6f0caed6eea9893554934a89bf4c20d792a959af5d29c7c4ce36f4e9d8"
+      "sha256": "a985351a0f97292778eaf32df3725786c20770f2981966a58b28bf9b183ea4e4"
     },
     {
       "path": "docs/stories/admissions.CAP.applicant_lifecycle_audit_trail.md",
-      "sha256": "08289678e3bfc81b066e9397c968b9c27f7ac1810c31172e41f36e9c65dfb20c"
+      "sha256": "1f39a5635ece5869dce69c50b394464be97ef65e1690d102e4eef3bf8c1d7778"
     },
     {
       "path": "docs/stories/admissions.CAP.applicant_pii_minimization_review.md",
-      "sha256": "213b4b3b2ed1c3fab1a0dfc9261532da2e1335ad8b06ff9c975c097368c44ab0"
+      "sha256": "aa4c744899cf0a08934de54d64858f9e4ae6efb8ebd838666dcdab5e8a768c5f"
     },
     {
       "path": "docs/stories/admissions.CAP.applicant_reply_draft_preparation.md",
-      "sha256": "ad2011da42e724f93aa58e89209c2460723df4189531ccc21857b5522d63a1bd"
+      "sha256": "330f4e39501fe565867e3fe60a12e5ac72145f98f23203239c9dd4cf64bbf059"
     },
     {
       "path": "docs/stories/admissions.CAP.application_queue_triage.md",
-      "sha256": "dca799f78e31813208beb3e83a82ea16aaac81324f8eb961fe0930cc0afe3fd7"
+      "sha256": "08f99c89c04484def7896f711ad0a5be58ea55a01547fee5931dd3a372be6672"
     },
     {
       "path": "docs/stories/admissions.CAP.appointment_booking_assistance.md",
-      "sha256": "383ab34ffb70e53892c9da146e462cf599f422f5e7e56615941b21202c290c60"
+      "sha256": "d9a45a55c5d6f9a07cdc4906dd73f9502ddec23ec3d660b29717c1a74ec59eb4"
     },
     {
       "path": "docs/stories/admissions.CAP.at_risk_student_identification_and_handoff.md",
-      "sha256": "363fb3661997b8a429218fd86fa65304fef2bd879de026d5c8cb7e5df7403493"
+      "sha256": "23aa5c5fd0a9684347c9f5d8ac2ad65cbd7029c6cc0ad60af7e0bd14b051bdcb"
     },
     {
       "path": "docs/stories/admissions.CAP.callback_request_queue_management.md",
-      "sha256": "412a164fd8a39f2ef5ee76067dba33e3d20c89f3b77c76b5928e93fb6c43da95"
+      "sha256": "29959c3ad9e032063cff3b7e3c304b5bb3689a17344a6070694e1a8ed9aff83c"
     },
     {
       "path": "docs/stories/admissions.CAP.cohort_retrospective_report.md",
-      "sha256": "2cac471f725aead02457acca288c5ce5e0ffcf7ffea348ceb0b762e4dea8bcf2"
+      "sha256": "be81e706d862c44076a9e77d4c5d40542b0105e8471873a0f4d112205ad41087"
     },
     {
       "path": "docs/stories/admissions.CAP.conversation_action_request_detection.md",
-      "sha256": "f11166d80143e9c02ba838bffd62f157faf0db585f8fe8f4bcf61e27c3af9c0b"
+      "sha256": "6cf85e6d7ea2f63302a8776be669d81aab1683828ee9d533600862cd1eafca0c"
     },
     {
       "path": "docs/stories/admissions.CAP.conversation_continuity_stitching.md",
-      "sha256": "0cfaeca07dd4c9c470d47c42acd8ac81e66cd26a954ae56c0087575971b2dfe2"
+      "sha256": "cec4f3016a38cd6310000babee908b739d6b4bd79a95b6a8af139bf862ae189e"
     },
     {
       "path": "docs/stories/admissions.CAP.conversation_memory_summarization.md",
-      "sha256": "6cff27729570fcbab575e529ef100fb7a5248d1d9e3bab171811e83e683aec08"
+      "sha256": "95622613dcbefb5bbbbd588417ee4c0f94c7faa2906dc450a9cd011117c81b63"
     },
     {
       "path": "docs/stories/admissions.CAP.da_reporting_responsibility_transition_map.md",
-      "sha256": "9d880f3dd8540987c3846c10e261595250e77ded384a98bdfb9acce24d0fef04"
+      "sha256": "1f76472bdab05367d9ca0369c801a21669d57ebf2376c7b7fc2fc29b40932feb"
     },
     {
       "path": "docs/stories/admissions.CAP.daily_enrollment_report.md",
-      "sha256": "f67ddd4cfd2c9c9a0d290e368b4c78e4415ce6643bdfb75fea2eca374f5fa29e"
+      "sha256": "74417063ebf9cf87d7765ad19f1b15c0554909c664cba42cdaa5726f69ad8b9d"
     },
     {
       "path": "docs/stories/admissions.CAP.decision_notification_delivery.md",
-      "sha256": "bcbbf8765a3268c2e199aa86196b44232c12c9b88cabcdbd30aca56c5538aac0"
+      "sha256": "a4d2a649deee6e5ffafc436c668279ce0698d295055f0c8be0f1ac998dd46f5b"
     },
     {
       "path": "docs/stories/admissions.CAP.department_signal_rollup.md",
-      "sha256": "3dd00db8027ad04343616f43d4d6fe9230a93adc6664829839d59944a5df65cf"
+      "sha256": "3ca88b844e7d2e904b66ac6b3345baec51715ec9539e236ba9ecd11846e41fbf"
     },
     {
       "path": "docs/stories/admissions.CAP.domain_scope_reconciliation.md",
-      "sha256": "e1898fce4af967d476815153254b4e607a03dcaa83cd70e832b68d35d1aff356"
+      "sha256": "bfb01dc815575a62c809ca98d2d9725e4abf7b19a50c58d21c8c7ff1866ad976"
     },
     {
       "path": "docs/stories/admissions.CAP.eligibility_attestation_blocking_flag.md",
-      "sha256": "a737661c5c8997ad24eb8b22577b7922d54937fdb85f289d26f0a82dd1fe552b"
+      "sha256": "b38ab7ce6e3fd2e4e964dc8b6293ec52f0f74783668ff13c25fb5a5a439258ed"
     },
     {
       "path": "docs/stories/admissions.CAP.enrollment_conversion_strategy_proposals.md",
-      "sha256": "1f92985b21639ddbc3a9cbd67e6fcf18d472ca31dc8d72bc409f1bd736791857"
+      "sha256": "1b28729e501f66ad547ec7e97f52e0c1a4c42989b62dd8c1223c2d232114a51f"
     },
     {
       "path": "docs/stories/admissions.CAP.enterprise_high_intent_flagging.md",
-      "sha256": "271adb12d7f6f3fc24ae594a0583f73cd78307d3de7c2f5ff13e8db01598e4c1"
+      "sha256": "7ff71d2daac587c7d7193f4603f8755565cd9d2c8a63bd967bc3ef3cfad01337"
     },
     {
       "path": "docs/stories/admissions.CAP.escalation_threshold_governance.md",
-      "sha256": "49d08cf23dbbaecc629c335130f9d3df22e52b4ed4ece583fc60bb3b332ff3c2"
+      "sha256": "cae0f7c9b63c89eb3b512acf9d4ebb5b4306d36ba0b428876c834f4edd2f49c8"
     },
     {
       "path": "docs/stories/admissions.CAP.existing_intern_conversion_planning.md",
-      "sha256": "a33a154a073b4ad5dc91e7427dd95251e5b0dfbd0a099668cfac7f4364e4fc56"
+      "sha256": "175c49bce9a5031bf62c5e349ea3780f555a5b6b0caf622a6998db11caa669d4"
     },
     {
       "path": "docs/stories/admissions.CAP.intern_activation.md",
-      "sha256": "f6506502fbb423fc1bb264f4f49a9c425a5f534c94a76f15a21a064c0b6c4212"
+      "sha256": "7ee1f07dbd1bb00a50bb9d5b7e5676121a5af79d6564e3c6a1e682e41f953d86"
     },
     {
       "path": "docs/stories/admissions.CAP.interview_progress_tracking.md",
-      "sha256": "901a3e00a694446d0106de784ff3d5f5b973e895d098bd7fc373b062a402cb23"
+      "sha256": "6819af18df366a381323c64977db2185724b8109985d5edd0fd33eb0ff2b349c"
     },
     {
       "path": "docs/stories/admissions.CAP.interview_transcript_answer_normalization.md",
-      "sha256": "87c6b7bd9ea01d290057e7efecd20b9291cb1212ce8dc2e7a6bbaadd7c7ebcb0"
+      "sha256": "1ce6923bab78ca6d32e2595f8dbc0a134ad5dcc79c43d78a06e6fc1c81d84ecc"
     },
     {
       "path": "docs/stories/admissions.CAP.knowledge_base_website_sync.md",
-      "sha256": "8acd9a9d529f846257737c1f0a1ccc5fa6308ccddcb7d5d3192f76675e21f4ed"
+      "sha256": "75877aa747b973f6443bfabe5d3d69bcca56728a96d3d2ca533ef31b6419e8b7"
     },
     {
       "path": "docs/stories/admissions.CAP.lead_intake_dedup_and_qualification.md",
-      "sha256": "ad1d0edf5f800b7059f1261ee3b45730a7ec767af81a4ccd7c45c306b2795e6e"
+      "sha256": "f64c55de39080498cc202c7525112d7b32ce99c7ced82fdb01eb7912265c3138"
     },
     {
       "path": "docs/stories/admissions.CAP.manager_surface_access_remediation.md",
-      "sha256": "25138558d8410e54c8af7c05d2cb05444bbc59d074e0162ccbed55dd5c1b3370"
+      "sha256": "5f6b4bfdfffbdd79f0d29684a388a294b286c52c86224a2ec3bc3dd637e0da14"
     },
     {
       "path": "docs/stories/admissions.CAP.maya_applicant_chat_response.md",
-      "sha256": "fe0d09eb6543c6bf739457a93da7c45f204fc86ca1a36b178f3f6f0cc46965d3"
+      "sha256": "9e0d57924a2a9ff772834eda84373b9839bfd112cb4955702261fe5ccc663e5b"
     },
     {
       "path": "docs/stories/admissions.CAP.monthly_subscription_and_mrr_report.md",
-      "sha256": "a1d303c7224204d581d4698634e36650b4f5b14a53ab2fce21fde33b82dc8f92"
+      "sha256": "b15cb482b9b8889e9f6054cba9565a6e76578018086f5fa2420f3cf21c1fde2e"
     },
     {
       "path": "docs/stories/admissions.CAP.offer_document_package_generation.md",
-      "sha256": "efbc6487d573024f25ababce4fbb3d622ccfd6726cf567e67a803aa36bbd4489"
+      "sha256": "fd34e1900580c77c456acdfb415c5270fa66bdcc82ccc8f7143023ac491d03cc"
     },
     {
       "path": "docs/stories/admissions.CAP.outreach_compliance_monitoring.md",
-      "sha256": "92942fc52ba0dc7e2350096ac16b8cd938adeac2901a673714ae03b78a983ab8"
+      "sha256": "643cb841f5973d809fe6a89ba35099bb3dc509046c36225978e406862dfa0811"
     },
     {
       "path": "docs/stories/admissions.CAP.page_event_admissions_enrichment.md",
-      "sha256": "cfffd1bcb38805cbebffebef929b067c48d7a2913f92f94849b89183008db427"
+      "sha256": "43208681099944b9d341ebdd1667fb962f176ef24d5397329feae608e62085d4"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.page_event_admissions_enrichment.L1-BY-HAND.md",
+      "sha256": "4e6bb0bc41ef287343fbbcced179488e859257fcd5b756037f70335648d0f7e7"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.page_event_admissions_enrichment.L2-IN-THE-APP.md",
+      "sha256": "72749b17139468c36c9b8374edf7aca597d0a5e6c2498c88b8da82ac6cc6bb8c"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.page_event_admissions_enrichment.L3-TOOL-REQUEST.md",
+      "sha256": "0016f83ab6f8930c2b758c66d1f95fdd5c1e412151b5b991e7ff42e9ccf587c6"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.page_event_admissions_enrichment.L4-AGENT-WATCHED.md",
+      "sha256": "7e353a20676ced79a4c06cc35e9427a62b2aab5285ab7d5619ec0b0e1315ec2e"
     },
     {
       "path": "docs/stories/admissions.CAP.pipeline_executive_update.md",
-      "sha256": "6cc43fbf23dfdcf5efb2c86d1b398ff364643051d1fd7c71861b7e691ad89931"
+      "sha256": "83978b96df45a190c5ee9777796d85e8e850c1c1f26240c57022bd8a4031f62d"
     },
     {
       "path": "docs/stories/admissions.CAP.proactive_chat_eligibility_marking.md",
-      "sha256": "de0c5b55abda3287a7195d9d900d837e0b29effc0b3077a9a939cbd78f94a6aa"
+      "sha256": "a5ab72a63c7859d77546baea9937bc9979d0cc7ed4a56b4fedfed3b0f8a17178"
     },
     {
       "path": "docs/stories/admissions.CAP.refund_and_churn_tracking.md",
-      "sha256": "8afb8ae3edcc862fd8743a06d2ccd2defb420ba92c9a3624cd6bbf0ab6dfa244"
+      "sha256": "6022b9d2bbf290dc72e4a86b3b70200ef52b4c4881418777a6353587d52f4d50"
     },
     {
       "path": "docs/stories/admissions.CAP.reviewer_decision_packet_assembly.md",
-      "sha256": "b429dd308a72e07d9d289bc747f98bf7f56837f8b50c39aee3e64dee07e6a848"
+      "sha256": "04a3c17f4efbc5a3c9f6c87762295f1c407f67ddc2fda6451f006d2743dc127b"
     },
     {
       "path": "docs/stories/admissions.CAP.scheduler_registry_name_drift_reconciliation.md",
-      "sha256": "0b02cfc93e48dd4e041346adc0d40685d1afa6749a92256c78997a0b1fc48679"
+      "sha256": "417c9b947ca876787445a83b5d1eaddcb1082a260ff00a558f8a5668d87900b7"
     },
     {
       "path": "docs/stories/admissions.CAP.signed_document_verification.md",
-      "sha256": "e3b2cd12d8ec9ff53b8341e480686810d8901d8d013c2cdcb1ab631fbbf410bb"
+      "sha256": "dd19c544311715a423bad748b07af1ea362d61946891ac2674f5120e65bd57e7"
     },
     {
       "path": "docs/stories/admissions.CAP.visitor_insight_aggregation.md",
-      "sha256": "2e34256ef87f38acb96cf068b76d6d214de82436692a2d78a93700e7bf134be7"
+      "sha256": "d5c31a98d0590d9c79a129cafa043d5e98fd126530fc8c13eb0f7fda827887c6"
     },
     {
       "path": "docs/stories/admissions.CAP.visitor_intent_scoring.md",
-      "sha256": "18d3d41728645b87a6f53ae241a5649293bf8585bdd05a6956c9ec35e4c20345"
+      "sha256": "90ba77f3612ef804311bd1438d6f2aebb71483c3fea901538351ada426d0ecbc"
     },
     {
       "path": "docs/stories/admissions.CAP.weekly_cohort_progress_report.md",
-      "sha256": "12557f57dbf60290dcb43b68c51725eb3305d6df456d97e7fb62e57b6713afb1"
+      "sha256": "1e9a9e49eb512cfeab70bc552f5e79cf500fbd724dad53720819229965ca0a4a"
     },
     {
       "path": "docs/stories/admissions.LEGACY-MIGRATION-PLAN.md",
-      "sha256": "f749624765a5d617e377e096d43b71fdabb0bb22d0dbe67f21ed49b3c1a3c976"
+      "sha256": "ae0c25a995afcd69654d1ebddc6c0905c4e8e5b19ea463a629d5ebb0b3142f88"
     },
     {
       "path": "docs/stories/admissions.RESEARCH-1-SYSTEM-CLASSES.md",
-      "sha256": "f772cf0ba284431d34af2bb4f990f4abdad4fa40650ca7ff9aa5a5f129e793c3"
+      "sha256": "9273131e90df95bc1ca3d3b4f5ba261f9db7f6a71e2e68dec7e6e5604ced331d"
     },
     {
       "path": "docs/stories/admissions.RESEARCH-2-AGENT-ANATOMY.md",
-      "sha256": "e3605c82b098f0601f39f9b3d1ca9e9fd324da25cbf3ebafeda4a63e4d4eb5bd"
+      "sha256": "9e5321554ba1253a60f3e0daf71521add1e80520de310ed21d8f2467bc17b32f"
     },
     {
       "path": "docs/stories/admissions.RESEARCH-3-ROLE-AND-DA-TRANSITION.md",
-      "sha256": "0451bad214c3000b4944fe914b2da3ef0ea75bd5a658a27a603dc0dd53fed4a7"
+      "sha256": "b162c4ad1f36ad24aee34c6ec8618aa04914b44b233481616b8d70a7d978e257"
     },
     {
       "path": "docs/stories/admissions.RESEARCH-4-MANAGER-INTERVIEW.md",
-      "sha256": "283f908c3715afa914615e91bc651b0382fe8d0a7918340b81d56be4584ae474"
+      "sha256": "3f9debe5891c045f44c096a9999d9c22c4731a422a7856b9b313bada5f9851e0"
     },
     {
       "path": "docs/stories/admissions.RESEARCH-5-THREE-PROPOSED-TASKS.md",
-      "sha256": "87b0ebc95cfd8f98316f1a2b0a2fd169d449b480936e21e20aef23f8ac8a68d3"
+      "sha256": "1a2b798ef561a4853b8956f412faf0c0d504105b268e218997336f9f2efe6f52"
     },
     {
       "path": "docs/stories/admissions.STORY-000.md",
-      "sha256": "74a99b14197785d5b23426b2b5175b2b283ed39c5216391903e13df3c86cb5c4"
+      "sha256": "d1e3ceddd4a3fb446d82a2af9ff7a9cb43eec3473a46d6856f20c685607eb3ef"
     },
     {
       "path": ".colaberry/plan.json",
-      "sha256": "21b3f2b0a7c08bada93aebe406b605a5920447e791f53bd25702d4196f58e037"
+      "sha256": "200fea383c5c1fff09fe94490f91b0c6e371a06c8428deef4573fd84e4774ae9"
     },
     {
       "path": ".colaberry/progress.json",
-      "sha256": "1b8f6534423d693cf4f37758523c579beb46987fa8009666bf242d39ff8bc061"
+      "sha256": "70c8518dc62c78a615baf39cb338feda9c7791743c52d135a4dbc1acafaf3002"
     },
     {
       "path": ".colaberry/profile.json",

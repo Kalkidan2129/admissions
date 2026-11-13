@@ -1,4 +1,4 @@
-# admissions — Requirements
+# Admissions & Applicant Experience — Requirements
 
 The admissions domain agent.
 

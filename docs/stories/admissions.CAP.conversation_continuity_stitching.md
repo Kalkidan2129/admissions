@@ -1,5 +1,7 @@
 # admissions.CAP.conversation_continuity_stitching — Cross-session conversation continuity
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 A prospect who drops off and returns lands in one continuous conversation rather than several fragments, so the admissions picture of them is not split across rows.
 
 **Built today:** implemented. **Requirement validated:** draft -- Taiwo Oludimimu must confirm scope, exceptions and success measures; he has no admin login today
@@ -11,7 +13,7 @@ A prospect who drops off and returns lands in one continuous conversation rather
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 

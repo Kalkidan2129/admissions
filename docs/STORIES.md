@@ -1,6 +1,6 @@
-# admissions — Stories
+# Admissions & Applicant Experience — Stories
 
-53 stories across 3 releases, walking-skeleton first:
+58 stories across 1 releases, walking-skeleton first:
 the earliest release proves the thinnest end-to-end path including the trust
 spine, and later releases stack features on top of something already working.
 
@@ -13,28 +13,10 @@ the page you keep open for the rest of the programme and demo from. It belongs t
 release and fulfils none of your requirements, because it is the window onto your
 system rather than a part of it.
 
-## r0 · Discovery and validation — weeks 0–0
+## autonomy:R0 · Legacy migration plan — weeks 0–0
 
-**Goal:** Deliver every r0 story for admissions.
-**Done when you can show:** The r0 documents exist in the repository and their acceptance criteria are met.
-
-- **[admissions.RESEARCH-1-SYSTEM-CLASSES](stories/admissions.RESEARCH-1-SYSTEM-CLASSES.md)** — Compare the five system classes, and place this domain among them
-- **[admissions.RESEARCH-2-AGENT-ANATOMY](stories/admissions.RESEARCH-2-AGENT-ANATOMY.md)** — Map the nine anatomy elements onto this domain's agent
-- **[admissions.RESEARCH-3-ROLE-AND-DA-TRANSITION](stories/admissions.RESEARCH-3-ROLE-AND-DA-TRANSITION.md)** — Document Taiwo Oludimimu's role, and which DA responsibilities transition
-- **[admissions.RESEARCH-4-MANAGER-INTERVIEW](stories/admissions.RESEARCH-4-MANAGER-INTERVIEW.md)** — Prepare a 30-minute interview with Taiwo Oludimimu and propose a weekly check-in
-- **[admissions.RESEARCH-5-THREE-PROPOSED-TASKS](stories/admissions.RESEARCH-5-THREE-PROPOSED-TASKS.md)** — Capture three proposed agent tasks with boundaries and completion evidence
-
-## r1 · Legacy migration plan — weeks 0–0
-
-**Goal:** Deliver every r1 story for admissions.
-**Done when you can show:** The r1 documents exist in the repository and their acceptance criteria are met.
-
-- **[admissions.LEGACY-MIGRATION-PLAN](stories/admissions.LEGACY-MIGRATION-PLAN.md)** — Legacy migration plan
-
-## r2 · r2 — weeks 0–0
-
-**Goal:** Deliver every r2 story for admissions.
-**Done when you can show:** The r2 documents exist in the repository and their acceptance criteria are met.
+**Goal:** Deliver every autonomy:R0 story for Admissions & Applicant Experience.
+**Done when you can show:** The autonomy:R0 documents exist in the repository and their acceptance criteria are met.
 
 - **[admissions.CAP.admission_decision_recording](stories/admissions.CAP.admission_decision_recording.md)** — Admission decision recording
 - **[admissions.CAP.admissions_funnel_anomaly_detection](stories/admissions.CAP.admissions_funnel_anomaly_detection.md)** — Admissions funnel anomaly detection
@@ -74,6 +56,10 @@ system rather than a part of it.
 - **[admissions.CAP.offer_document_package_generation](stories/admissions.CAP.offer_document_package_generation.md)** — Offer document package generation
 - **[admissions.CAP.outreach_compliance_monitoring](stories/admissions.CAP.outreach_compliance_monitoring.md)** — Outreach compliance monitoring
 - **[admissions.CAP.page_event_admissions_enrichment](stories/admissions.CAP.page_event_admissions_enrichment.md)** — Visitor page-event admissions enrichment
+- **[admissions.CAP.page_event_admissions_enrichment.L1-BY-HAND](stories/admissions.CAP.page_event_admissions_enrichment.L1-BY-HAND.md)** — Visitor page-event admissions enrichment · 1 · do it by hand
+- **[admissions.CAP.page_event_admissions_enrichment.L2-IN-THE-APP](stories/admissions.CAP.page_event_admissions_enrichment.L2-IN-THE-APP.md)** — Visitor page-event admissions enrichment · 2 · do it in the app
+- **[admissions.CAP.page_event_admissions_enrichment.L3-TOOL-REQUEST](stories/admissions.CAP.page_event_admissions_enrichment.L3-TOOL-REQUEST.md)** — Visitor page-event admissions enrichment · 3 · request the tool
+- **[admissions.CAP.page_event_admissions_enrichment.L4-AGENT-WATCHED](stories/admissions.CAP.page_event_admissions_enrichment.L4-AGENT-WATCHED.md)** — Visitor page-event admissions enrichment · 4 · agent does it, watched
 - **[admissions.CAP.pipeline_executive_update](stories/admissions.CAP.pipeline_executive_update.md)** — Admissions pipeline executive update
 - **[admissions.CAP.proactive_chat_eligibility_marking](stories/admissions.CAP.proactive_chat_eligibility_marking.md)** — Proactive chat eligibility marking
 - **[admissions.CAP.refund_and_churn_tracking](stories/admissions.CAP.refund_and_churn_tracking.md)** — Refund and churn tracking
@@ -83,3 +69,10 @@ system rather than a part of it.
 - **[admissions.CAP.visitor_insight_aggregation](stories/admissions.CAP.visitor_insight_aggregation.md)** — Admissions funnel insight aggregation
 - **[admissions.CAP.visitor_intent_scoring](stories/admissions.CAP.visitor_intent_scoring.md)** — Prospective-applicant intent scoring
 - **[admissions.CAP.weekly_cohort_progress_report](stories/admissions.CAP.weekly_cohort_progress_report.md)** — Weekly cohort progress report
+- **[admissions.LEGACY-MIGRATION-PLAN](stories/admissions.LEGACY-MIGRATION-PLAN.md)** — Legacy migration plan
+- **[admissions.RESEARCH-1-SYSTEM-CLASSES](stories/admissions.RESEARCH-1-SYSTEM-CLASSES.md)** — Compare the five system classes, and place this domain among them
+- **[admissions.RESEARCH-2-AGENT-ANATOMY](stories/admissions.RESEARCH-2-AGENT-ANATOMY.md)** — Map the nine anatomy elements onto this domain's agent
+- **[admissions.RESEARCH-3-ROLE-AND-DA-TRANSITION](stories/admissions.RESEARCH-3-ROLE-AND-DA-TRANSITION.md)** — Document Taiwo Oludimimu's role, and which DA responsibilities transition
+- **[admissions.RESEARCH-4-MANAGER-INTERVIEW](stories/admissions.RESEARCH-4-MANAGER-INTERVIEW.md)** — Prepare a 30-minute interview with Taiwo Oludimimu and propose a weekly check-in
+- **[admissions.RESEARCH-5-THREE-PROPOSED-TASKS](stories/admissions.RESEARCH-5-THREE-PROPOSED-TASKS.md)** — Capture three proposed agent tasks with boundaries and completion evidence
+- **[admissions.STORY-000](stories/admissions.STORY-000.md)** — STORY-000 · Build your Command Center

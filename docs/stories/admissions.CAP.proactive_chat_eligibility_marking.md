@@ -1,5 +1,7 @@
 # admissions.CAP.proactive_chat_eligibility_marking — Proactive chat eligibility marking
 
+**CANDIDATE -- not started, not assigned.** This is one line on this domain's list of everything its agent could eventually do. It becomes real work only when the builder picks it and their manager agrees, at which point it opens as four stories. Until then it is deliberately inert, and the honest status of it is "not started" rather than "behind".
+
 A high-intent visitor is offered help at the moment they are still on the page, instead of being followed up days later when the interest has gone.
 
 **Built today:** implemented. **Requirement validated:** draft -- Taiwo Oludimimu must confirm scope, exceptions and success measures; he has no admin login today
@@ -12,7 +14,7 @@ A high-intent visitor is offered help at the moment they are still on the page, 
 
 Full build prompt is attached to this story.
 
-**Release:** r2 · r2 (weeks 0–0)
+**Release:** autonomy:R0 · Legacy migration plan (weeks 0–0)
 **Owner:** 
 **Blocked by:** nothing — you can start this now
 
