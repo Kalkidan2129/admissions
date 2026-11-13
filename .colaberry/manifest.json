@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-12T21:44:03.121Z",
+  "generated_at": "2026-11-13T20:06:22.059Z",
   "plan_version": 1,
   "plan_sha256": "78bb8173167c52d236675b124fa3e2cfe2d26c543d7bf17931b48b6bcdd5d7fe",
-  "correlation_id": "d9ce18b8-9a89-4016-9820-e01cc78736bf",
+  "correlation_id": "cc-20261113-q7m2-postladder-admissions",
   "project_id": "aefb0b8d-7b89-58aa-88ac-3750083f5cd8",
   "truth_revision": null,
   "files": [
@@ -240,7 +240,7 @@
     },
     {
       "path": "docs/stories/admissions.STORY-000.md",
-      "sha256": "2ce74ec4667331fbde233ec96832766a577724507222c30a5bbd213d97a953ec"
+      "sha256": "74a99b14197785d5b23426b2b5175b2b283ed39c5216391903e13df3c86cb5c4"
     },
     {
       "path": ".colaberry/plan.json",
@@ -256,7 +256,7 @@
     },
     {
       "path": ".colaberry/agent-domain.json",
-      "sha256": "e0efed9a3fd76940e22bdd31026cacb30064bd1e553b00ac492ad4a693cf6a4c"
+      "sha256": "732087cefec5751789e66eb743f0c78d92185b6ca248fa81f8cafc2fc7b7d47d"
     },
     {
       "path": "docs/stories/STORY-000.md",

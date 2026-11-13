@@ -538,14 +538,24 @@
   },
   "governance": {
     "disclosure": "A filed request grants nothing. Status is what a named human decided, and a pending row means nobody has decided yet.",
-    "requests": [],
+    "requests": [
+      {
+        "id": "01805c02-c561-441c-9019-6e1cb43ab8a2",
+        "kind": "change",
+        "title": "New capability: weekly report of unpaid Explorers ranked by engagement and checked against GHL",
+        "status": "submitted",
+        "requested_at": "2026-11-13T18:21:24.003Z",
+        "approved_at": null,
+        "declined_reason": null
+      }
+    ],
     "pending": 0
   },
   "verification": {
     "known": true,
     "disclosure": "A criterion counts as passing when it is marked in `.colaberry/progress.json` in this repository. The verifier reads that file on every sync and records what it found. A story showing 0 of N is not a rejection: nothing has been claimed yet.",
     "summary": {
-      "stories": 189,
+      "stories": 58,
       "checked": 54,
       "verified": 8,
       "awaiting_criteria": 46,
@@ -569,30 +579,6 @@
         "commit_sha": "627928025ec95c544f728f2eeb3b13796a3d0e7b"
       },
       {
-        "story_id": "admissions.CAP.admission_decision_recording.autonomy:R0",
-        "title": "Admission decision recording · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.admission_decision_recording.autonomy:R2",
-        "title": "Admission decision recording · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.admissions_funnel_anomaly_detection",
         "title": "Admissions funnel anomaly detection",
         "status": "in_progress",
@@ -607,42 +593,6 @@
         "outstanding": [
           "Every figure names the query that produced it, including the scope applied."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.admissions_funnel_anomaly_detection.autonomy:R2",
-        "title": "Admissions funnel anomaly detection · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.admissions_funnel_anomaly_detection.autonomy:R4",
-        "title": "Admissions funnel anomaly detection · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.admissions_funnel_anomaly_detection.autonomy:R7",
-        "title": "Admissions funnel anomaly detection · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -663,42 +613,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.admissions_knowledge_curation.autonomy:R2",
-        "title": "Admissions knowledge curation · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.admissions_knowledge_curation.autonomy:R4",
-        "title": "Admissions knowledge curation · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.admissions_knowledge_curation.autonomy:R6",
-        "title": "Admissions knowledge curation · R6",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.admissions_rbac_path_coverage_audit",
         "title": "Admissions RBAC path coverage audit",
         "status": "in_progress",
@@ -713,42 +627,6 @@
         "outstanding": [
           "The nine /api/admin/admissions routes and /api/admin/agents are reported as unmapped; a fixture path added to PATH_SECTION disappears from the unmapped list, which is the mutation proof."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.admissions_rbac_path_coverage_audit.autonomy:R1",
-        "title": "Admissions RBAC path coverage audit · R1",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.admissions_rbac_path_coverage_audit.autonomy:R4",
-        "title": "Admissions RBAC path coverage audit · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.admissions_rbac_path_coverage_audit.autonomy:R7",
-        "title": "Admissions RBAC path coverage audit · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -769,42 +647,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.ai_voice_interview_dispatch.autonomy:R0",
-        "title": "AI voice interview dispatch · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.ai_voice_interview_dispatch.autonomy:R1",
-        "title": "AI voice interview dispatch · R1",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.ai_voice_interview_dispatch.autonomy:R4",
-        "title": "AI voice interview dispatch · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.applicant_assessment_preparation",
         "title": "Applicant assessment preparation for a reviewer",
         "status": "in_progress",
@@ -819,42 +661,6 @@
         "outstanding": [
           "The document states explicitly that no score, rank or admission outcome may appear, matching internshipRecommendation.ts:4-12."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.applicant_assessment_preparation.autonomy:R0",
-        "title": "Applicant assessment preparation for a reviewer · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.applicant_assessment_preparation.autonomy:R1",
-        "title": "Applicant assessment preparation for a reviewer · R1",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.applicant_assessment_preparation.autonomy:R5",
-        "title": "Applicant assessment preparation for a reviewer · R5",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -875,42 +681,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.applicant_lifecycle_audit_trail.autonomy:R2",
-        "title": "Applicant lifecycle audit trail · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.applicant_lifecycle_audit_trail.autonomy:R4",
-        "title": "Applicant lifecycle audit trail · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.applicant_lifecycle_audit_trail.autonomy:R6",
-        "title": "Applicant lifecycle audit trail · R6",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.applicant_pii_minimization_review",
         "title": "Applicant PII minimization review",
         "status": "in_progress",
@@ -925,42 +695,6 @@
         "outstanding": [
           "Every applicant-PII column named in this matrix's evidence appears in the output; a deliberately omitted column causes the completeness test to fail."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.applicant_pii_minimization_review.autonomy:R1",
-        "title": "Applicant PII minimization review · R1",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.applicant_pii_minimization_review.autonomy:R4",
-        "title": "Applicant PII minimization review · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.applicant_pii_minimization_review.autonomy:R7",
-        "title": "Applicant PII minimization review · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -981,42 +715,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.applicant_reply_draft_preparation.autonomy:R0",
-        "title": "Applicant reply draft preparation · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.applicant_reply_draft_preparation.autonomy:R2",
-        "title": "Applicant reply draft preparation · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.applicant_reply_draft_preparation.autonomy:R4",
-        "title": "Applicant reply draft preparation · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.application_queue_triage",
         "title": "Application review queue triage",
         "status": "in_progress",
@@ -1031,42 +729,6 @@
         "outstanding": [
           "Every bucket in internshipReviewQueue.ts:105 is described and each is marked as a presentation state or a decision state."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.application_queue_triage.autonomy:R0",
-        "title": "Application review queue triage · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.application_queue_triage.autonomy:R2",
-        "title": "Application review queue triage · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.application_queue_triage.autonomy:R4",
-        "title": "Application review queue triage · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -1087,42 +749,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.appointment_booking_assistance.autonomy:R0",
-        "title": "Admissions appointment booking assistance · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.appointment_booking_assistance.autonomy:R2",
-        "title": "Admissions appointment booking assistance · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.appointment_booking_assistance.autonomy:R4",
-        "title": "Admissions appointment booking assistance · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.at_risk_student_identification_and_handoff",
         "title": "At-risk student identification and handoff",
         "status": "in_progress",
@@ -1137,42 +763,6 @@
         "outstanding": [
           "Every at-risk student cites the specific missing signal; a student with no available signal is reported as unknown rather than at-risk."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.at_risk_student_identification_and_handoff.autonomy:R2",
-        "title": "At-risk student identification and handoff · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.at_risk_student_identification_and_handoff.autonomy:R4",
-        "title": "At-risk student identification and handoff · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.at_risk_student_identification_and_handoff.autonomy:R6",
-        "title": "At-risk student identification and handoff · R6",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -1193,42 +783,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.callback_request_queue_management.autonomy:R2",
-        "title": "Callback request queue management · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.callback_request_queue_management.autonomy:R4",
-        "title": "Callback request queue management · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.callback_request_queue_management.autonomy:R7",
-        "title": "Callback request queue management · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.cohort_retrospective_report",
         "title": "Per-cohort retrospective report",
         "status": "in_progress",
@@ -1243,42 +797,6 @@
         "outstanding": [
           "Counts reconcile with the enrollment statuses, and a student with two enrollments is counted once."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.cohort_retrospective_report.autonomy:R2",
-        "title": "Per-cohort retrospective report · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.cohort_retrospective_report.autonomy:R4",
-        "title": "Per-cohort retrospective report · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.cohort_retrospective_report.autonomy:R7",
-        "title": "Per-cohort retrospective report · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -1299,42 +817,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.conversation_action_request_detection.autonomy:R2",
-        "title": "Conversation action-request detection · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.conversation_action_request_detection.autonomy:R4",
-        "title": "Conversation action-request detection · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.conversation_action_request_detection.autonomy:R7",
-        "title": "Conversation action-request detection · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.conversation_continuity_stitching",
         "title": "Cross-session conversation continuity",
         "status": "in_progress",
@@ -1349,42 +831,6 @@
         "outstanding": [
           "Every proposal names both conversation ids and the elapsed gap."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.conversation_continuity_stitching.autonomy:R2",
-        "title": "Cross-session conversation continuity · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.conversation_continuity_stitching.autonomy:R5",
-        "title": "Cross-session conversation continuity · R5",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.conversation_continuity_stitching.autonomy:R6",
-        "title": "Cross-session conversation continuity · R6",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -1405,42 +851,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.conversation_memory_summarization.autonomy:R2",
-        "title": "Admissions conversation memory summarization · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.conversation_memory_summarization.autonomy:R4",
-        "title": "Admissions conversation memory summarization · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.conversation_memory_summarization.autonomy:R6",
-        "title": "Admissions conversation memory summarization · R6",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.da_reporting_responsibility_transition_map",
         "title": "Data-analyst reporting responsibility transition map",
         "status": "in_progress",
@@ -1455,30 +865,6 @@
         "outstanding": [
           "All four reports in the brief's cadence table are listed; exactly one is marked evidenced with its PROGRESS.md and script citation, and the other three are marked unevidenced rather than assumed."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.da_reporting_responsibility_transition_map.autonomy:R0",
-        "title": "Data-analyst reporting responsibility transition map · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.da_reporting_responsibility_transition_map.autonomy:R2",
-        "title": "Data-analyst reporting responsibility transition map · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -1499,42 +885,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.daily_enrollment_report.autonomy:R2",
-        "title": "Daily enrollment report · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.daily_enrollment_report.autonomy:R4",
-        "title": "Daily enrollment report · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.daily_enrollment_report.autonomy:R7",
-        "title": "Daily enrollment report · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.decision_notification_delivery",
         "title": "Applicant decision notification delivery",
         "status": "in_progress",
@@ -1549,42 +899,6 @@
         "outstanding": [
           "The document states that reviewer_notes and ai_factors are structurally excluded and names the idempotency key shape."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.decision_notification_delivery.autonomy:R0",
-        "title": "Applicant decision notification delivery · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.decision_notification_delivery.autonomy:R2",
-        "title": "Applicant decision notification delivery · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.decision_notification_delivery.autonomy:R4",
-        "title": "Applicant decision notification delivery · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -1605,42 +919,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.department_signal_rollup.autonomy:R2",
-        "title": "Admissions department signal rollup · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.department_signal_rollup.autonomy:R4",
-        "title": "Admissions department signal rollup · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.department_signal_rollup.autonomy:R7",
-        "title": "Admissions department signal rollup · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.domain_scope_reconciliation",
         "title": "Admissions domain scope reconciliation",
         "status": "in_progress",
@@ -1655,30 +933,6 @@
         "outstanding": [
           "Every capability in this matrix whose ownership is contested is listed, and the count matches the number of capabilities carrying the contested-ownership blocker."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.domain_scope_reconciliation.autonomy:R0",
-        "title": "Admissions domain scope reconciliation · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.domain_scope_reconciliation.autonomy:R2",
-        "title": "Admissions domain scope reconciliation · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -1699,42 +953,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.eligibility_attestation_blocking_flag.autonomy:R0",
-        "title": "Eligibility attestation blocking flag · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.eligibility_attestation_blocking_flag.autonomy:R2",
-        "title": "Eligibility attestation blocking flag · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.eligibility_attestation_blocking_flag.autonomy:R4",
-        "title": "Eligibility attestation blocking flag · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.enrollment_conversion_strategy_proposals",
         "title": "Enrollment conversion strategy proposals",
         "status": "in_progress",
@@ -1749,42 +967,6 @@
         "outstanding": [
           "Every claim cites a figure a human can re-derive."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.enrollment_conversion_strategy_proposals.autonomy:R2",
-        "title": "Enrollment conversion strategy proposals · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.enrollment_conversion_strategy_proposals.autonomy:R4",
-        "title": "Enrollment conversion strategy proposals · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.enrollment_conversion_strategy_proposals.autonomy:R5",
-        "title": "Enrollment conversion strategy proposals · R5",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -1805,42 +987,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.enterprise_high_intent_flagging.autonomy:R2",
-        "title": "Enterprise and high-intent prospect flagging · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.enterprise_high_intent_flagging.autonomy:R5",
-        "title": "Enterprise and high-intent prospect flagging · R5",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.enterprise_high_intent_flagging.autonomy:R7",
-        "title": "Enterprise and high-intent prospect flagging · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.escalation_threshold_governance",
         "title": "Escalation threshold governance",
         "status": "in_progress",
@@ -1855,30 +1001,6 @@
         "outstanding": [
           "Every reporting capability in this matrix that mentions a threshold is listed with its owner named and its current value recorded as unset where that is true."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.escalation_threshold_governance.autonomy:R0",
-        "title": "Escalation threshold governance · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.escalation_threshold_governance.autonomy:R2",
-        "title": "Escalation threshold governance · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -1899,42 +1021,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.existing_intern_conversion_planning.autonomy:R0",
-        "title": "Existing-intern conversion planning · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.existing_intern_conversion_planning.autonomy:R2",
-        "title": "Existing-intern conversion planning · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.existing_intern_conversion_planning.autonomy:R5",
-        "title": "Existing-intern conversion planning · R5",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.intern_activation",
         "title": "Intern activation",
         "status": "in_progress",
@@ -1949,42 +1035,6 @@
         "outstanding": [
           "Every step in internshipOnboarding.ts:58-145 is listed with its declared actor, and activation is recorded as a human decision."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.intern_activation.autonomy:R0",
-        "title": "Intern activation · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.intern_activation.autonomy:R2",
-        "title": "Intern activation · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.intern_activation.autonomy:R4",
-        "title": "Intern activation · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -2005,42 +1055,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.interview_progress_tracking.autonomy:R0",
-        "title": "Interview progress and completeness tracking · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.interview_progress_tracking.autonomy:R2",
-        "title": "Interview progress and completeness tracking · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.interview_progress_tracking.autonomy:R4",
-        "title": "Interview progress and completeness tracking · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.interview_transcript_answer_normalization",
         "title": "Interview transcript answer normalization",
         "status": "in_progress",
@@ -2055,42 +1069,6 @@
         "outstanding": [
           "The document names applicant confirmation as the only path from needs_followup to answered."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.interview_transcript_answer_normalization.autonomy:R0",
-        "title": "Interview transcript answer normalization · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.interview_transcript_answer_normalization.autonomy:R1",
-        "title": "Interview transcript answer normalization · R1",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.interview_transcript_answer_normalization.autonomy:R5",
-        "title": "Interview transcript answer normalization · R5",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -2111,42 +1089,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.knowledge_base_website_sync.autonomy:R2",
-        "title": "Admissions knowledge base website sync · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.knowledge_base_website_sync.autonomy:R4",
-        "title": "Admissions knowledge base website sync · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.knowledge_base_website_sync.autonomy:R6",
-        "title": "Admissions knowledge base website sync · R6",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.lead_intake_dedup_and_qualification",
         "title": "Lead intake de-duplication and qualification",
         "status": "in_progress",
@@ -2161,42 +1103,6 @@
         "outstanding": [
           "Every answer honours the default scope so no campaign_test lead is reported as a real one."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.lead_intake_dedup_and_qualification.autonomy:R2",
-        "title": "Lead intake de-duplication and qualification · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.lead_intake_dedup_and_qualification.autonomy:R4",
-        "title": "Lead intake de-duplication and qualification · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.lead_intake_dedup_and_qualification.autonomy:R6",
-        "title": "Lead intake de-duplication and qualification · R6",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -2217,30 +1123,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.manager_surface_access_remediation.autonomy:R0",
-        "title": "Manager surface access remediation · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.manager_surface_access_remediation.autonomy:R2",
-        "title": "Manager surface access remediation · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.maya_applicant_chat_response",
         "title": "Prospective-applicant chat response",
         "status": "in_progress",
@@ -2255,42 +1137,6 @@
         "outstanding": [
           "On a 50-question fixture set, every answer traces to an admissions_knowledge_entries row and the refusal path fires on all questions with no approved answer."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.maya_applicant_chat_response.autonomy:R2",
-        "title": "Prospective-applicant chat response · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.maya_applicant_chat_response.autonomy:R5",
-        "title": "Prospective-applicant chat response · R5",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.maya_applicant_chat_response.autonomy:R7",
-        "title": "Prospective-applicant chat response · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -2311,42 +1157,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.monthly_subscription_and_mrr_report.autonomy:R2",
-        "title": "Monthly subscription and MRR report · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.monthly_subscription_and_mrr_report.autonomy:R4",
-        "title": "Monthly subscription and MRR report · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.monthly_subscription_and_mrr_report.autonomy:R7",
-        "title": "Monthly subscription and MRR report · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.offer_document_package_generation",
         "title": "Offer document package generation",
         "status": "in_progress",
@@ -2361,42 +1171,6 @@
         "outstanding": [
           "The document states that template_version is never back-filled and that generation requires an approved state."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.offer_document_package_generation.autonomy:R0",
-        "title": "Offer document package generation · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.offer_document_package_generation.autonomy:R2",
-        "title": "Offer document package generation · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.offer_document_package_generation.autonomy:R4",
-        "title": "Offer document package generation · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -2417,42 +1191,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.outreach_compliance_monitoring.autonomy:R2",
-        "title": "Outreach compliance monitoring · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.outreach_compliance_monitoring.autonomy:R5",
-        "title": "Outreach compliance monitoring · R5",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.outreach_compliance_monitoring.autonomy:R7",
-        "title": "Outreach compliance monitoring · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.page_event_admissions_enrichment",
         "title": "Visitor page-event admissions enrichment",
         "status": "complete",
@@ -2465,8 +1203,8 @@
         "commit_sha": "33d6cae3d3205b4f82a2fe32f00930f81818cf52"
       },
       {
-        "story_id": "admissions.CAP.page_event_admissions_enrichment.autonomy:R2",
-        "title": "Visitor page-event admissions enrichment · R2",
+        "story_id": "admissions.CAP.page_event_admissions_enrichment.L1-BY-HAND",
+        "title": "Visitor page-event admissions enrichment · 1 · do it by hand",
         "status": "not_started",
         "verification_state": null,
         "verified": false,
@@ -2477,8 +1215,8 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.page_event_admissions_enrichment.autonomy:R4",
-        "title": "Visitor page-event admissions enrichment · R4",
+        "story_id": "admissions.CAP.page_event_admissions_enrichment.L2-IN-THE-APP",
+        "title": "Visitor page-event admissions enrichment · 2 · do it in the app",
         "status": "not_started",
         "verification_state": null,
         "verified": false,
@@ -2489,8 +1227,20 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.page_event_admissions_enrichment.autonomy:R7",
-        "title": "Visitor page-event admissions enrichment · R7",
+        "story_id": "admissions.CAP.page_event_admissions_enrichment.L3-TOOL-REQUEST",
+        "title": "Visitor page-event admissions enrichment · 3 · request the tool",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.page_event_admissions_enrichment.L4-AGENT-WATCHED",
+        "title": "Visitor page-event admissions enrichment · 4 · agent does it, watched",
         "status": "not_started",
         "verification_state": null,
         "verified": false,
@@ -2518,42 +1268,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.pipeline_executive_update.autonomy:R2",
-        "title": "Admissions pipeline executive update · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.pipeline_executive_update.autonomy:R4",
-        "title": "Admissions pipeline executive update · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.pipeline_executive_update.autonomy:R7",
-        "title": "Admissions pipeline executive update · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.proactive_chat_eligibility_marking",
         "title": "Proactive chat eligibility marking",
         "status": "in_progress",
@@ -2568,42 +1282,6 @@
         "outstanding": [
           "Each proposal cites the intent reading that qualified it."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.proactive_chat_eligibility_marking.autonomy:R2",
-        "title": "Proactive chat eligibility marking · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.proactive_chat_eligibility_marking.autonomy:R4",
-        "title": "Proactive chat eligibility marking · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.proactive_chat_eligibility_marking.autonomy:R7",
-        "title": "Proactive chat eligibility marking · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -2624,42 +1302,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.refund_and_churn_tracking.autonomy:R2",
-        "title": "Refund and churn tracking · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.refund_and_churn_tracking.autonomy:R4",
-        "title": "Refund and churn tracking · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.refund_and_churn_tracking.autonomy:R7",
-        "title": "Refund and churn tracking · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.reviewer_decision_packet_assembly",
         "title": "Reviewer decision packet assembly",
         "status": "in_progress",
@@ -2674,42 +1316,6 @@
         "outstanding": [
           "The document states that no score, rank or suggested outcome may appear and names the reviewer as the decision-maker."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.reviewer_decision_packet_assembly.autonomy:R0",
-        "title": "Reviewer decision packet assembly · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.reviewer_decision_packet_assembly.autonomy:R1",
-        "title": "Reviewer decision packet assembly · R1",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.reviewer_decision_packet_assembly.autonomy:R5",
-        "title": "Reviewer decision packet assembly · R5",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -2730,42 +1336,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.scheduler_registry_name_drift_reconciliation.autonomy:R1",
-        "title": "Scheduler and registry name drift reconciliation · R1",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.scheduler_registry_name_drift_reconciliation.autonomy:R4",
-        "title": "Scheduler and registry name drift reconciliation · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.scheduler_registry_name_drift_reconciliation.autonomy:R7",
-        "title": "Scheduler and registry name drift reconciliation · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.signed_document_verification",
         "title": "Signed document verification",
         "status": "in_progress",
@@ -2780,30 +1350,6 @@
         "outstanding": [
           "The document names verification as a human decision and states the free-access failure mode from AI_INTERNSHIP_DISCOVERY.md:118-139."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.signed_document_verification.autonomy:R0",
-        "title": "Signed document verification · R0",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.signed_document_verification.autonomy:R2",
-        "title": "Signed document verification · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
@@ -2824,42 +1370,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.visitor_insight_aggregation.autonomy:R2",
-        "title": "Admissions funnel insight aggregation · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.visitor_insight_aggregation.autonomy:R5",
-        "title": "Admissions funnel insight aggregation · R5",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.visitor_insight_aggregation.autonomy:R7",
-        "title": "Admissions funnel insight aggregation · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.visitor_intent_scoring",
         "title": "Prospective-applicant intent scoring",
         "status": "in_progress",
@@ -2877,42 +1387,6 @@
         "commit_sha": null
       },
       {
-        "story_id": "admissions.CAP.visitor_intent_scoring.autonomy:R2",
-        "title": "Prospective-applicant intent scoring · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.visitor_intent_scoring.autonomy:R5",
-        "title": "Prospective-applicant intent scoring · R5",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.visitor_intent_scoring.autonomy:R7",
-        "title": "Prospective-applicant intent scoring · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
         "story_id": "admissions.CAP.weekly_cohort_progress_report",
         "title": "Weekly cohort progress report",
         "status": "in_progress",
@@ -2927,42 +1401,6 @@
         "outstanding": [
           "Every movement claim cites two snapshot rows; no movement is claimed where only one snapshot exists."
         ],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.weekly_cohort_progress_report.autonomy:R2",
-        "title": "Weekly cohort progress report · R2",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.weekly_cohort_progress_report.autonomy:R4",
-        "title": "Weekly cohort progress report · R4",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
-        "commit_sha": null
-      },
-      {
-        "story_id": "admissions.CAP.weekly_cohort_progress_report.autonomy:R7",
-        "title": "Weekly cohort progress report · R7",
-        "status": "not_started",
-        "verification_state": null,
-        "verified": false,
-        "criteria_passed": null,
-        "criteria_total": null,
-        "reasons": [],
-        "outstanding": [],
         "commit_sha": null
       },
       {
