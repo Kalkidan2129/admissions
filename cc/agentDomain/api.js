@@ -12,8 +12,9 @@
 //   AuthError          HTTP 401 or 403                        not retried here; session.js re-mints once on 401
 //   HttpError          any other non-2xx                      not retried
 //   ContractViolation  2xx whose body is not JSON             not retried
-// Retry: GET only (idempotent), at most MAX_ATTEMPTS attempts, RETRY_DELAY_MS apart. POST (the
-// admin-token mint) is never retried here, so a flaky network cannot mint twice behind your back.
+// Retry: GET only (idempotent), at most MAX_ATTEMPTS attempts, RETRY_DELAY_MS apart. A POST (the
+// admin-token mint, and filing a change request) is never retried here, so a flaky network
+// cannot mint twice, or file twice, behind your back.
 // When every attempt fails the error carries the HTTP status and the portal's exact body.
 
 // `domain` and `coverage` are the domain-scoped routes under -mine: the same payloads as
@@ -35,7 +36,7 @@ export const DEFAULT_PORTAL = 'https://enterprise.colaberry.ai';
 export const TIMEOUT_MS = 15000;
 export const MAX_ATTEMPTS = 2;
 export const RETRY_DELAY_MS = 500;
-const MAX_BODY_CHARS = 600;
+export const MAX_BODY_CHARS = 600;
 
 export class ApiError extends Error {
   constructor(errorClass, method, path, detail, status = null, body = null) {
@@ -75,22 +76,24 @@ export function redact(text, secrets) {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const RETRYABLE = new Set(['TimeoutError', 'NetworkError', 'UpstreamUnavailable']);
 
-async function bodyText(res, secrets) {
+async function bodyText(res, secrets, maxChars) {
   let text;
   try { text = await res.text(); } catch (err) { return `(the body could not be read: ${err.message})`; }
   if (!text) return '(an empty body)';
   const clean = redact(text, secrets);
-  return clean.length > MAX_BODY_CHARS ? `${clean.slice(0, MAX_BODY_CHARS)}… (cut at ${MAX_BODY_CHARS} characters)` : clean;
+  return clean.length > maxChars ? `${clean.slice(0, maxChars)}… (cut at ${maxChars} characters)` : clean;
 }
 
-async function attempt({ fetchImpl, baseUrl, path, method, token, timeoutMs, secrets }) {
+// `json` (optional) is sent as the request body with Content-Type application/json.
+async function attempt({ fetchImpl, baseUrl, path, method, token, timeoutMs, secrets, json, maxBodyChars }) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   let res;
   try {
     res = await fetchImpl(`${baseUrl}${path}`, {
       method,
-      headers: { Authorization: `Bearer ${token}`, Accept: 'application/json' },
+      headers: { Authorization: `Bearer ${token}`, Accept: 'application/json', ...(json === undefined ? {} : { 'Content-Type': 'application/json' }) },
+      ...(json === undefined ? {} : { body: JSON.stringify(json) }),
       cache: 'no-store',
       credentials: 'omit',
       signal: controller.signal,
@@ -102,7 +105,7 @@ async function attempt({ fetchImpl, baseUrl, path, method, token, timeoutMs, sec
     clearTimeout(timer);
   }
   if (!res.ok) {
-    const body = await bodyText(res, secrets);
+    const body = await bodyText(res, secrets, maxBodyChars);
     const cls = res.status === 401 || res.status === 403 ? 'AuthError'
       : res.status >= 500 || res.status === 429 ? 'UpstreamUnavailable' : 'HttpError';
     throw new ApiError(cls, method, path, `answered HTTP ${res.status} with: ${body}`, res.status, body);
@@ -115,13 +118,13 @@ async function attempt({ fetchImpl, baseUrl, path, method, token, timeoutMs, sec
 }
 
 export async function requestJson({ baseUrl, token, path, method = 'GET', fetchImpl = fetch, timeoutMs = TIMEOUT_MS,
-  retryDelayMs = RETRY_DELAY_MS, secrets = [], maxAttempts: getAttempts = MAX_ATTEMPTS }) {
+  retryDelayMs = RETRY_DELAY_MS, secrets = [], maxAttempts: getAttempts = MAX_ATTEMPTS, json, maxBodyChars = MAX_BODY_CHARS }) {
   const all = [token, ...secrets];
   // A caller that must call exactly once (the visitor sample) passes maxAttempts: 1.
   const maxAttempts = method === 'GET' ? getAttempts : 1;
   for (let n = 1; ; n++) {
     try {
-      return await attempt({ fetchImpl, baseUrl, path, method, token, timeoutMs, secrets: all });
+      return await attempt({ fetchImpl, baseUrl, path, method, token, timeoutMs, secrets: all, json, maxBodyChars });
     } catch (err) {
       if (!(err instanceof ApiError) || !RETRYABLE.has(err.error_class) || n >= maxAttempts) {
         console.error(JSON.stringify({ level: 'error', service: 'command-center', event: 'portal_call_failed',

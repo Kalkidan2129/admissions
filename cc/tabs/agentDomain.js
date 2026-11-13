@@ -1,4 +1,5 @@
-// Agent domain: the six STORY-000 panels, read live from the portal's /api/admin endpoints.
+// Agent domain: the six STORY-000 panels, read live from the portal's /api/admin endpoints, and
+// panel 7, which files a change request (the Command Center's one write besides sign-in).
 // The builder pastes a participant token; session.js exchanges it for an admin token through
 // /api/portal/mgmt/status and /enter. Both tokens are held in session.js memory only.
 // In Sample mode the panels show the made-up responses in agentDomain/fixtures.js instead.
@@ -7,6 +8,7 @@ import { sharedSession } from '../agentDomain/sharedSession.js';
 import { normaliseBaseUrl, DEFAULT_PORTAL } from '../agentDomain/api.js';
 import { accessView } from '../agentDomain/access.js';
 import { sampleEndpoints } from '../agentDomain/fixtures.js';
+import { filePanel } from '../agentDomain/filePanel.js';
 import { PLATFORM_COMMIT } from '../agentDomain/authority.js';
 import {
   employeePanel, inventoryPanel, ladderPanel, behaviourPanel, governancePanel, gapsPanel,
@@ -52,9 +54,10 @@ export function renderAgentDomain(ctx) {
   const e = ctx.sample ? sampleEndpoints(domainKey) : s.endpoints;
   return h('section', { class: 'agent-domain' },
     h('h2', {}, `Agent domain: ${domainKey}`),
-    h('p', { class: 'muted' }, `Six panels read live from the portal. Unlike the other tabs, nothing here comes from the .colaberry files, so the "Data as of" stamp in the header does not apply; each panel shows when it loaded. Platform rules read at commit ${PLATFORM_COMMIT}.`),
+    h('p', { class: 'muted' }, `Six panels read live from the portal; panel 7 files a change request, only when you press File it. Unlike the other tabs, nothing here comes from the .colaberry files, so the "Data as of" stamp in the header does not apply; each panel shows when it loaded. Platform rules read at commit ${PLATFORM_COMMIT}.`),
     ctx.sample ? h('p', { class: 'ad-state ad-state-sample' }, 'Sample mode: these are made-up endpoint responses. Switch to Real to load your own.') : connectForm(s),
     h('div', { class: 'ad-panels' },
       employeePanel(e, domainKey, ctx.sample), inventoryPanel(e, ctx.sample), ladderPanel(e, domainKey, ctx.sample),
-      behaviourPanel(e, ctx.sample), governancePanel(e, ctx.sample), gapsPanel(e, domainKey, ctx.sample)));
+      behaviourPanel(e, ctx.sample), governancePanel(e, ctx.sample), gapsPanel(e, domainKey, ctx.sample),
+      filePanel(s, ctx.sample, ctx.rerender)));
 }

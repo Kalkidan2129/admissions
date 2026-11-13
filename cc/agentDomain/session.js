@@ -154,6 +154,31 @@ export function createSession({ domainKey, fetchImpl = (...a) => fetch(...a), no
       return result;
     },
 
+    // The Command Center's one write besides the sign-in: POST a change request, exactly once.
+    // postJson never retries, and there is no re-mint on 401 here, so one call is one request.
+    // The answer is returned even if the token was forgotten meanwhile, because the request may
+    // have been filed and the page must not pretend otherwise. The token never leaves this module.
+    async fileChangeRequest(body) {
+      if (access.status !== OK || !adminToken) {
+        throw new ApiError('NotSignedIn', 'POST', paths.governance, 'was not called: sign in on the Agent domain tab first.');
+      }
+      return postJson({ baseUrl, token: adminToken, path: paths.governance, json: body, fetchImpl,
+        secrets: secrets(), maxBodyChars: 4000 });
+    },
+
+    // Reads GET change-requests-mine again so the governance panel shows what the portal now holds.
+    async rereadGovernance() {
+      if (access.status !== OK || !adminToken) return;
+      const mine = generation;
+      set('governance', { status: LOADING });
+      try {
+        const { status, body } = await call(getJson, paths.governance, adminToken);
+        if (mine === generation) set('governance', { status: OK, httpStatus: status, data: body, loadedAt: now() });
+      } catch (err) {
+        if (mine === generation) set('governance', { status: ERROR, error: err, loadedAt: now() });
+      }
+    },
+
     forget() {
       participantToken = null;
       adminToken = null;

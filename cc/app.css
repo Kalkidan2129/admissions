@@ -116,3 +116,12 @@ table.ladder td:first-child, table.ladder td:nth-child(2) { text-align: left; }
 .vs-mismatch { font-weight: 700; color: var(--warn-text); background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 4px; padding: 0 6px; }
 .vs-visitor { margin: 6px 0; }
 .vs-visitor summary { cursor: pointer; }
+.cr-field { display: flex; flex-direction: column; gap: 4px; margin: 8px 0; font-size: 0.85rem; color: var(--muted); }
+.cr-field input, .cr-field textarea { font: inherit; color: var(--text); background: var(--bg); padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; width: 100%; box-sizing: border-box; }
+.cr-count { font-size: 0.8rem; }
+.cr-over { color: var(--warn-text); font-weight: 600; }
+.cr-actions { display: flex; gap: 12px; margin: 8px 0; }
+.cr-actions button { font: inherit; padding: 8px 16px; border: 0; border-radius: 6px; background: var(--accent); color: var(--accent-text); cursor: pointer; }
+.cr-actions button:disabled { background: var(--surface-2); color: var(--muted); cursor: not-allowed; }
+.cr-body { white-space: pre-wrap; word-break: break-word; background: var(--surface-2); border-radius: 6px; padding: 8px 10px; margin: 4px 0; font-size: 0.85rem; }
+.cr-final { font-weight: 600; color: var(--warn-text); background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 6px; padding: 6px 10px; }
