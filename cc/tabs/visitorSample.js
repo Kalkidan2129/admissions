@@ -6,6 +6,7 @@
 import { h, table } from '../dom.js';
 import { formatCentral } from '../time.js';
 import { sharedSession } from '../agentDomain/sharedSession.js';
+import { DOMAIN_KEY } from '../agentDomain/domain.js';
 import { OK } from '../agentDomain/session.js';
 import { createPuller } from '../visitorSample/pull.js';
 import {
@@ -92,11 +93,8 @@ export function renderVisitorSample(ctx) {
     return h('section', {}, head, h('p', { class: 'ad-state ad-state-sample' },
       'This tab has no sample mode: it shows only what the live route returns. Switch to Real to use it.'));
   }
-  const domainKey = ctx.data.plan.project?.name;
-  if (domainKey !== 'admissions') {
-    return h('section', {}, head, h('p', { class: 'ad-state ad-state-error' }, `The route serves only the admissions domain, and plan.json names "${domainKey ?? 'no project'}".`));
-  }
-  const s = sharedSession(domainKey, ctx.rerender);
+  // The domain key, never plan.json's display name (which the platform can rename).
+  const s = sharedSession(DOMAIN_KEY, ctx.rerender);
   const p = pullerFor(s, ctx.rerender);
   const st = p.state;
   const signedIn = s.access.status === OK;

@@ -3,7 +3,7 @@
 // and File it redraw the tab. The admin token stays in session.js: this file never sees it.
 import { h } from '../dom.js';
 import { OK } from './session.js';
-import { createFiling, FINAL_NOTE, TITLE_MAX, DESCRIPTION_MAX } from './changeRequest.js';
+import { createFiling, FINAL_NOTE, TITLE_MAX, DESCRIPTION_MAX, DOMAIN_KEY } from './changeRequest.js';
 
 let filing = null;
 let redraw = () => {};
@@ -82,7 +82,7 @@ export function filePanel(s, sample, rerender) {
 
   return wrap(
     signedIn ? null : h('p', { class: 'ad-state ad-state-not-loaded' }, 'Sign in above first. File it stays off until you are signed in.'),
-    h('p', { class: 'muted' }, `The body is always kind "change" and domain_key "admissions", with your title (at most ${TITLE_MAX} characters, with at least one letter) and description (at most ${DESCRIPTION_MAX}). Spaces at either end are trimmed, as the portal does.`),
+    h('p', { class: 'muted' }, `The body is always kind "change" and domain_key "${DOMAIN_KEY}", with your title (at most ${TITLE_MAX} characters, with at least one letter) and description (at most ${DESCRIPTION_MAX}). Spaces at either end are trimmed, as the portal does.`),
     h('label', { class: 'cr-field' }, 'Title ', title, titleCount),
     h('label', { class: 'cr-field' }, 'Description ', description, descCount),
     h('div', { class: 'cr-actions' }, reviewBtn, fileBtn),

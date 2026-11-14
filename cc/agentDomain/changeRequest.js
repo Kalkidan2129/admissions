@@ -15,10 +15,12 @@
 //   error or timeout)     the page says so; File it stays off for good
 // No retry anywhere: one press of File it is at most one POST.
 
+import { DOMAIN_KEY } from './domain.js';
+
 export const TITLE_MAX = 140;
 export const DESCRIPTION_MAX = 4000;
 export const KIND = 'change';
-export const DOMAIN_KEY = 'admissions';
+export { DOMAIN_KEY };
 export const FINAL_NOTE = "Once filed, this can't be edited or withdrawn.";
 export const UNKNOWN_NOTE = 'Unknown whether it was filed: check the governance panel';
 export const NOT_SIGNED_IN = 'NotSignedIn';

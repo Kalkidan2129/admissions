@@ -9,6 +9,7 @@ import { normaliseBaseUrl, DEFAULT_PORTAL } from '../agentDomain/api.js';
 import { accessView } from '../agentDomain/access.js';
 import { sampleEndpoints } from '../agentDomain/fixtures.js';
 import { filePanel } from '../agentDomain/filePanel.js';
+import { domainOf } from '../agentDomain/domain.js';
 import { PLATFORM_COMMIT } from '../agentDomain/authority.js';
 import {
   employeePanel, inventoryPanel, ladderPanel, behaviourPanel, governancePanel, gapsPanel,
@@ -48,12 +49,13 @@ function connectForm(s) {
 
 export function renderAgentDomain(ctx) {
   rerender = ctx.rerender;
-  const domainKey = ctx.data.plan.project?.name;
-  if (!domainKey) return h('section', {}, h('h2', {}, 'Agent domain'), h('p', { class: 'empty' }, 'plan.json names no project, so there is no domain to read.'));
+  // The key builds every path and matches panel 1; the display name is for the heading only.
+  const { key: domainKey, displayName } = domainOf(ctx.data.plan);
   const s = sharedSession(domainKey, ctx.rerender);
   const e = ctx.sample ? sampleEndpoints(domainKey) : s.endpoints;
   return h('section', { class: 'agent-domain' },
-    h('h2', {}, `Agent domain: ${domainKey}`),
+    h('h2', {}, `Agent domain: ${displayName}`),
+    h('p', { class: 'muted' }, 'Domain key ', h('code', {}, domainKey), ', used in every portal path.'),
     h('p', { class: 'muted' }, `Six panels read live from the portal; panel 7 files a change request, only when you press File it. Unlike the other tabs, nothing here comes from the .colaberry files, so the "Data as of" stamp in the header does not apply; each panel shows when it loaded. Platform rules read at commit ${PLATFORM_COMMIT}.`),
     ctx.sample ? h('p', { class: 'ad-state ad-state-sample' }, 'Sample mode: these are made-up endpoint responses. Switch to Real to load your own.') : connectForm(s),
     h('div', { class: 'ad-panels' },
