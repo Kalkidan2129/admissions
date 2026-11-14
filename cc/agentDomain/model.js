@@ -116,13 +116,19 @@ export function ladderCell(rungStage, row) {
 
 export const TOOL_REQUEST_DISCLOSURE = 'A tool request asks a human for a tool. Filing one grants nothing, and its status records only what a named human decided. The tools the agent actually holds are the ones listed in panel 1.';
 
+// Statuses that mean nobody has decided yet. The platform files a request as 'submitted'
+// (agentChangeRequest.ts:51 at platform commit 087c2b7); 'pending' is kept for older rows.
+// approved, declined and withdrawn are shown exactly as returned.
+export const UNDECIDED = Object.freeze({ submitted: 'Submitted', pending: 'Pending' });
+
 export function governanceView(rows) {
+  const undecided = (r) => Object.hasOwn(UNDECIDED, r.status);
   const line = (r) => ({
     title: r.title,
-    status: r.status === 'pending' ? 'Pending: nobody has decided yet' : r.status,
+    status: undecided(r) ? `${UNDECIDED[r.status]}: nobody has decided yet` : r.status,
     proposedBy: r.requested_by_identity ?? 'not in the response',
     proposedAt: r.requested_at,
-    decidedBy: r.approved_by_identity ?? (r.status === 'pending' ? 'nobody yet' : 'not in the response'),
+    decidedBy: r.approved_by_identity ?? (undecided(r) ? 'nobody yet' : 'not in the response'),
     decidedAt: r.approved_at,
     declinedReason: r.declined_reason,
   });

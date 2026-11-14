@@ -124,6 +124,30 @@ test('an approved tool request is never shown as a grant', () => {
   assert.equal(v.changes[0].status, 'Pending: nobody has decided yet');
 });
 
+test('submitted and pending both read as undecided; approved, declined and withdrawn are shown as returned', () => {
+  const row = (status, extra = {}) => ({ kind: 'change', title: `T ${status}`, status, requested_by_identity: 'b', requested_at: '2030-01-06T15:00:00Z',
+    approved_by_identity: null, approved_at: null, declined_reason: null, ...extra });
+  const v = governanceView([
+    row('submitted'), row('pending'),
+    row('approved', { approved_by_identity: 'Sample Manager', approved_at: '2030-01-07T15:00:00Z' }),
+    row('declined', { approved_by_identity: 'Sample Manager', approved_at: '2030-01-07T15:00:00Z', declined_reason: 'Sample reason' }),
+    row('withdrawn'),
+  ]);
+  assert.deepEqual(v.changes.map((c) => [c.status, c.decidedBy]), [
+    ['Submitted: nobody has decided yet', 'nobody yet'],
+    ['Pending: nobody has decided yet', 'nobody yet'],
+    ['approved', 'Sample Manager'],
+    ['declined', 'Sample Manager'],
+    ['withdrawn', 'not in the response'],
+  ]);
+  assert.equal(v.changes[3].declinedReason, 'Sample reason');
+  // A tool request that is submitted is undecided too, and still grants nothing.
+  const t = governanceView([row('submitted', { kind: 'tool' })]).tools[0];
+  assert.deepEqual([t.status, t.decidedBy], ['Submitted: nobody has decided yet', 'nobody yet']);
+  // A status the page does not know is shown as returned, not guessed at.
+  assert.equal(governanceView([row('on_hold')]).changes[0].status, 'on_hold');
+});
+
 test('draft is shown as draft, never as agreed', () => {
   assert.match(validationLabel('draft'), /^Draft: not agreed/);
   assert.doesNotMatch(validationLabel('draft'), /approved|confirmed|signed/i);
