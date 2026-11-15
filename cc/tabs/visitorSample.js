@@ -9,6 +9,7 @@ import { sharedSession } from '../agentDomain/sharedSession.js';
 import { DOMAIN_KEY } from '../agentDomain/domain.js';
 import { OK } from '../agentDomain/session.js';
 import { createPuller } from '../visitorSample/pull.js';
+import { worksheetPanel } from '../visitorSample/worksheetPanel.js';
 import {
   STORY_ID, SAMPLE_SIZE, MAX_LIMIT, MAX_EVENTS_PER_VISITOR, SAMPLE_RULE, SIGNALS_PATH, NO_TITLE, totalsLine, resultsFile,
 } from '../visitorSample/model.js';
@@ -47,7 +48,7 @@ function visitorDetail(r) {
       r.events.map((e) => [e.event_type, e.page_title === null ? `${NO_TITLE}: null in the response` : e.page_title, when(e.timestamp)]), 'No events returned.'));
 }
 
-function results(st) {
+function results(st, rerender) {
   const ev = st.evaluation;
   const pulled = `Pulled at ${formatCentral(st.pulledAt)} (HTTP ${st.httpStatus}). One pull per page load: this sample is fixed and is not pulled again.`;
   if (!ev.ok) {
@@ -80,7 +81,8 @@ function results(st) {
     h('p', { class: 'muted' }, 'The download holds only this table, the totals, the pull time, the limits used and the skipped count. No anonymous ids, page paths, page titles or tags.'),
     h('h3', {}, 'Each summary, beside the events it came from'),
     h('p', { class: 'muted' }, 'Shown here for checking by eye; held in this page only. Page paths are not shown.'),
-    ev.rows.map(visitorDetail));
+    ev.rows.map(visitorDetail),
+    worksheetPanel(ev, rerender));
 }
 
 export function renderVisitorSample(ctx) {
@@ -109,5 +111,5 @@ export function renderVisitorSample(ctx) {
     st.status === 'loading' ? h('p', { class: 'ad-state ad-state-loading', role: 'status' }, 'Pulling…') : null,
     st.status === 'error' ? h('p', { class: 'ad-state ad-state-error', role: 'alert' },
       `The pull failed at ${formatCentral(st.at)} and nothing was sampled. ${st.error.message}`) : null,
-    st.status === 'done' ? results(st) : null);
+    st.status === 'done' ? results(st, ctx.rerender) : null);
 }

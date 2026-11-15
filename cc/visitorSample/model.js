@@ -152,6 +152,9 @@ export function evaluate(body) {
     ok: true,
     rows,
     sample,
+    // Held only so the by-hand worksheet can refuse a download whose typed text contains one.
+    // Never shown and never written to any file.
+    anonIds: body.visitors.map((v) => v?.anon_id).filter((id) => typeof id === 'string' && id),
     totals: { matches, sampled: rows.length, fabricatedTitles: fabricated },
     route: { returned: body.returned, matching: body.matching, visitorsInBody: body.visitors.length,
       notRecorded: body.not_recorded, disclosure: body.disclosure },

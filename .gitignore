@@ -6,3 +6,4 @@ __pycache__/
 .claude/settings.local.json
 sample-results.json
 docs/capabilities/page-event/*.png
+run-log-entries.json

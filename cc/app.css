@@ -125,3 +125,7 @@ table.ladder td:first-child, table.ladder td:nth-child(2) { text-align: left; }
 .cr-actions button:disabled { background: var(--surface-2); color: var(--muted); cursor: not-allowed; }
 .cr-body { white-space: pre-wrap; word-break: break-word; background: var(--surface-2); border-radius: 6px; padding: 8px 10px; margin: 4px 0; font-size: 0.85rem; }
 .cr-final { font-weight: 600; color: var(--warn-text); background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 6px; padding: 6px 10px; }
+.ws-panel { margin-top: 24px; border-top: 1px solid var(--border); padding-top: 12px; }
+.ws-visitor { margin: 16px 0; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; }
+.ws-visitor h4 { margin: 4px 0 8px; }
+.ws-timer p { margin: 4px 0; }
