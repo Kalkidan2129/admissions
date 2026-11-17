@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>By-Hand Run Log</title>
+<style>
+  :root {
+    --text: #111827; --muted: #4b5563; --line: #d1d5db; --surface: #f9fafb;
+    --blue: #1e40af; --blue-bg: #dbeafe; --blue-border: #93c5fd;
+    --green: #166534; --green-bg: #dcfce7; --green-border: #86efac;
+    --amber: #92400e; --amber-bg: #fef3c7; --amber-border: #fcd34d;
+    --bar-a: #2563eb; --bar-b: #9ca3af; --bar-ok: #16a34a; --bar-diff: #d97706;
+  }
+  @page { size: A4; margin: 12mm 12mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fff; color: var(--text); font: 10pt/1.42 "Segoe UI", Arial, sans-serif; }
+  main { max-width: 186mm; margin: 0 auto; padding: 0 16px; }
+  h1 { font-size: 16.5pt; margin: 0 0 2px; letter-spacing: -0.01em; }
+  h2 { font-size: 11.5pt; margin: 14px 0 6px; padding-bottom: 3px; border-bottom: 1px solid var(--line); break-after: avoid; }
+  h3 { font-size: 10pt; margin: 0 0 4px; }
+  p { margin: 4px 0; }
+  code { font-family: Consolas, "Cascadia Mono", monospace; font-size: 8.6pt; background: var(--surface); border: 1px solid #e5e7eb; border-radius: 3px; padding: 0 3px; }
+  .sub { color: var(--muted); font-size: 9pt; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 2px; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; padding: 2px 9px; border-radius: 999px; font-size: 8.8pt; font-weight: 600; border: 1px solid; white-space: nowrap; }
+  .chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .green { color: var(--green); background: var(--green-bg); border-color: var(--green-border); }
+  .amber { color: var(--amber); background: var(--amber-bg); border-color: var(--amber-border); }
+  .blue { color: var(--blue); background: var(--blue-bg); border-color: var(--blue-border); }
+  .header-box { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); margin: 8px 0; break-inside: avoid; }
+  .header-box div { padding: 7px 10px; border-right: 1px solid var(--line); }
+  .header-box div:last-child { border-right: 0; }
+  .header-box span { display: block; font-size: 8pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .header-box b { display: block; font-size: 10.5pt; }
+  .header-box small { display: block; font-size: 8pt; color: var(--muted); }
+  .note { margin: 6px 0; padding: 6px 10px; border-left: 4px solid var(--blue-border); background: #eff6ff; font-size: 9pt; }
+  .diagram { border: 1px solid var(--line); border-radius: 6px; padding: 6px; margin: 6px 0; break-inside: avoid; }
+  .diagram svg { width: 100%; height: auto; display: block; }
+  table { width: 100%; border-collapse: collapse; font-size: 8.8pt; margin: 6px 0; }
+  th, td { text-align: left; padding: 3px 6px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+  th { background: var(--surface); font-weight: 600; border-bottom: 1px solid var(--line); }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr { break-inside: avoid; }
+  tfoot td { font-weight: 600; background: var(--surface); }
+  .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; break-inside: avoid; }
+  .chart { border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; }
+  .chart svg { width: 100%; height: auto; display: block; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .card { display: grid; grid-template-columns: 30px 1fr; gap: 8px; border: 1px solid var(--line); border-radius: 6px; padding: 7px 9px; break-inside: avoid; font-size: 9pt; }
+  .card .icon { width: 28px; height: 28px; border-radius: 50%; background: var(--amber-bg); border: 1px solid var(--amber-border); color: var(--amber); display: grid; place-items: center; }
+  .card .icon svg { width: 16px; height: 16px; }
+  .card b { display: block; font-size: 9.4pt; }
+  .card .n { color: var(--amber); font-weight: 700; margin-right: 3px; }
+  .card.code .icon { background: var(--blue-bg); border-color: var(--blue-border); color: var(--blue); }
+  .card.code .n { color: var(--blue); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; break-inside: avoid; }
+  .col { border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; border-top-width: 4px; }
+  .col.mech { border-top-color: var(--bar-b); }
+  .col.judge { border-top-color: var(--bar-a); }
+  .col ul { margin: 0; padding-left: 16px; font-size: 9pt; }
+  ul.plain { margin: 4px 0; padding-left: 16px; font-size: 9pt; }
+  .newpage { break-before: page; margin-top: 0; }
+  .foot { margin-top: 14px; color: var(--muted); font-size: 8pt; border-top: 1px solid var(--line); padding-top: 5px; }
+  @media (max-width: 640px) { .header-box, .charts, .cards, .cols { grid-template-columns: 1fr; } .header-box div { border-right: 0; border-bottom: 1px solid var(--line); } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Visitor page-event enrichment, done by hand: run log</h1>
+  <p class="sub">Story <code>admissions.CAP.page_event_admissions_enrichment.L1-BY-HAND</code> · Builder: Kalkidan Bezabeh · Accountable human: Taiwo Oludimimu</p>
+  <div class="chips">
+    <span class="chip green">Done by hand</span>
+    <span class="chip blue">Read-only: tags recorded here, not written</span>
+  </div>
+
+  <div class="header-box">
+    <div><span>Date</span><b>17 November 2026</b><small>Tagging done this day</small></div>
+    <div><span>Pull time</span><b>16 Nov 2026, 9:59 PM CST</b><small>One read-only pull</small></div>
+    <div><span>Total time</span><b>About 43 minutes</b><small>34.9 min timed (V03–V10, 6:13–6:48 AM CST) + about 8 min estimated (V01–V02)</small></div>
+    <div><span>Visitors</span><b>10 (V01–V10)</b><small>First 10 with page events</small></div>
+  </div>
+  <p class="sub">No breaks. The time includes checking some visitors with an AI assistant for hints; every final tag and reason was the builder's own.</p>
+
+  <h2>Inputs and outcome</h2>
+  <ul class="plain">
+    <li>One read-only pull of <code>GET /api/admin/agent-domains-mine/admissions/admissions-signals</code>, with the limits the platform team approved (35 visitors, 20 events per visitor).</li>
+    <li>For each of the first 10 visitors with page events: up to 20 most recent page events (path, title, time) and the interest tags already saved.</li>
+  </ul>
+  <p class="note"><b>Where the outcome was recorded.</b> The outcome is interest tags for each visitor. The builder has read access only, so, as the portal assistant (Cory) advised, the tags are recorded in this run log and nothing was written to the platform.</p>
+
+  <h2>Steps actually performed</h2>
+  <div class="diagram" role="img" aria-label="Six steps in order: read the code rules, pull once, check each path against the rules, write a reason, compare with saved tags, download tags and timer.">
+    <svg viewBox="0 0 720 92" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+      <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+      <g font-size="10.5" fill="#111827">
+        <rect x="4" y="14" width="104" height="64" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+        <text x="56" y="34" text-anchor="middle" font-weight="700" fill="#1e40af">1</text>
+        <text x="56" y="51" text-anchor="middle">Read the code's</text><text x="56" y="65" text-anchor="middle">tagging rules</text>
+        <rect x="124" y="14" width="104" height="64" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+        <text x="176" y="34" text-anchor="middle" font-weight="700" fill="#1e40af">2</text>
+        <text x="176" y="51" text-anchor="middle">Pull once in the</text><text x="176" y="65" text-anchor="middle">Visitor sample tab</text>
+        <rect x="244" y="14" width="104" height="64" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+        <text x="296" y="34" text-anchor="middle" font-weight="700" fill="#1e40af">3</text>
+        <text x="296" y="51" text-anchor="middle">Check every path</text><text x="296" y="65" text-anchor="middle">against 4 rules</text>
+        <rect x="364" y="14" width="104" height="64" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+        <text x="416" y="34" text-anchor="middle" font-weight="700" fill="#1e40af">4</text>
+        <text x="416" y="51" text-anchor="middle">Write a reason,</text><text x="416" y="65" text-anchor="middle">note surprises</text>
+        <rect x="484" y="14" width="104" height="64" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+        <text x="536" y="34" text-anchor="middle" font-weight="700" fill="#1e40af">5</text>
+        <text x="536" y="51" text-anchor="middle">Compare with the</text><text x="536" y="65" text-anchor="middle">saved tags</text>
+        <rect x="604" y="14" width="112" height="64" rx="6" fill="#eff6ff" stroke="#93c5fd"/>
+        <text x="660" y="34" text-anchor="middle" font-weight="700" fill="#1e40af">6</text>
+        <text x="660" y="51" text-anchor="middle">Download tags,</text><text x="660" y="65" text-anchor="middle">reasons, timer</text>
+      </g>
+      <g stroke="#6b7280" stroke-width="1.5" marker-end="url(#arr)">
+        <line x1="108" y1="46" x2="122" y2="46"/><line x1="228" y1="46" x2="242" y2="46"/><line x1="348" y1="46" x2="362" y2="46"/>
+        <line x1="468" y1="46" x2="482" y2="46"/><line x1="588" y1="46" x2="602" y2="46"/>
+      </g>
+    </svg>
+  </div>
+  <ol class="plain">
+    <li>Read the platform code to learn the real tagging rules (<code>admissionsVisitorActivityAgent.ts:65-68</code>).</li>
+    <li>Pulled once in the Command Center's Visitor sample tab.</li>
+    <li>For each visitor, read every page path, checked each against the 4 rules, and chose the tag(s).</li>
+    <li>Wrote a reason for each tag and noted anything surprising.</li>
+    <li>Compared each tag with the tags the system had already saved.</li>
+    <li>Downloaded the tags, reasons and timer (<code>run-log-entries.json</code>, kept locally, not committed).</li>
+  </ol>
+
+  <h2>The rules applied (from the code)</h2>
+  <table>
+    <thead><tr><th style="width:44%">If the page contains</th><th style="width:22%">Tag</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td><code>/pricing</code></td><td>pricing</td><td><code>:65</code></td></tr>
+      <tr><td><code>/enroll</code></td><td>enrollment</td><td><code>:66</code></td></tr>
+      <tr><td><code>/sponsorship</code></td><td>enterprise</td><td><code>:67</code></td></tr>
+      <tr><td><code>/program</code></td><td>curriculum</td><td><code>:68</code></td></tr>
+      <tr><td>No match</td><td>unclassified</td><td>As the brief asks. The code drops these silently (<code>:37-39</code>).</td></tr>
+    </tbody>
+  </table>
+  <p class="sub">The code tests the full page URL (<code>page_url</code>), which contains the path. Lines are in <code>backend/src/services/agents/admissions/admissionsVisitorActivityAgent.ts</code>.</p>
+
+  <h2 class="newpage">Results</h2>
+  <table>
+    <thead><tr><th style="width:11%">Visitor</th><th class="num" style="width:20%">Events seen / total</th><th style="width:17%">My tag</th><th>System's saved tags</th><th style="width:11%">Same?</th></tr></thead>
+    <tbody>
+      <tr><td>V01</td><td class="num">20 / 567</td><td>unclassified</td><td>pricing</td><td><span class="chip amber">No</span></td></tr>
+      <tr><td>V02</td><td class="num">20 / 195</td><td>unclassified</td><td>none</td><td><span class="chip green">Yes</span></td></tr>
+      <tr><td>V03</td><td class="num">6 / 6</td><td>pricing</td><td>pricing</td><td><span class="chip green">Yes</span></td></tr>
+      <tr><td>V04</td><td class="num">4 / 4</td><td>pricing</td><td>pricing</td><td><span class="chip green">Yes</span></td></tr>
+      <tr><td>V05</td><td class="num">20 / 561</td><td>unclassified</td><td>pricing</td><td><span class="chip amber">No</span></td></tr>
+      <tr><td>V06</td><td class="num">20 / 731</td><td>pricing</td><td>pricing</td><td><span class="chip green">Yes</span></td></tr>
+      <tr><td>V07</td><td class="num">20 / 36</td><td>pricing</td><td>pricing</td><td><span class="chip green">Yes</span></td></tr>
+      <tr><td>V08</td><td class="num">20 / 4,008</td><td>unclassified</td><td>enrollment, pricing</td><td><span class="chip amber">No</span></td></tr>
+      <tr><td>V09</td><td class="num">20 / 13,100</td><td>unclassified</td><td>pricing, outcomes, strategy_call, curriculum</td><td><span class="chip amber">No</span></td></tr>
+      <tr><td>V10</td><td class="num">20 / 71</td><td>unclassified</td><td>none</td><td><span class="chip green">Yes</span></td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="5">Totals: pricing 4, unclassified 6. No visitor matched enrollment, enterprise or curriculum. My tag matched the system's for 6 of 10.</td></tr></tfoot>
+  </table>
+  <p class="sub">"Events seen" is what the route returned (at most 20, the most recent); "total" is the visitor's page_event_count. The tags and counts in "My tag" and "Events seen / total" match the downloaded run-log entries.</p>
+
+  <div class="charts">
+    <figure class="chart" role="img" aria-label="My tags: pricing 4 visitors, unclassified 6 visitors.">
+      <h3>My tags (10 visitors)</h3>
+      <svg viewBox="0 0 220 70" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" font-size="11">
+        <text x="0" y="22" fill="#111827">pricing</text>
+        <rect x="82" y="10" width="72" height="18" rx="4" fill="#2563eb"/>
+        <text x="160" y="23" fill="#111827" font-weight="600">4</text>
+        <text x="0" y="54" fill="#111827">unclassified</text>
+        <rect x="82" y="42" width="108" height="18" rx="4" fill="#9ca3af"/>
+        <text x="196" y="55" fill="#111827" font-weight="600">6</text>
+      </svg>
+    </figure>
+    <figure class="chart" role="img" aria-label="Compared with the saved tags: matched 6, differed 4.">
+      <h3>Compared with the saved tags</h3>
+      <svg viewBox="0 0 220 70" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif" font-size="11">
+        <text x="0" y="22" fill="#111827">matched</text>
+        <rect x="82" y="10" width="108" height="18" rx="4" fill="#16a34a"/>
+        <text x="196" y="23" fill="#111827" font-weight="600">6</text>
+        <text x="0" y="54" fill="#111827">differed</text>
+        <rect x="82" y="42" width="72" height="18" rx="4" fill="#d97706"/>
+        <text x="160" y="55" fill="#111827" font-weight="600">4</text>
+      </svg>
+    </figure>
+  </div>
+
+  <h2>Judgment calls</h2>
+  <ul class="plain">
+    <li><b>Pages that match no rule</b> (home, services, platform, how it works, blog, proof, book, demo pilot, portal pages): left untagged. A visitor is "unclassified" when nothing matched, instead of guessing.</li>
+    <li><b>Mixed visitors</b> (V03, V04, V06, V07): tagged only the pages that matched, and named the unmatched pages in the reason.</li>
+    <li><b>Partial history:</b> for 8 of 10 visitors only the latest 20 events were visible. The tag was decided from what could be seen, and this was noted.</li>
+  </ul>
+
+  <h2 class="newpage">Where the recorded workflow differed from the real work</h2>
+  <p class="sub">From doing it by hand:</p>
+  <div class="cards">
+    <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h7"/><path d="M17 15l4 4M21 15l-4 4"/></svg></div>
+      <div><b><span class="n">1</span>Every page title was empty</b>So decisions could only be made from page paths.</div></div>
+    <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></div>
+      <div><b><span class="n">2</span>Repeated events</b>The same page was often recorded 2–6 times in the same minute. These look like duplicates, but not always: V06 had one page once and another 3 times.</div></div>
+    <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v9h9"/></svg></div>
+      <div><b><span class="n">3</span>Only part of the history</b>8 of 10 visitors were partial, down to 20 of 13,100 events (V09). This explains most of the 4 differences from the saved tags.</div></div>
+    <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      <div><b><span class="n">4</span>Existing users, not applicants</b>4 of 10 (V02, V06, V09, V10) used portal pages such as login. The brief assumes "a prospective applicant".</div></div>
+    <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+      <div><b><span class="n">5</span>The most interested visitor gets no tag</b>V05 moved from home to services, how it works, platform, demo pilot and book in 3 minutes. No rule covers demo or booking pages.</div></div>
+    <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+      <div><b><span class="n">6</span>Patterns over time are invisible</b>V07 came back over a month; V01 and V08 viewed one page about once a minute. A person notices these; the rules see only single pages.</div></div>
+    <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h6M14 12h6M10 6l4 6-4 6"/></svg></div>
+      <div><b><span class="n">7</span>Saved tags mix sources</b>V09 has "outcomes" and "strategy_call", which page rules can't produce; they come from chats. Nothing records which source added which tag.</div></div>
+    <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M8 11h6"/></svg></div>
+      <div><b><span class="n">8</span>No programme could be identified</b>The brief talks about "programme affinity", but only 4 general tags exist.</div></div>
+  </div>
+
+  <p class="sub" style="margin-top:10px">From the code, found while preparing. Read at platform commit <code>69fac66550f57e33ca7d07b9fd53a5db821326ba</code> (17 November 2026, 7:11 AM CST); every cited line is unchanged at that commit.</p>
+  <div class="cards">
+    <div class="card code"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <div><b><span class="n">A</span>No watermark</b>A fixed 15-minute window instead. <code>:25</code></div></div>
+    <div class="card code"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h9"/></svg></div>
+      <div><b><span class="n">B</span>No order, capped at 200</b>Events are read with no order and a cap of 200. <code>:28-35</code></div></div>
+    <div class="card code"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></div>
+      <div><b><span class="n">C</span>Unmatched pages dropped</b>Silently, instead of being recorded as "unclassified". <code>:37-39</code></div></div>
+    <div class="card code"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      <div><b><span class="n">D</span>Matched by id, not fingerprint</b>Visitors are grouped by visitor id. <code>:44</code></div></div>
+    <div class="card code"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>
+      <div><b><span class="n">E</span>Rows created, not skipped</b>A memory row is created when none exists. <code>:51</code></div></div>
+    <div class="card code"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg></div>
+      <div><b><span class="n">F</span>Written elsewhere</b>Tags go to <code>admissions_memory.interests</code>, not the visitor record. <code>:74</code>; <code>AdmissionsMemory.ts:116</code></div></div>
+  </div>
+
+  <h2>Mechanical vs judgment</h2>
+  <div class="cols">
+    <div class="col mech"><h3>Mechanical (a tool could do it)</h3>
+      <ul><li>Checking each path against the 4 rules</li><li>Merging tags</li><li>Counting</li></ul></div>
+    <div class="col judge"><h3>Needs judgment (a person, or a better rule set)</h3>
+      <ul><li>Pages that show interest but match no rule (demo, booking, platform)</li><li>Recognising existing users</li><li>Patterns over time</li><li>Deciding when 20 events aren't enough</li></ul></div>
+  </div>
+
+  <p class="foot">Read-only: nothing was written to the platform. No anonymous ids, page titles or query strings appear on this page. Tags, reasons, event counts and the timer come from the builder's <code>run-log-entries.json</code>, which is kept locally and not committed. The system's saved tags are as shown on screen at the pull; that file does not hold them.</p>
+</main>
+</body>
+</html>

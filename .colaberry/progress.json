@@ -1081,11 +1081,11 @@
       "criteria": [
         {
           "text": "The capability was performed end to end by hand, producing its real outcome on real inputs.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "A run log exists recording the date, the elapsed time, each step actually performed, every judgment call made, and at least one way the recorded workflow differed from what the work was really like.",
-          "passed": false
+          "passed": true
         }
       ],
       "files_touched": [],
