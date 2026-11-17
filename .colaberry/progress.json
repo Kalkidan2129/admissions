@@ -3,13 +3,13 @@
   "project": "Admissions & Applicant Experience",
   "totals": {
     "stories_total": 58,
-    "stories_verified": 8,
+    "stories_verified": 9,
     "stories_submitted": 0,
-    "stories_in_progress": 46,
-    "stories_not_started": 4,
-    "criteria_total": 71,
-    "criteria_passed": 25,
-    "points_awarded": 120
+    "stories_in_progress": 49,
+    "stories_not_started": 0,
+    "criteria_total": 81,
+    "criteria_passed": 27,
+    "points_awarded": 134
   },
   "stories": [
     {
@@ -1096,14 +1096,14 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
-        "criteria_passed": 0,
-        "criteria_total": 0,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
+        "state": "verified",
+        "criteria_passed": 2,
+        "criteria_total": 2,
+        "verified_at": "2026-11-17T13:50:42.369Z",
+        "commit_sha": "e181a76183417bd4c2bc0533a9ac34b6db267233",
+        "commit_url": "https://github.com/Kalkidan2129/admissions/commit/e181a76183417bd4c2bc0533a9ac34b6db267233",
+        "commit_at": "2026-11-17T13:50:21Z",
+        "points_awarded": 14,
         "outstanding": []
       }
     },
@@ -1126,15 +1126,18 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
-        "criteria_total": 0,
+        "criteria_total": 2,
         "verified_at": null,
         "commit_sha": null,
         "commit_url": null,
         "commit_at": null,
         "points_awarded": null,
-        "outstanding": []
+        "outstanding": [
+          "The same outcome was produced a second time using only the product, with no agent, no script and no direct database edit -- or the exact step that made this impossible is written down as a named gap.",
+          "The app route was compared against the step 1 run log, and every difference between them is recorded."
+        ]
       }
     },
     {
@@ -1160,15 +1163,19 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
-        "criteria_total": 0,
+        "criteria_total": 3,
         "verified_at": null,
         "commit_sha": null,
         "commit_url": null,
         "commit_at": null,
         "points_awarded": null,
-        "outstanding": []
+        "outstanding": [
+          "A change request for a tool exists against this domain, filed by the builder, naming the tool, its scope, what it must never touch, and who approves a run.",
+          "The request cites the step 1 run log and the step 2 result as its evidence.",
+          "A named human other than the builder has recorded a decision on it. A decline counts; an undecided request does not."
+        ]
       }
     },
     {
@@ -1194,15 +1201,19 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "not_started",
+        "state": "in_progress",
         "criteria_passed": 0,
-        "criteria_total": 0,
+        "criteria_total": 3,
         "verified_at": null,
         "commit_sha": null,
         "commit_url": null,
         "commit_at": null,
         "points_awarded": null,
-        "outstanding": []
+        "outstanding": [
+          "20 sampled visitor summaries match the underlying page events with zero fabricated page titles.",
+          "The agent produced the same outcome as the step 1 run log, on the same inputs, including the exceptions recorded there.",
+          "Every run in the evidence window was approved by a named human before it took effect, and the record shows who."
+        ]
       }
     },
     {
