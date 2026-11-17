@@ -1088,7 +1088,10 @@
           "passed": true
         }
       ],
-      "files_touched": [],
+      "files_touched": [
+        "docs/capabilities/page-event/L1/l1-by-hand-run-log.html",
+        "docs/capabilities/page-event/L1/l1-by-hand-run-log.pdf"
+      ],
       "tests_added": [],
       "notes": null,
       "updated_at": null,
