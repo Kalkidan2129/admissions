@@ -1114,14 +1114,17 @@
       "criteria": [
         {
           "text": "The same outcome was produced a second time using only the product, with no agent, no script and no direct database edit -- or the exact step that made this impossible is written down as a named gap.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "The app route was compared against the step 1 run log, and every difference between them is recorded.",
-          "passed": false
+          "passed": true
         }
       ],
-      "files_touched": [],
+      "files_touched": [
+        "docs/capabilities/page-event/L2/l2-in-the-app-record.html",
+        "docs/capabilities/page-event/L2/l2-in-the-app-record.pdf"
+      ],
       "tests_added": [],
       "notes": null,
       "updated_at": null,
