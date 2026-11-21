@@ -5,7 +5,9 @@
     "agent": "GET /api/admin/agent-domains-mine",
     "capabilities": "GET /api/admin/agent-domains-mine/admissions",
     "capability_ladder": "GET /api/admin/agent-domains-mine/admissions/coverage",
-    "governance": "GET /api/admin/agent-domain-change-requests-mine"
+    "governance": "GET /api/admin/agent-domain-change-requests-mine",
+    "candidates": "GET /api/admin/agent-domain-candidates-mine",
+    "owed_by_product": "GET /api/admin/agent-domain-candidates-mine"
   },
   "autonomy_models": {
     "agent_level": "observe | suggest | act_audited | communicate -- a property of the employee",
@@ -1929,11 +1931,11 @@
     "known": true,
     "disclosure": "A criterion counts as passing when it is marked in `.colaberry/progress.json` in this repository. The verifier reads that file on every sync and records what it found. A story showing 0 of N is not a rejection: nothing has been claimed yet.",
     "summary": {
-      "stories": 58,
+      "stories": 66,
       "checked": 58,
-      "verified": 9,
-      "awaiting_criteria": 49,
-      "outstanding_criteria": 54
+      "verified": 10,
+      "awaiting_criteria": 48,
+      "outstanding_criteria": 52
     },
     "stories": [
       {
@@ -2514,6 +2516,54 @@
         "commit_sha": null
       },
       {
+        "story_id": "admissions.CAP.maya_campus_tour_offer",
+        "title": "Campus guided-tour offer in the portal conversation",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.maya_document_dispatch_to_a_prospect",
+        "title": "Programme document dispatch to a prospect",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.maya_human_handoff_from_chat",
+        "title": "Handoff of a conversation to a person on the admissions team",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.maya_quoted_email_draft_for_approval",
+        "title": "Quoted follow-up email drafted for a person to approve",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
         "story_id": "admissions.CAP.monthly_subscription_and_mrr_report",
         "title": "Monthly subscription and MRR report",
         "status": "in_progress",
@@ -2577,6 +2627,42 @@
         "commit_sha": "33d6cae3d3205b4f82a2fe32f00930f81818cf52"
       },
       {
+        "story_id": "admissions.CAP.page_event_admissions_enrichment.L0-ASK-FOR-A-SCREEN",
+        "title": "Visitor page-event admissions enrichment · 0.3 · waiting on the platform",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.page_event_admissions_enrichment.L0-CHOOSE",
+        "title": "Visitor page-event admissions enrichment · 0.1 · pick one from the list",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
+        "story_id": "admissions.CAP.page_event_admissions_enrichment.L0-SCOPE-SHEET",
+        "title": "Visitor page-event admissions enrichment · 0.2 · write the scope sheet",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
         "story_id": "admissions.CAP.page_event_admissions_enrichment.L1-BY-HAND",
         "title": "Visitor page-event admissions enrichment · 1 · do it by hand",
         "status": "complete",
@@ -2591,20 +2677,14 @@
       {
         "story_id": "admissions.CAP.page_event_admissions_enrichment.L2-IN-THE-APP",
         "title": "Visitor page-event admissions enrichment · 2 · do it in the app",
-        "status": "in_progress",
-        "verification_state": "in_progress",
-        "verified": false,
-        "criteria_passed": 0,
+        "status": "complete",
+        "verification_state": "verified",
+        "verified": true,
+        "criteria_passed": 2,
         "criteria_total": 2,
-        "reasons": [
-          "None of the 2 acceptance criteria are marked as passing yet.",
-          "No commit in the repo names admissions.CAP.page_event_admissions_enrichment.L2-IN-THE-APP and changes a file. Commit your work with a `Story: admissions.CAP.page_event_admissions_enrichment.L2-IN-THE-APP` trailer (or admissions.CAP.page_event_admissions_enrichment.L2-IN-THE-APP in the subject line) and push."
-        ],
-        "outstanding": [
-          "The same outcome was produced a second time using only the product, with no agent, no script and no direct database edit -- or the exact step that made this impossible is written down as a named gap.",
-          "The app route was compared against the step 1 run log, and every difference between them is recorded."
-        ],
-        "commit_sha": null
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": "b71c426d46e76fdeae0377da1d3549bf52005439"
       },
       {
         "story_id": "admissions.CAP.page_event_admissions_enrichment.L3-TOOL-REQUEST",
@@ -2798,6 +2878,18 @@
         "commit_sha": null
       },
       {
+        "story_id": "admissions.GATE.R0.1",
+        "title": "R0 gate · 1 of 1 · a capability the agent does, watched",
+        "status": "not_started",
+        "verification_state": null,
+        "verified": false,
+        "criteria_passed": null,
+        "criteria_total": null,
+        "reasons": [],
+        "outstanding": [],
+        "commit_sha": null
+      },
+      {
         "story_id": "admissions.LEGACY-MIGRATION-PLAN",
         "title": "Legacy migration plan",
         "status": "complete",
@@ -2882,6 +2974,38 @@
         "commit_sha": "8fdb41b00f6ce65e5e34e6129fdc615b63ad4590"
       }
     ]
+  },
+  "candidates": {
+    "known": true,
+    "reason": "No candidates have been put on the list yet for admissions. An empty list means nobody has proposed anything, not that nothing qualifies.",
+    "scoped_to_domains": [
+      "admissions"
+    ],
+    "summary": {
+      "candidates": 0,
+      "yours_to_move": 0,
+      "waiting_on_the_owner": 0,
+      "finished": 0,
+      "cleared_the_gate": 0
+    },
+    "candidates": []
+  },
+  "owed_by_product": {
+    "known": true,
+    "reason": "Nothing is waiting on the platform for you right now. Every candidate on your list is either yours to move or already through.",
+    "scoped_to_domains": [
+      "admissions"
+    ],
+    "stages_counted": [
+      "platform_owed",
+      "screen_built"
+    ],
+    "summary": {
+      "owed": 0,
+      "waiting_for_a_screen_or_a_ruling": 0,
+      "built_and_not_yet_used": 0
+    },
+    "owed": []
   },
   "not_recorded": [
     {

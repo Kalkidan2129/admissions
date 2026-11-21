@@ -3,13 +3,13 @@
   "project": "Admissions & Applicant Experience",
   "totals": {
     "stories_total": 58,
-    "stories_verified": 9,
+    "stories_verified": 10,
     "stories_submitted": 0,
-    "stories_in_progress": 49,
+    "stories_in_progress": 48,
     "stories_not_started": 0,
     "criteria_total": 81,
-    "criteria_passed": 27,
-    "points_awarded": 134
+    "criteria_passed": 29,
+    "points_awarded": 148
   },
   "stories": [
     {
@@ -1129,18 +1129,15 @@
       "notes": null,
       "updated_at": null,
       "verification": {
-        "state": "in_progress",
-        "criteria_passed": 0,
+        "state": "verified",
+        "criteria_passed": 2,
         "criteria_total": 2,
-        "verified_at": null,
-        "commit_sha": null,
-        "commit_url": null,
-        "commit_at": null,
-        "points_awarded": null,
-        "outstanding": [
-          "The same outcome was produced a second time using only the product, with no agent, no script and no direct database edit -- or the exact step that made this impossible is written down as a named gap.",
-          "The app route was compared against the step 1 run log, and every difference between them is recorded."
-        ]
+        "verified_at": "2026-11-20T14:40:20.219Z",
+        "commit_sha": "b71c426d46e76fdeae0377da1d3549bf52005439",
+        "commit_url": "https://github.com/Kalkidan2129/admissions/commit/b71c426d46e76fdeae0377da1d3549bf52005439",
+        "commit_at": "2026-11-20T14:39:57Z",
+        "points_awarded": 14,
+        "outstanding": []
       }
     },
     {

@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-17T13:56:32.122Z",
+  "generated_at": "2026-11-21T05:30:37.001Z",
   "plan_version": 2,
   "plan_sha256": "3bfbe67d8d611c32f2265b786066acf775320c45321069395a8649c0b17fce8a",
-  "correlation_id": "0e56f96d-4e39-44ed-b82f-1df4028b899b",
+  "correlation_id": "01b4325c-ad24-4e3b-a616-f8737e285205",
   "project_id": "aefb0b8d-7b89-58aa-88ac-3750083f5cd8",
   "truth_revision": null,
   "files": [
@@ -20,11 +20,19 @@
     },
     {
       "path": "docs/DATA_CONTRACT.md",
-      "sha256": "d56e89edcfe36725945d961cf3479b646507d1fa855bba0dcdfff3f8f8a658b0"
+      "sha256": "94cad402c1b26aefffcfc4355fe258a997e45cdfd13319e1f70de5095befa054"
     },
     {
       "path": "CLAUDE.md",
       "sha256": "502f0f2dc4101a4f7ccad546dd8d48d80ba4f6f631ed45ef0f930bbc7550c64c"
+    },
+    {
+      "path": "docs/agent/README.md",
+      "sha256": "d505a1cb65080cccaeb1309179099c72bafbb60f86b4ad28d71e5293c4d79826"
+    },
+    {
+      "path": "docs/agent/capability.md",
+      "sha256": "21c003d5fa56a4da809ffc5deacbc557aa692ae7518e59feae278010d1836263"
     },
     {
       "path": "docs/stories/admissions.CAP.admission_decision_recording.md",
@@ -260,11 +268,11 @@
     },
     {
       "path": ".colaberry/plan.json",
-      "sha256": "200fea383c5c1fff09fe94490f91b0c6e371a06c8428deef4573fd84e4774ae9"
+      "sha256": "112f9b56e88b01c04e1c6bb3773312fa02c38c496a299745813d7b36441a9f2e"
     },
     {
       "path": ".colaberry/progress.json",
-      "sha256": "810d1bbcabe23c139af765135212927fbb924d35d9ad627bf9b34aa92baff032"
+      "sha256": "2a2acb309e32fc2f77b43563a541a84dba65a71508787a3233448f7339f53a87"
     },
     {
       "path": ".colaberry/profile.json",
@@ -272,11 +280,15 @@
     },
     {
       "path": ".colaberry/agent-domain.json",
-      "sha256": "680493a29472d83d5776fca820f381cc6064dc807a89a7abcdcb61794deefb4b"
+      "sha256": "e060d0379452b4a116f89398274708d1bdd7ec1a4ef991e28be9a059da720f19"
     },
     {
       "path": "docs/stories/STORY-000.md",
       "sha256": "5a6daa1f56880f7d82bedb3d8ad6cd97a9993cb140e8b70e3a760f02bbf874b5"
+    },
+    {
+      "path": ".nojekyll",
+      "sha256": "d217e70c3bf6e6d9e36bf665911518f42d770a37127ccdef341cdd48fd3ece4b"
     }
   ]
 }
