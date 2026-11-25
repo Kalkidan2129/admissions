@@ -49,6 +49,7 @@ releases[]       key           string        r0, r1, …
                  starts_on     YYYY-MM-DD | null
                  ends_on       YYYY-MM-DD | null
                  is_demo_target boolean      true for the release you demo
+                 is_roadmap    boolean       after the demo; dated after demo_day
 
 stories[]        id            string        STORY-001, …
                  release       string        a release KEY, not a name

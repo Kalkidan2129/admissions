@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-21T05:30:37.001Z",
-  "plan_version": 2,
-  "plan_sha256": "3bfbe67d8d611c32f2265b786066acf775320c45321069395a8649c0b17fce8a",
-  "correlation_id": "01b4325c-ad24-4e3b-a616-f8737e285205",
+  "generated_at": "2026-11-25T02:36:37.392Z",
+  "plan_version": 3,
+  "plan_sha256": "6a5797fe42ea97e75817418ebb8f391351a160a73d0f45d2718ac8a1ff80d639",
+  "correlation_id": "f0e00b81-62e5-475e-8e9b-ba410c1729a5",
   "project_id": "aefb0b8d-7b89-58aa-88ac-3750083f5cd8",
   "truth_revision": null,
   "files": [
@@ -12,7 +12,7 @@
     },
     {
       "path": "docs/STORIES.md",
-      "sha256": "d7558568255ba67b30ff681b60cf340cb102fc78fcf7cd4392b91ce9230ea299"
+      "sha256": "b27838854846197eeb140cc1389fb7fac6b6886eb884b80a5664f09e3140aaa2"
     },
     {
       "path": "docs/TRACEABILITY.md",
@@ -20,7 +20,7 @@
     },
     {
       "path": "docs/DATA_CONTRACT.md",
-      "sha256": "94cad402c1b26aefffcfc4355fe258a997e45cdfd13319e1f70de5095befa054"
+      "sha256": "f40e4c188037375d1a26fa99184eb5a550e81a492723e28e98f37d33deb02b72"
     },
     {
       "path": "CLAUDE.md",
@@ -171,6 +171,22 @@
       "sha256": "9e0d57924a2a9ff772834eda84373b9839bfd112cb4955702261fe5ccc663e5b"
     },
     {
+      "path": "docs/stories/admissions.CAP.maya_campus_tour_offer.md",
+      "sha256": "eb33e20dd2512c37fc99f17d34bd95e287f01f4ccfdd3b4a60e80211cdf32908"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.maya_document_dispatch_to_a_prospect.md",
+      "sha256": "bb4491ed93fb66815bd051a73d3ed856261fb79304aea647e3981eb5fe9c34bf"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.maya_human_handoff_from_chat.md",
+      "sha256": "4b24f87634f53188341b09908194e60031abce53a5aced9fc006b1e9f8e4b1b3"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.maya_quoted_email_draft_for_approval.md",
+      "sha256": "255501d5f2e8aec9341046f3eceb090a0c78ada12af40514b2e10d6fd2682e7e"
+    },
+    {
       "path": "docs/stories/admissions.CAP.monthly_subscription_and_mrr_report.md",
       "sha256": "b15cb482b9b8889e9f6054cba9565a6e76578018086f5fa2420f3cf21c1fde2e"
     },
@@ -185,6 +201,18 @@
     {
       "path": "docs/stories/admissions.CAP.page_event_admissions_enrichment.md",
       "sha256": "43208681099944b9d341ebdd1667fb962f176ef24d5397329feae608e62085d4"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.page_event_admissions_enrichment.L0-ASK-FOR-A-SCREEN.md",
+      "sha256": "c6d70fca610f91bfbfcd3e6718ff9332bfd767114cdddbad9c5cab29423ac5d3"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.page_event_admissions_enrichment.L0-CHOOSE.md",
+      "sha256": "70f1e6d2b4af9b4325538b27477f46857ccbc933b37e384babd2ad3477b7fc63"
+    },
+    {
+      "path": "docs/stories/admissions.CAP.page_event_admissions_enrichment.L0-SCOPE-SHEET.md",
+      "sha256": "2b0937628bf5ab359cd6409710202ddeb9544094b1258ab0b111818fac1d7edf"
     },
     {
       "path": "docs/stories/admissions.CAP.page_event_admissions_enrichment.L1-BY-HAND.md",
@@ -239,8 +267,12 @@
       "sha256": "1e9a9e49eb512cfeab70bc552f5e79cf500fbd724dad53720819229965ca0a4a"
     },
     {
+      "path": "docs/stories/admissions.GATE.R0.1.md",
+      "sha256": "a8a9600a114de42a99fd88f2147b446c9568d364b660cb094f681a1e43b57b54"
+    },
+    {
       "path": "docs/stories/admissions.LEGACY-MIGRATION-PLAN.md",
-      "sha256": "ae0c25a995afcd69654d1ebddc6c0905c4e8e5b19ea463a629d5ebb0b3142f88"
+      "sha256": "9b57d0bf0f3185197de903351babab9db99c826d21ba42b5853078e39db51fea"
     },
     {
       "path": "docs/stories/admissions.RESEARCH-1-SYSTEM-CLASSES.md",
@@ -268,11 +300,11 @@
     },
     {
       "path": ".colaberry/plan.json",
-      "sha256": "112f9b56e88b01c04e1c6bb3773312fa02c38c496a299745813d7b36441a9f2e"
+      "sha256": "d63d70a69915c47bd7e7e6043fb7f7077acf34e65811c3ae758fe0229df31840"
     },
     {
       "path": ".colaberry/progress.json",
-      "sha256": "2a2acb309e32fc2f77b43563a541a84dba65a71508787a3233448f7339f53a87"
+      "sha256": "f62cb53e5403f591e61f54d3f77f492bbaec563015189dd10ddeb7efa952d1e9"
     },
     {
       "path": ".colaberry/profile.json",

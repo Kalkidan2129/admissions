@@ -1,6 +1,6 @@
 # Admissions & Applicant Experience — Stories
 
-58 stories across 1 releases, walking-skeleton first:
+66 stories across 1 releases, walking-skeleton first:
 the earliest release proves the thinnest end-to-end path including the trust
 spine, and later releases stack features on top of something already working.
 
@@ -52,10 +52,17 @@ system rather than a part of it.
 - **[admissions.CAP.lead_intake_dedup_and_qualification](stories/admissions.CAP.lead_intake_dedup_and_qualification.md)** — Lead intake de-duplication and qualification
 - **[admissions.CAP.manager_surface_access_remediation](stories/admissions.CAP.manager_surface_access_remediation.md)** — Manager surface access remediation
 - **[admissions.CAP.maya_applicant_chat_response](stories/admissions.CAP.maya_applicant_chat_response.md)** — Prospective-applicant chat response
+- **[admissions.CAP.maya_campus_tour_offer](stories/admissions.CAP.maya_campus_tour_offer.md)** — Campus guided-tour offer in the portal conversation
+- **[admissions.CAP.maya_document_dispatch_to_a_prospect](stories/admissions.CAP.maya_document_dispatch_to_a_prospect.md)** — Programme document dispatch to a prospect
+- **[admissions.CAP.maya_human_handoff_from_chat](stories/admissions.CAP.maya_human_handoff_from_chat.md)** — Handoff of a conversation to a person on the admissions team
+- **[admissions.CAP.maya_quoted_email_draft_for_approval](stories/admissions.CAP.maya_quoted_email_draft_for_approval.md)** — Quoted follow-up email drafted for a person to approve
 - **[admissions.CAP.monthly_subscription_and_mrr_report](stories/admissions.CAP.monthly_subscription_and_mrr_report.md)** — Monthly subscription and MRR report
 - **[admissions.CAP.offer_document_package_generation](stories/admissions.CAP.offer_document_package_generation.md)** — Offer document package generation
 - **[admissions.CAP.outreach_compliance_monitoring](stories/admissions.CAP.outreach_compliance_monitoring.md)** — Outreach compliance monitoring
 - **[admissions.CAP.page_event_admissions_enrichment](stories/admissions.CAP.page_event_admissions_enrichment.md)** — Visitor page-event admissions enrichment
+- **[admissions.CAP.page_event_admissions_enrichment.L0-ASK-FOR-A-SCREEN](stories/admissions.CAP.page_event_admissions_enrichment.L0-ASK-FOR-A-SCREEN.md)** — Visitor page-event admissions enrichment · 0.3 · waiting on the platform
+- **[admissions.CAP.page_event_admissions_enrichment.L0-CHOOSE](stories/admissions.CAP.page_event_admissions_enrichment.L0-CHOOSE.md)** — Visitor page-event admissions enrichment · 0.1 · pick one from the list
+- **[admissions.CAP.page_event_admissions_enrichment.L0-SCOPE-SHEET](stories/admissions.CAP.page_event_admissions_enrichment.L0-SCOPE-SHEET.md)** — Visitor page-event admissions enrichment · 0.2 · write the scope sheet
 - **[admissions.CAP.page_event_admissions_enrichment.L1-BY-HAND](stories/admissions.CAP.page_event_admissions_enrichment.L1-BY-HAND.md)** — Visitor page-event admissions enrichment · 1 · do it by hand
 - **[admissions.CAP.page_event_admissions_enrichment.L2-IN-THE-APP](stories/admissions.CAP.page_event_admissions_enrichment.L2-IN-THE-APP.md)** — Visitor page-event admissions enrichment · 2 · do it in the app
 - **[admissions.CAP.page_event_admissions_enrichment.L3-TOOL-REQUEST](stories/admissions.CAP.page_event_admissions_enrichment.L3-TOOL-REQUEST.md)** — Visitor page-event admissions enrichment · 3 · request the tool
@@ -69,6 +76,7 @@ system rather than a part of it.
 - **[admissions.CAP.visitor_insight_aggregation](stories/admissions.CAP.visitor_insight_aggregation.md)** — Admissions funnel insight aggregation
 - **[admissions.CAP.visitor_intent_scoring](stories/admissions.CAP.visitor_intent_scoring.md)** — Prospective-applicant intent scoring
 - **[admissions.CAP.weekly_cohort_progress_report](stories/admissions.CAP.weekly_cohort_progress_report.md)** — Weekly cohort progress report
+- **[admissions.GATE.R0.1](stories/admissions.GATE.R0.1.md)** — R0 gate · 1 of 1 · a capability the agent does, watched
 - **[admissions.LEGACY-MIGRATION-PLAN](stories/admissions.LEGACY-MIGRATION-PLAN.md)** — Legacy migration plan
 - **[admissions.RESEARCH-1-SYSTEM-CLASSES](stories/admissions.RESEARCH-1-SYSTEM-CLASSES.md)** — Compare the five system classes, and place this domain among them
 - **[admissions.RESEARCH-2-AGENT-ANATOMY](stories/admissions.RESEARCH-2-AGENT-ANATOMY.md)** — Map the nine anatomy elements onto this domain's agent
