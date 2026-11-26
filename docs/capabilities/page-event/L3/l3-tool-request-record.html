@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tool Request Record</title>
+<style>
+  :root {
+    --text: #111827; --muted: #4b5563; --line: #d1d5db; --surface: #f9fafb;
+    --blue: #1e40af; --blue-bg: #dbeafe; --blue-border: #93c5fd;
+    --green: #166534; --green-bg: #dcfce7; --green-border: #86efac;
+    --amber: #92400e; --amber-bg: #fef3c7; --amber-border: #fcd34d;
+    --red: #991b1b; --red-bg: #fee2e2; --red-border: #fca5a5;
+  }
+  @page { size: A4; margin: 12mm 12mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fff; color: var(--text); font: 10pt/1.42 "Segoe UI", Arial, sans-serif; }
+  main { max-width: 186mm; margin: 0 auto; padding: 0 16px; }
+  h1 { font-size: 16.5pt; margin: 0 0 2px; letter-spacing: -0.01em; }
+  h2 { font-size: 11.5pt; margin: 14px 0 6px; padding-bottom: 3px; border-bottom: 1px solid var(--line); break-after: avoid; }
+  p { margin: 4px 0; }
+  code { font-family: Consolas, "Cascadia Mono", monospace; font-size: 8.4pt; background: var(--surface); border: 1px solid #e5e7eb; border-radius: 3px; padding: 0 3px; }
+  .sub { color: var(--muted); font-size: 9pt; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 2px; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; padding: 2px 9px; border-radius: 999px; font-size: 8.8pt; font-weight: 600; border: 1px solid; white-space: nowrap; }
+  .chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .amber { color: var(--amber); background: var(--amber-bg); border-color: var(--amber-border); }
+  .red { color: var(--red); background: var(--red-bg); border-color: var(--red-border); }
+  .green { color: var(--green); background: var(--green-bg); border-color: var(--green-border); }
+  .header-box { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: 6px; background: var(--surface); margin: 8px 0; break-inside: avoid; }
+  .header-box div { padding: 7px 10px; border-right: 1px solid var(--line); }
+  .header-box div:last-child { border-right: 0; }
+  .header-box span { display: block; font-size: 8pt; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .header-box b { display: block; font-size: 10.5pt; }
+  .header-box small { display: block; font-size: 8pt; color: var(--muted); word-break: break-all; }
+  .top { display: grid; grid-template-columns: 1fr 52mm; gap: 12px; align-items: start; }
+  .diagram { border: 1px solid var(--line); border-radius: 6px; padding: 6px; break-inside: avoid; }
+  .diagram svg { width: 100%; height: auto; display: block; }
+  figure { margin: 0; border: 1px solid var(--line); border-radius: 6px; padding: 6px; break-inside: avoid; }
+  figure img { width: 100%; height: auto; display: block; border-radius: 4px; }
+  figcaption { font-size: 8pt; color: var(--muted); margin-top: 4px; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .card { display: grid; grid-template-columns: 30px 1fr; gap: 8px; border: 1px solid var(--line); border-radius: 6px; padding: 7px 9px; break-inside: avoid; font-size: 9pt; }
+  .card .icon { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 9pt; }
+  .card.block .icon { background: var(--red-bg); border: 1px solid var(--red-border); color: var(--red); }
+  .card.gap .icon { background: var(--amber-bg); border: 1px solid var(--amber-border); color: var(--amber); }
+  .card b { display: block; font-size: 9.4pt; margin-bottom: 2px; }
+  .card ul { margin: 3px 0 0; padding-left: 14px; }
+  .card li { margin: 1px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 8.9pt; margin: 6px 0; }
+  th, td { text-align: left; padding: 4px 6px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+  th { background: var(--surface); font-weight: 600; border-bottom: 1px solid var(--line); }
+  tr { break-inside: avoid; }
+  td .chip { font-size: 8pt; padding: 1px 7px; }
+  .conclusion { margin: 10px 0; padding: 10px 12px; border: 2px solid var(--red-border); background: var(--red-bg); border-radius: 6px; break-inside: avoid; }
+  .conclusion b { color: var(--red); }
+  .conclusion p { margin: 3px 0; font-size: 10pt; }
+  .newpage { break-before: page; margin-top: 0; }
+  .foot { margin-top: 14px; color: var(--muted); font-size: 8pt; border-top: 1px solid var(--line); padding-top: 5px; }
+  @media (max-width: 640px) { .header-box, .cards, .top { grid-template-columns: 1fr; } .header-box div { border-right: 0; border-bottom: 1px solid var(--line); } }
+  .fields td:first-child { width: 27%; color: var(--muted); font-weight: 600; }
+  .fields td { font-size: 9pt; padding: 3px 6px; }
+  .fields .grp td { background: var(--blue-bg); color: var(--blue); font-weight: 700; font-size: 8.4pt; text-transform: uppercase; letter-spacing: 0.04em; padding: 3px 6px; }
+  .never { margin: 0; padding-left: 16px; }
+  .never li { margin: 1px 0; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0; }
+  .side { border: 1px solid var(--line); border-radius: 6px; padding: 7px 10px; break-inside: avoid; font-size: 9pt; }
+  .side b { display: block; margin-bottom: 3px; }
+  .side.tool { border-color: var(--blue-border); background: var(--blue-bg); }
+  .side.person { border-color: var(--green-border); background: var(--green-bg); }
+  .side ul { margin: 0; padding-left: 15px; }
+  .wait { margin: 10px 0; padding: 10px 12px; border: 2px solid var(--amber-border); background: var(--amber-bg); border-radius: 6px; break-inside: avoid; }
+  .wait b { color: var(--amber); }
+  .wait p { margin: 3px 0; }
+  @media (max-width: 640px) { .split { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1 style="font-size:15pt">Visitor page-event admissions enrichment · step 3: request the tool</h1>
+  <p class="sub">admissions.CAP.page_event_admissions_enrichment.L3-TOOL-REQUEST</p>
+  <div class="chips">
+    <span class="chip green">Filed</span>
+    <span class="chip amber">Waiting on a decision</span>
+  </div>
+
+  <div class="header-box">
+    <div><span>Filed</span><b>25 Nov 2026</b><small>7:13 PM CST</small></div>
+    <div><span>Filed by</span><b>Myself</b><small>The builder for this domain</small></div>
+    <div><span>Where</span><b>Change Requests</b><small>Admin portal, tool request</small></div>
+    <div><span>Status</span><b>Submitted</b><small>Decided by nobody yet</small></div>
+  </div>
+
+  <h2 style="margin-top:10px">How this request came about</h2>
+  <div class="diagram" role="img" aria-label="Step 1 run log and step 2 named gap both feed the tool request, which goes to Taiwo Oludimimu or an admin for a decision. The decision has not been made yet.">
+    <svg viewBox="0 0 640 132" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+      <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
+      <g font-size="11">
+        <rect x="6" y="6" width="170" height="54" rx="6" fill="#dcfce7" stroke="#86efac"/>
+        <text x="16" y="25" font-weight="700" fill="#166534">Step 1: run log</text>
+        <text x="16" y="41" fill="#14532d">Done by hand, verified</text>
+        <text x="16" y="54" fill="#14532d" font-size="10">commit e181a76</text>
+
+        <rect x="6" y="72" width="170" height="54" rx="6" fill="#dcfce7" stroke="#86efac"/>
+        <text x="16" y="91" font-weight="700" fill="#166534">Step 2: named gap</text>
+        <text x="16" y="107" fill="#14532d">The app cannot do this today</text>
+        <text x="16" y="120" fill="#14532d" font-size="10">commit b71c426</text>
+
+        <line x1="176" y1="33" x2="236" y2="62" stroke="#6b7280" stroke-width="1.5" marker-end="url(#a)"/>
+        <line x1="176" y1="99" x2="236" y2="72" stroke="#6b7280" stroke-width="1.5" marker-end="url(#a)"/>
+
+        <rect x="240" y="30" width="180" height="72" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="252" y="51" font-weight="700" fill="#166534">Step 3: tool request</text>
+        <text x="252" y="67" fill="#14532d">Filed 25 Nov 2026, 7:13 PM CST</text>
+        <text x="252" y="83" fill="#14532d">admissions_visitor_signals_reader</text>
+        <text x="252" y="96" fill="#14532d" font-size="10">Status: submitted</text>
+
+        <line x1="420" y1="66" x2="456" y2="66" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#a)"/>
+
+        <rect x="460" y="30" width="174" height="72" rx="6" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <text x="472" y="51" font-weight="700" fill="#92400e">Decision</text>
+        <text x="472" y="67" fill="#78350f">Taiwo Oludimimu or an admin</text>
+        <text x="472" y="83" fill="#78350f">Not the builder</text>
+        <text x="472" y="96" fill="#78350f" font-size="10">Not made yet</text>
+      </g>
+    </svg>
+  </div>
+
+  <h2>The request as filed</h2>
+  <table class="fields">
+    <tbody>
+      <tr><td>Title</td><td>Read-only lookup of one visitor's recent page events and saved interest tags for the admissions agent</td></tr>
+      <tr class="grp"><td colspan="2">What</td></tr>
+      <tr><td>Tool name</td><td><code>admissions_visitor_signals_reader</code></td></tr>
+      <tr><td>Reads</td><td>Visitor interest tags; visitor type and page event count; page events (type, page path, page title, time)</td></tr>
+      <tr><td>Produces</td><td>A per-visitor answer to "what did this visitor look at", with no writes</td></tr>
+      <tr class="grp"><td colspan="2">What for</td></tr>
+      <tr><td>Capability</td><td><code>admissions.page_event_admissions_enrichment</code></td></tr>
+      <tr><td>Task key</td><td><code>visitor_interest_lookup</code></td></tr>
+      <tr><td>How it is done today</td><td>By hand, as in the step 1 run log (commit e181a76): 10 visitors, about 43 minutes</td></tr>
+      <tr class="grp"><td colspan="2">Worth building</td></tr>
+      <tr><td>Acts on the output</td><td>Taiwo Oludimimu</td></tr>
+      <tr><td>Pass mark</td><td>20 of 20 sampled visitor answers match the underlying page events, with 0 fabricated page titles (measured in the 12 Nov visitor sample, commit 9119b79)</td></tr>
+      <tr><td>Tried in the app</td><td>"The app cannot do this today" (step 2, commit b71c426). The portal's "Check the app first" also answered "The app cannot do this yet".</td></tr>
+      <tr class="grp"><td colspan="2">When</td></tr>
+      <tr><td>Needed by</td><td>8 December 2026</td></tr>
+      <tr><td>How often</td><td>When somebody asks</td></tr>
+      <tr class="grp"><td colspan="2">Where and which data</td></tr>
+      <tr><td>Environment</td><td>Production, read only</td></tr>
+      <tr><td>Datasets</td><td><code>admissions_memory</code>, <code>page_events</code></td></tr>
+      <tr><td>Touches</td><td>The Colaberry platform database, read only</td></tr>
+      <tr class="grp"><td colspan="2">How</td></tr>
+      <tr><td>Writes</td><td>Nothing</td></tr>
+      <tr><td>Who approves a run</td><td>Taiwo Oludimimu, before each run takes effect</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Scope: what it must never touch</h2>
+  <div class="card block" style="grid-template-columns: 30px 1fr;"><div class="icon">!</div><div>
+    <b>The tool must never touch:</b>
+    <ul class="never">
+      <li>IP address, user agent, fingerprint, email, name, lead ID or full page URL</li>
+      <li>Any table, for writing: it writes nothing</li>
+      <li>Messages, or anything a visitor sees</li>
+    </ul>
+  </div></div>
+
+  <h2>What the tool takes, and what stays with a person</h2>
+  <div class="split">
+    <div class="side tool"><b>The tool</b>
+      <ul>
+        <li>Fetches the visitor's page events and saved interest tags</li>
+        <li>Lists the pages</li>
+        <li>Applies the 4 page rules</li>
+      </ul>
+    </div>
+    <div class="side person"><b>A person</b>
+      <ul>
+        <li>Makes every judgment call</li>
+        <li>Decides whether to act on the answer</li>
+        <li>Approves each run before it takes effect (Taiwo Oludimimu)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Evidence the request cites</h2>
+  <table>
+    <thead><tr><th style="width:22%">Evidence</th><th style="width:20%">Commit</th><th>What it shows</th></tr></thead>
+    <tbody>
+      <tr><td>Step 1 run log</td><td><code>e181a76</code></td><td>The work done by hand: 10 visitors in about 43 minutes. This is the "how it is done today" field.</td></tr>
+      <tr><td>Step 2 result</td><td><code>b71c426</code></td><td>The app cannot do this today: no page shows or sets interest tags. This is the "tried in the app" field.</td></tr>
+      <tr><td>12 Nov visitor sample</td><td><code>9119b79</code></td><td>Where the pass mark is measured: 20 sampled answers against the underlying page events.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="wait">
+    <p><b>Waiting on a decision.</b></p>
+    <p>The request is filed and its status is submitted. Taiwo Oludimimu or an admin decides it; the builder cannot decide their own. A decline counts as a decision. Filing it grants nothing: no tool is given to the agent until a decision says so.</p>
+  </div>
+
+  <p class="foot">Recorded from the request as filed on the admin Change Requests page and as listed in my Command Center governance panel. No emails, ids or business figures appear in this record. The step 1 run log is <code>docs/capabilities/page-event/L1/l1-by-hand-run-log.pdf</code>; the step 2 record is <code>docs/capabilities/page-event/L2/l2-in-the-app-record.pdf</code>.</p>
+</main>
+</body>
+</html>

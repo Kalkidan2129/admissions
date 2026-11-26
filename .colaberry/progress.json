@@ -1333,18 +1333,21 @@
       "criteria": [
         {
           "text": "A change request for a tool exists against this domain, filed by the builder, naming the tool, its scope, what it must never touch, and who approves a run.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "The request cites the step 1 run log and the step 2 result as its evidence.",
-          "passed": false
+          "passed": true
         },
         {
           "text": "A named human other than the builder has recorded a decision on it. A decline counts; an undecided request does not.",
           "passed": false
         }
       ],
-      "files_touched": [],
+      "files_touched": [
+        "docs/capabilities/page-event/L3/l3-tool-request-record.html",
+        "docs/capabilities/page-event/L3/l3-tool-request-record.pdf"
+      ],
       "tests_added": [],
       "notes": null,
       "updated_at": null,
