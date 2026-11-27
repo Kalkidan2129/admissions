@@ -2650,7 +2650,7 @@
       {
         "story_id": "admissions.CAP.page_event_admissions_enrichment.L0-ASK-FOR-A-SCREEN",
         "title": "Visitor page-event admissions enrichment · 0.3 · waiting on the platform",
-        "status": "in_progress",
+        "status": "not_started",
         "verification_state": "in_progress",
         "verified": false,
         "criteria_passed": 0,
@@ -2688,7 +2688,7 @@
       {
         "story_id": "admissions.CAP.page_event_admissions_enrichment.L0-SCOPE-SHEET",
         "title": "Visitor page-event admissions enrichment · 0.2 · write the scope sheet",
-        "status": "in_progress",
+        "status": "not_started",
         "verification_state": "in_progress",
         "verified": false,
         "criteria_passed": 0,
@@ -2731,7 +2731,7 @@
       {
         "story_id": "admissions.CAP.page_event_admissions_enrichment.L3-TOOL-REQUEST",
         "title": "Visitor page-event admissions enrichment · 3 · request the tool",
-        "status": "in_progress",
+        "status": "not_started",
         "verification_state": "submitted",
         "verified": false,
         "criteria_passed": 2,
@@ -2747,7 +2747,7 @@
       {
         "story_id": "admissions.CAP.page_event_admissions_enrichment.L4-AGENT-WATCHED",
         "title": "Visitor page-event admissions enrichment · 4 · agent does it, watched",
-        "status": "in_progress",
+        "status": "not_started",
         "verification_state": "in_progress",
         "verified": false,
         "criteria_passed": 0,
